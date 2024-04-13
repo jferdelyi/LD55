@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://burx2aycgepav"]
+[gd_scene load_steps=5 format=3 uid="uid://burx2aycgepav"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
 [ext_resource type="Texture2D" uid="uid://kkuc6imeho62" path="res://assets/graphics/misc/background.png" id="2_yrd5f"]
 [ext_resource type="AudioStream" uid="uid://c8a1dnft0b3sf" path="res://assets/audio/theme_1.wav" id="3_0hq4w"]
+[ext_resource type="AudioStream" uid="uid://doj7ok8whtu7k" path="res://assets/audio/menu_button.mp3" id="3_3776v"]
 
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15
@@ -78,6 +79,7 @@ size_flags_horizontal = 3
 text = "Credit"
 
 [node name="ButtonSound" type="AudioStreamPlayer2D" parent="ButtonsContainer"]
+stream = ExtResource("3_3776v")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_0hq4w")
