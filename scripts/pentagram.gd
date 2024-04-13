@@ -5,10 +5,9 @@ var summons_container = {}
 #signal chimera_available()
 
 func _ready():
-	print("coucou")
-	for type in Global.summons:
+	#TODO : doute ici sur le .values() du enum...
+	for type in Global.summons.values():
 		summons_container[type] = []
-		print(summons_container)
 	spawn_summons(Global.summons.Cat, 1)
 	spawn_summons(Global.summons.Spider, 1)
 	
@@ -29,7 +28,7 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 	#Je pense qu'il caste en int ou je ne sais quoi....
 	#Pour infos cette ligne etait good avant que je passe le enum summons dans global...
 	#si t'as une idée...
-	if type in Global.summons:
+	if type in summons_container.keys():
 		var new_summon = Creature.new()
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
@@ -83,8 +82,5 @@ func check_chimera_availability():
 		for creature in Global.summons_requirements[chimera].keys():	
 			var count = get_number_of_summons(creature)
 			var enough_creature = count >= Global.summons_requirements[chimera][creature]
-			#print("Creature # : " + str(creature) + "has count of :" + str(count))
 			is_available = is_available and enough_creature
-		#print(chimera)
-		#print(is_available)
-		#emit_signal("chimera_available", chimera, is_available)	
+		emit_signal("chimera_available", chimera, is_available)	
