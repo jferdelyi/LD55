@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7ks0dvb6fv51"]
+[gd_scene load_steps=7 format=3 uid="uid://c7ks0dvb6fv51"]
 
 [ext_resource type="Texture2D" uid="uid://bdqwdw1ac06sg" path="res://assets/graphics/transformation_rules/spider.PNG" id="1_nmsis"]
 [ext_resource type="Texture2D" uid="uid://l2n1wmdcoaq8" path="res://assets/graphics/transformation_rules/cat.PNG" id="2_upl4c"]
 [ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_78bon"]
 [ext_resource type="Texture2D" uid="uid://bi6kyfhimim0m" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="4_ttgcm"]
+[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://scenes/crystalball.PNG" id="5_vpt36"]
+[ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="6_ac8by"]
 
 [node name="SpiderCat" type="Control"]
 layout_mode = 3
@@ -12,6 +14,14 @@ offset_left = 1.0
 offset_top = 190.0
 offset_right = 168.0
 offset_bottom = 235.0
+
+[node name="Alarm" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -4.0
+offset_right = 265.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0)
 
 [node name="nb_spider" type="Label" parent="."]
 layout_mode = 2
@@ -57,9 +67,12 @@ position = Vector2(188, 22)
 scale = Vector2(0.130189, 0.121642)
 texture = ExtResource("4_ttgcm")
 
-[node name="plus2" type="Label" parent="."]
-offset_left = 57.0
-offset_top = 14.0
-offset_right = 67.0
-offset_bottom = 37.0
-text = "+"
+[node name="upgrade" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 2.0
+offset_right = 474.0
+offset_bottom = 263.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("5_vpt36")
+script = ExtResource("6_ac8by")

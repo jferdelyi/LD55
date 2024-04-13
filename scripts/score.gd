@@ -10,7 +10,6 @@ var connected;
 func _ready():
 	score_chimere = 1;
 	score_demon = 3;
-	false;
 	$ScoreImage.hide()
 
 func start():

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://drcyo2xvmnc06"]
+[gd_scene load_steps=7 format=3 uid="uid://drcyo2xvmnc06"]
 
 [ext_resource type="Texture2D" uid="uid://cclf3ts4bs1sv" path="res://assets/graphics/transformation_rules/mouse.PNG" id="1_go4hn"]
 [ext_resource type="Texture2D" uid="uid://l2n1wmdcoaq8" path="res://assets/graphics/transformation_rules/cat.PNG" id="2_qr26w"]
 [ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_snao7"]
 [ext_resource type="Texture2D" uid="uid://cqyngy65j2001" path="res://assets/graphics/transformation_rules/mousecat.PNG" id="4_mnih1"]
+[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://scenes/crystalball.PNG" id="5_d37cw"]
+[ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="6_3foq0"]
 
 [node name="MouseCat" type="Control"]
 layout_mode = 3
@@ -13,46 +15,61 @@ offset_top = 229.0
 offset_right = 168.0
 offset_bottom = 274.0
 
+[node name="Alarm" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 267.0
+offset_bottom = 44.0
+color = Color(1, 1, 1, 0)
+
 [node name="nb_mouse" type="Label" parent="."]
 layout_mode = 2
-offset_left = 6.0
-offset_top = 12.0
-offset_right = 16.0
-offset_bottom = 35.0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 17.0
+offset_bottom = 31.0
 text = "1"
 
 [node name="mouse" type="Sprite2D" parent="."]
-position = Vector2(34, 25)
+position = Vector2(35, 19)
 scale = Vector2(0.248486, 0.218105)
 texture = ExtResource("1_go4hn")
 
 [node name="plus" type="Label" parent="."]
 layout_mode = 0
 offset_left = 57.0
-offset_top = 14.0
+offset_top = 8.0
 offset_right = 67.0
-offset_bottom = 37.0
+offset_bottom = 31.0
 text = "+"
 
 [node name="nb_cat" type="Label" parent="."]
 layout_mode = 2
 offset_left = 70.0
-offset_top = 14.0
+offset_top = 8.0
 offset_right = 93.0
-offset_bottom = 37.0
+offset_bottom = 31.0
 text = "1"
 
 [node name="cat" type="Sprite2D" parent="."]
-position = Vector2(97, 27)
+position = Vector2(98, 21)
 scale = Vector2(0.285714, 0.280288)
 texture = ExtResource("2_qr26w")
 
 [node name="arrow" type="Sprite2D" parent="."]
-position = Vector2(138, 26)
+position = Vector2(140, 20)
 scale = Vector2(0.3, 0.2875)
 texture = ExtResource("3_snao7")
 
 [node name="mousecat" type="Sprite2D" parent="."]
-position = Vector2(188.633, 27.9503)
+position = Vector2(188, 20)
 scale = Vector2(0.12734, 0.123103)
 texture = ExtResource("4_mnih1")
+
+[node name="upgrade" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 219.0
+offset_right = 472.0
+offset_bottom = 261.0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("5_d37cw")
+script = ExtResource("6_3foq0")

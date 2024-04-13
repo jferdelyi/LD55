@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/spidermouse_rules.gd" id="9_ts2f2"]
 [ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
 [ext_resource type="Script" path="res://scripts/demon_rules.gd" id="11_77666"]
-[ext_resource type="PackedScene" path="res://scenes/pentagram.tscn" id="12_630cx"]
+[ext_resource type="PackedScene" uid="uid://5b8bljut7h6n" path="res://scenes/pentagram.tscn" id="12_630cx"]
 [ext_resource type="PackedScene" path="res://scenes/shelf.tscn" id="13_k7g2i"]
 
 [node name="GameMain" type="Node2D"]
@@ -36,18 +36,26 @@ offset_bottom = 28.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 
 [node name="SpiderCat" parent="." instance=ExtResource("4_l0rkb")]
+offset_left = 0.0
+offset_top = 178.0
+offset_right = 264.0
+offset_bottom = 223.0
 script = ExtResource("5_jry7t")
 
 [node name="MouseCat" parent="." instance=ExtResource("5_c3b06")]
+offset_right = 263.0
 script = ExtResource("7_qhbg1")
 
 [node name="SpiderMouse" parent="." instance=ExtResource("6_1rbn5")]
+offset_left = 2.0
+offset_top = 283.0
+offset_bottom = 331.0
 script = ExtResource("9_ts2f2")
 
 [node name="Demon" parent="." instance=ExtResource("10_83uxf")]
 offset_left = 0.0
 offset_top = 335.0
-offset_right = 272.0
+offset_right = 324.0
 offset_bottom = 380.0
 script = ExtResource("11_77666")
 
