@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw06bns0rqwt5"]
+
+[ext_resource type="Script" path="res://scripts/shelf/shelf_item_slot.gd" id="1_3wlv8"]
+
+[node name="ShelfItemSlot" type="Node2D"]
+script = ExtResource("1_3wlv8")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://burx2aycgepav"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
-[ext_resource type="AudioStream" uid="uid://2kwery5knvja" path="res://assets/audio/menu.mp3" id="3_ta1my"]
+[ext_resource type="AudioStream" uid="uid://7ync2o8vk2hh" path="res://assets/audio/menu.mp3" id="3_ta1my"]
 
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15

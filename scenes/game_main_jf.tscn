@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxw3416wlccan"]
+[gd_scene load_steps=4 format=3 uid="uid://d2jmbt4ui43ql"]
 
-[ext_resource type="Script" path="res://scripts/game_main.gd" id="1_y4x0y"]
-[ext_resource type="PackedScene" uid="uid://5b8bljut7h6n" path="res://scenes/pentagram.tscn" id="2_u61ab"]
-[ext_resource type="PackedScene" path="res://scenes/shelf.tscn" id="3_tplph"]
+[ext_resource type="Script" path="res://scripts/game_main_jf.gd" id="1_gkmeq"]
+[ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="2_u61ab"]
+[ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="3_tplph"]
 
 [node name="GameMain" type="Node2D"]
-script = ExtResource("1_y4x0y")
+script = ExtResource("1_gkmeq")
 
 [node name="Score" type="Label" parent="."]
 offset_right = 98.0
@@ -18,3 +18,5 @@ position = Vector2(640, 360)
 
 [node name="Shelf" parent="." instance=ExtResource("3_tplph")]
 position = Vector2(1142, 234)
+
+[connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]

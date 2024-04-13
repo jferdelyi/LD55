@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddghk3giom1tl"]
+
+[ext_resource type="Texture2D" uid="uid://bnb16gw244t40" path="res://assets/graphics/misc/shelf.png" id="1_2h07y"]
+[ext_resource type="Script" path="res://scripts/shelf/shelf.gd" id="1_ss3tj"]
+[ext_resource type="Script" path="res://scripts/shelf/shelf_item_slot.gd" id="3_edfmi"]
+
+[node name="Shelf" type="Node2D"]
+script = ExtResource("1_ss3tj")
+
+[node name="Shelf" type="Sprite2D" parent="."]
+texture = ExtResource("1_2h07y")
+
+[node name="Position1" type="Node2D" parent="Shelf"]
+position = Vector2(-76, -197)
+script = ExtResource("3_edfmi")
+
+[node name="Position2" type="Node2D" parent="Shelf"]
+position = Vector2(0, -197)
+script = ExtResource("3_edfmi")
+
+[node name="Position3" type="Node2D" parent="Shelf"]
+position = Vector2(74, -197)
+script = ExtResource("3_edfmi")
+
+[node name="Position4" type="Node2D" parent="Shelf"]
+position = Vector2(-76.1071, -62.1071)
+script = ExtResource("3_edfmi")
+
+[node name="Position5" type="Node2D" parent="Shelf"]
+position = Vector2(-0.107139, -62.1071)
+script = ExtResource("3_edfmi")
+
+[node name="Position6" type="Node2D" parent="Shelf"]
+position = Vector2(73.8928, -62.1071)
+script = ExtResource("3_edfmi")
+
+[node name="Position7" type="Node2D" parent="Shelf"]
+position = Vector2(-76.1071, 89.8928)
+script = ExtResource("3_edfmi")
+
+[node name="Position8" type="Node2D" parent="Shelf"]
+position = Vector2(-0.107139, 89.8928)
+script = ExtResource("3_edfmi")
+
+[node name="Position9" type="Node2D" parent="Shelf"]
+position = Vector2(73.8928, 89.8928)
+script = ExtResource("3_edfmi")

@@ -1,7 +1,9 @@
 extends Node2D
 
-
+@onready var _shelf_item_class := preload("res://scenes/creatures/cat_food.tscn")
 @onready var _score_label := $ScoreScene
+@onready var _shelf := $Shelf
+@onready var _pentagram := $Pentagram
 
 func _ready():
 	var summ = Global.summons
@@ -22,3 +24,5 @@ func _ready():
 	$SpiderCat.show()
 	$MouseCat.show()
 	$SpiderMouse.show()
+
+

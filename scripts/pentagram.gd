@@ -1,5 +1,9 @@
 extends Node
 
+
+@onready var _cat_class := preload("res://scenes/creatures/cat.tscn")
+
+
 var summons_container = {}
 
 #signal chimera_available()
@@ -15,7 +19,7 @@ func _ready():
 # Returns true if successful
 func spawn_summons(type : Global.summons, count : int) -> bool:
 	var ret = true
-	for i in range(0, count):
+	for i in range(count):
 		ret = ret and _spawn_one_summon(type)
 	check_chimera_availability()
 	return ret
@@ -28,15 +32,38 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 	#Je pense qu'il caste en int ou je ne sais quoi....
 	#Pour infos cette ligne etait good avant que je passe le enum summons dans global...
 	#si t'as une idée...
-	if type in summons_container.keys():
-		var new_summon = Creature.new()
-		summons_container[type].append(new_summon)
-		add_child(new_summon)
-		print("Grrr")
-		return true
-	else:
-		print("plouf")
-		return false	
+	#if type in summons_container.keys():
+	#	var new_summon = Creature.new()
+	#	summons_container[type].append(new_summon)
+	#	add_child(new_summon)
+	#	print("Grrr")
+	#	return true
+	#else:
+	#	print("plouf")
+	#	return false	
+	#if type in Global.summons:
+	match type:
+		Global.summons.Cat:
+			var new_summon = _cat_class.instantiate()
+			summons_container[type].append(new_summon)
+			add_child(new_summon)
+			print("Grrr")
+			return true
+		Global.summons.Cat:
+			return true
+		Global.summons.Spider:
+			return true
+		Global.summons.Mouse:
+			return true
+		Global.summons.SpiderCat:
+			return true
+		Global.summons.CatMouse:
+			return true
+		Global.summons.MouseSpider:
+			return true
+		Global.summons.Demon:
+			return true
+	return false
 
 # Destroy a given number of summons of given type
 # Returns true if successful
