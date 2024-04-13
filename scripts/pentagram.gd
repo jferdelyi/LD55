@@ -1,16 +1,14 @@
 extends Node
 
-enum summons {Cat, Spider, Mouse, Chimera1, Chimera2, Chimera3, Demon}
-
 var summons_container = {}
 
 func _ready():
-	for type in summons:
+	for type in Global.summons:
 		summons_container[type] = []
 	
 # Spawn a given numbers of summons of selected type
 # Returns true if successful
-func spawn_summons(type : summons, count : int) -> bool:
+func spawn_summons(type : Global.summons, count : int) -> bool:
 	var ret = true
 	for i in range(0, count):
 		ret = ret and _spawn_one_summon(type)
@@ -18,8 +16,8 @@ func spawn_summons(type : summons, count : int) -> bool:
 		
 # Spawn one summon of a given type
 # Returns true if successful
-func _spawn_one_summon(type : summons) -> bool:
-	if type in summons:
+func _spawn_one_summon(type : Global.summons) -> bool:
+	if type in Global.summons:
 		var new_summon = Creature.new()
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
@@ -43,7 +41,7 @@ func destroy_summons(type, count) -> bool:
 # Returns true if successful		
 func _destroy_one_summon(type) -> bool:
 	#TODO : kill a random instead of oldest ?
-	if type in summons and summons_container[type].size() > 0:
+	if type in Global.summons and summons_container[type].size() > 0:
 		var to_kill = summons_container[type][0]
 		remove_child(to_kill)
 		summons_container[type].erase(to_kill)
@@ -61,6 +59,8 @@ func get_number_of_summons(type) -> int:
 # Returns the total number of all summons
 func get_number_of_all_summons() -> int:
 	var ret := 0 
-	for type in summons:
+	for type in Global.summons:
 		ret += get_number_of_summons(type)
 	return ret
+	
+	
