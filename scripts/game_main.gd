@@ -4,11 +4,21 @@ extends Node2D
 @onready var _score_label := $ScoreScene
 
 func _ready():
+	var summ = Global.summons
 	$ScoreScene.start()
-	$SpiderCat.setValues(str(Global.spider_for_spider_cat), str(Global.cat_for_spider_cat))
-	$MouseCat.setValues(str(Global.mouse_for_cat_mouse), str(Global.cat_for_cat_mouse))
-	$SpiderMouse.setValues(str(Global.mouse_for_spider_mouse), str(Global.spider_for_spider_mouse))
-	$Demon.setValues(str(Global.spider_cat_for_demons), str(Global.spider_mouse_for_demons), str(Global.cat_mouse_for_demons))
+	$SpiderCat.setValues(
+		Global.get_requirements_for_with(summ.SpiderCat, summ.Spider),
+		Global.get_requirements_for_with(summ.SpiderCat, summ.Cat))
+	$MouseCat.setValues(
+		Global.get_requirements_for_with(summ.CatMouse, summ.Mouse),
+		Global.get_requirements_for_with(summ.CatMouse, summ.Cat))
+	$SpiderMouse.setValues(
+		Global.get_requirements_for_with(summ.MouseSpider, summ.Mouse),
+		Global.get_requirements_for_with(summ.MouseSpider, summ.Spider))
+	$Demon.setValues(
+		Global.get_requirements_for_with(summ.Demon, summ.SpiderCat),
+		Global.get_requirements_for_with(summ.Demon, summ.MouseSpider),
+	 	Global.get_requirements_for_with(summ.Demon, summ.MouseCat))
 	$SpiderCat.show()
 	$MouseCat.show()
 	$SpiderMouse.show()
