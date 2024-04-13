@@ -66,6 +66,10 @@ position = Vector2(636, 605)
 stream = ExtResource("11_mt8fr")
 autoplay = true
 
+[connection signal="summon_creature" from="SpiderCat" to="Pentagram" method="create_chimera"]
+[connection signal="summon_creature" from="MouseCat" to="Pentagram" method="create_chimera"]
+[connection signal="summon_creature" from="SpiderMouse" to="Pentagram" method="create_chimera"]
+[connection signal="summon_creature" from="Demon" to="Pentagram" method="create_chimera"]
 [connection signal="chimera_available" from="Pentagram" to="SpiderCat" method="update_upgradeAvailable"]
 [connection signal="chimera_available" from="Pentagram" to="MouseCat" method="update_upgradeAvailable"]
 [connection signal="chimera_available" from="Pentagram" to="SpiderMouse" method="update_upgradeAvailable"]

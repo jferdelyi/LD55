@@ -2,7 +2,7 @@ extends Node
 
 var upgradeAvailable := false
 
-signal summon_mousecat;
+signal summon_creature;
 
 func _ready():
 	$upgrade.transform.connect(spawnTransformation)
@@ -24,7 +24,7 @@ func setValues(mice, cats):
 func spawnTransformation():
 	print("summon a mousecat")
 	upgradeAvailable = false;
-	summon_mousecat.emit();
+	summon_creature.emit(Global.summons.CatMouse, 1);
 
 func update_upgradeAvailable(creature, isAvailable):
 	if (creature == Global.summons.CatMouse):

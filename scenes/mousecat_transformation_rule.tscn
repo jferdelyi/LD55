@@ -19,7 +19,9 @@ script = ExtResource("1_3ninx")
 
 [node name="Alarm" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 267.0
+offset_left = 252.0
+offset_top = -3.0
+offset_right = 299.0
 offset_bottom = 44.0
 color = Color(1, 1, 1, 0)
 
@@ -69,8 +71,8 @@ texture = ExtResource("4_mnih1")
 
 [node name="upgrade" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 219.0
-offset_right = 472.0
+offset_left = 256.0
+offset_right = 509.0
 offset_bottom = 261.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("5_r83tu")

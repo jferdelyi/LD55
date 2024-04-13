@@ -18,9 +18,9 @@ script = ExtResource("1_o1w6s")
 
 [node name="Alarm" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_right = 265.0
-offset_bottom = 50.0
+offset_left = 256.0
+offset_right = 303.0
+offset_bottom = 43.0
 color = Color(1, 1, 1, 0)
 
 [node name="nb_spider" type="Label" parent="."]
@@ -69,10 +69,10 @@ texture = ExtResource("4_gdj5x")
 
 [node name="upgrade" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 221.0
-offset_top = 6.0
-offset_right = 474.0
-offset_bottom = 267.0
+offset_left = 260.0
+offset_top = 1.0
+offset_right = 513.0
+offset_bottom = 262.0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("5_khfcy")
 script = ExtResource("6_4272p")

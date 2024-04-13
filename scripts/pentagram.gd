@@ -87,10 +87,25 @@ func destroy_summons(type, count) -> bool:
 # Returns true if successful		
 func _destroy_one_summon(type) -> bool:
 	#TODO : kill a random instead of oldest ?
-	if type in Global.summons and summons_container[type].size() > 0:
-		var to_kill = summons_container[type][0]
-		remove_child(to_kill)
-		summons_container[type].erase(to_kill)
+	var to_kill;
+	match type:
+		Global.summons.Cat:
+			to_kill = summons_container[Global.summons.Cat]
+		Global.summons.Spider:
+			to_kill = summons_container[Global.summons.Spider]
+		Global.summons.Mouse:
+			to_kill = summons_container[Global.summons.Mouse]
+		Global.summons.CatMouse:
+			to_kill = summons_container[Global.summons.CatMouse]
+		Global.summons.SpiderCat:
+			to_kill = summons_container[Global.summons.SpiderCat]
+		Global.summons.MouseSpider:
+			to_kill = summons_container[Global.summons.MouseSpider]
+		Global.summons.Demon:
+			to_kill = summons_container[Global.summons.Demon]
+	if to_kill and to_kill.size() > 0:
+		remove_child(to_kill[0])
+		to_kill.erase(to_kill[0])
 		print("Ded")
 		return true
 	print("not ded")
@@ -112,13 +127,22 @@ func get_number_of_all_summons() -> int:
 func check_chimera_availability():
 	#TODO : FIXME
 	for chimera in Global.summons_requirements.keys():
-		var is_available = true
-		for creature in Global.summons_requirements[chimera].keys():	
-			var count = get_number_of_summons(creature)
-			var enough_creature = count >= Global.summons_requirements[chimera][creature]
-			is_available = is_available and enough_creature
-		#remove error TODO
-		chimera_available.emit(chimera, is_available)	
+		chimera_available.emit(chimera, check_one_chimera_availability(chimera))	
+		
+func check_one_chimera_availability(chimera):
+	var is_available = true
+	for creature in Global.summons_requirements[chimera].keys():	
+		var count = get_number_of_summons(creature)
+		var enough_creature = count >= Global.summons_requirements[chimera][creature]
+		is_available = is_available and enough_creature
+	return is_available
 
 func create_chimera(_type : Global.summons, _count : int) -> bool:
-	return true
+	var ret = true
+	print("create chimera")
+	for i in range(_count):
+		if (check_one_chimera_availability(_type)):
+			ret = ret and _spawn_one_summon(_type)
+			for creature in Global.summons_requirements[_type].keys():	
+				ret = ret and destroy_summons(creature, Global.summons_requirements[_type][creature])
+	return ret

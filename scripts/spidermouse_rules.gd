@@ -7,7 +7,7 @@ extends Node
 
 var upgradeAvailable := false
 
-signal summon_spidermouse;
+signal summon_creature;
 
 func _ready():
 	_upgrade_texture_button.transform.connect(spawnTransformation)
@@ -29,7 +29,7 @@ func _process(_delta):
 func spawnTransformation():
 	print("summon a spidermouse")
 	upgradeAvailable = false;
-	summon_spidermouse.emit();
+	summon_creature.emit(Global.summons.MouseSpider, 1);
 
 func update_upgradeAvailable(creature, isAvailable):
 	if (creature == Global.summons.MouseSpider):
