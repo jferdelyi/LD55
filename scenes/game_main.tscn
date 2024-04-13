@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=12 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://1fjfc2nqbj23" path="res://scenes/score.tscn" id="2_enuq5"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
+[ext_resource type="PackedScene" uid="uid://c7ks0dvb6fv51" path="res://scenes/spidercat_transformation_rule.tscn" id="4_l0rkb"]
+[ext_resource type="PackedScene" uid="uid://drcyo2xvmnc06" path="res://scenes/mousecat_transformation_rule.tscn" id="5_c3b06"]
+[ext_resource type="Script" path="res://scripts/spidercat_rules.gd" id="5_jry7t"]
+[ext_resource type="PackedScene" uid="uid://c6yv51jmaquck" path="res://scenes/spidermouse_transformation_rule.tscn" id="6_1rbn5"]
+[ext_resource type="Script" path="res://scripts/mousecat_rules.gd" id="7_qhbg1"]
+[ext_resource type="Script" path="res://scripts/spidermouse_rules.gd" id="9_ts2f2"]
+[ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
+[ext_resource type="Script" path="res://scripts/demon_rules.gd" id="11_77666"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_67dqo")
@@ -24,3 +32,19 @@ offset_top = 1.0
 offset_right = 109.0
 offset_bottom = 28.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+
+[node name="SpiderCat" parent="." instance=ExtResource("4_l0rkb")]
+script = ExtResource("5_jry7t")
+
+[node name="MouseCat" parent="." instance=ExtResource("5_c3b06")]
+script = ExtResource("7_qhbg1")
+
+[node name="SpiderMouse" parent="." instance=ExtResource("6_1rbn5")]
+script = ExtResource("9_ts2f2")
+
+[node name="Demon" parent="." instance=ExtResource("10_83uxf")]
+offset_left = 0.0
+offset_top = 335.0
+offset_right = 272.0
+offset_bottom = 380.0
+script = ExtResource("11_77666")

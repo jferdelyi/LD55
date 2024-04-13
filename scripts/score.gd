@@ -23,10 +23,6 @@ func start():
 	connected = true
 	Global.timeout.connect(_update)
 	$ScoreImage.show()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 # Update score
 func _update():

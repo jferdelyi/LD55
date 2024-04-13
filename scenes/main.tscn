@@ -78,8 +78,6 @@ text = "Credit"
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
 
-[node name="TransformationRules" type="Area2D" parent="."]
-
 [connection signal="pressed" from="ButtonsContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonsContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="ButtonsContainer/Credit" to="." method="_on_credit_pressed"]

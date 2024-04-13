@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7ks0dvb6fv51"]
+
+[ext_resource type="Texture2D" uid="uid://bdqwdw1ac06sg" path="res://assets/graphics/transformation_rules/spider.PNG" id="1_nmsis"]
+[ext_resource type="Texture2D" uid="uid://l2n1wmdcoaq8" path="res://assets/graphics/transformation_rules/cat.PNG" id="2_upl4c"]
+[ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_78bon"]
+[ext_resource type="Texture2D" uid="uid://bi6kyfhimim0m" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="4_ttgcm"]
+
+[node name="SpiderCat" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 190.0
+offset_right = 168.0
+offset_bottom = 235.0
+
+[node name="nb_spider" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 12.0
+offset_right = 11.0
+offset_bottom = 35.0
+text = "1"
+
+[node name="spider" type="Sprite2D" parent="."]
+position = Vector2(33, 21.5)
+scale = Vector2(0.0828157, 0.0866511)
+texture = ExtResource("1_nmsis")
+
+[node name="plus" type="Label" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 11.0
+offset_right = 66.0
+offset_bottom = 34.0
+text = "+"
+
+[node name="nb_cat" type="Label" parent="."]
+layout_mode = 2
+offset_left = 68.0
+offset_top = 11.0
+offset_right = 91.0
+offset_bottom = 34.0
+text = "1"
+
+[node name="cat" type="Sprite2D" parent="."]
+position = Vector2(97, 22)
+scale = Vector2(0.302521, 0.3)
+texture = ExtResource("2_upl4c")
+
+[node name="arrow" type="Sprite2D" parent="."]
+position = Vector2(139, 23)
+scale = Vector2(0.3, 0.2875)
+texture = ExtResource("3_78bon")
+
+[node name="spidercat" type="Sprite2D" parent="."]
+position = Vector2(188, 22)
+scale = Vector2(0.130189, 0.121642)
+texture = ExtResource("4_ttgcm")
+
+[node name="plus2" type="Label" parent="."]
+offset_left = 57.0
+offset_top = 14.0
+offset_right = 67.0
+offset_bottom = 37.0
+text = "+"

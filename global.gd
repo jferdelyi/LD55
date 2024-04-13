@@ -16,9 +16,9 @@ var nb_cat_mouse;
 
 var nb_demons;
 
-var cats_for_spider_cat;
-var spiders_for_spider_cat;
-var spiders_for_spider_mouse;
+var cat_for_spider_cat;
+var spider_for_spider_cat;
+var spider_for_spider_mouse;
 var mouse_for_spider_mouse;
 var cat_for_cat_mouse;
 var mouse_for_cat_mouse;
@@ -35,14 +35,14 @@ func _ready():
 	nb_cat_mouse = 0
 	nb_demons = 0
 	
-	cats_for_spider_cat = 1;
-	spiders_for_spider_cat = 1;
-	spiders_for_spider_mouse = 1;
+	cat_for_spider_cat = 2;
+	spider_for_spider_cat = 1;
+	spider_for_spider_mouse = 1;
 	mouse_for_spider_mouse = 1;
-	cat_for_cat_mouse = 1;
+	cat_for_cat_mouse = 3;
 	mouse_for_cat_mouse = 1;
 	spider_cat_for_demons = 1;
-	spider_mouse_for_demons = 1;
+	spider_mouse_for_demons = 6;
 	cat_mouse_for_demons  = 1;
 
 func _process(delta):
