@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb6cquw80yv3q"]
+
+[ext_resource type="Texture2D" uid="uid://gy5cusy8ruik" path="res://assets/graphics/creatures/cat_food.png" id="1_5m4ed"]
+[ext_resource type="Script" path="res://scripts/creatures/cat_food.gd" id="1_domi3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrud"]
+size = Vector2(73, 45)
+
+[node name="CatFood" type="Node2D"]
+script = ExtResource("1_domi3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, 2.5)
+shape = SubResource("RectangleShape2D_xrrud")
+
+[node name="CatFood" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.0981132, 0.0981132)
+texture = ExtResource("1_5m4ed")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
