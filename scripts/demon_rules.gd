@@ -5,10 +5,9 @@ var shake
 var upgradeAvailable
 
 func _ready():
-	while (true):
-		upgradeAvailable = !upgradeAvailable
-		t = 0
-		await get_tree().create_timer(1.0).timeout
+	t = 0
+	$upgrade.transform.connect(spawnTransformation)
+	upgradeAvailable = true
 	
 func _process(_delta):
 	if upgradeAvailable:
@@ -21,6 +20,14 @@ func _process(_delta):
 		$upgrade.show()
 		
 func setValues(spidercat, spidermouse, catmouse):
-	$nb_spidercat.text = spidercat
-	$nb_spidermouse.text = spidermouse
-	$nb_catmouse.text = catmouse
+	$nb_spidercat.text = str(spidercat)
+	$nb_spidermouse.text = str(spidermouse)
+	$nb_catmouse.text = str(catmouse)
+
+func spawnTransformation():
+	print("summon a demon")
+	upgradeAvailable = false;
+	$Pentagram.spawn_summons(Global.summons.Demon, 1);
+	$Pentagram.destroy_summons(Global.summons.SpiderCat, 1);
+	$Pentagram.destroy_summons(Global.summons.MouseSpider, 1);
+	$Pentagram.destroy_summons(Global.summons.CatMouse, 1);
