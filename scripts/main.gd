@@ -14,8 +14,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	_button_sound.play()
 	await get_tree().create_timer(1.0).timeout
-	#get_tree().change_scene_to_file("res://scenes/game_main.tscn")
-	$Score.start();
+	get_tree().change_scene_to_file("res://scenes/game_main.tscn")
 
 
 func _on_quit_pressed() -> void:

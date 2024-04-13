@@ -15,6 +15,9 @@ func _ready():
 
 func start():
 	score = 0;
+	$ScoreImage/ScoreLabel.text = "Score : " + str(score);
+	$ScoreImage/ScoreLabel.show()
+	
 	if (connected == true):
 		Global.timeout.disconnect(_update)
 	connected = true

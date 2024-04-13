@@ -1,9 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://burx2aycgepav"]
-
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
-[ext_resource type="AudioStream" uid="uid://b5cvtixd2ohao" path="res://assets/audio/menu_button.mp3" id="2_vick7"]
-[ext_resource type="AudioStream" uid="uid://2kwery5knvja" path="res://assets/audio/menu.mp3" id="3_ta1my"]
-[ext_resource type="Script" path="res://scripts/score.gd" id="3_wnp1p"]
+[gd_scene load_steps=2 format=3 uid="uid://burx2aycgepav"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
 
@@ -15,22 +10,6 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 script = ExtResource("1_q344y")
-
-[node name="Score" type="Node2D" parent="."]
-script = ExtResource("3_wnp1p")
-
-[node name="ScoreImage" type="ColorRect" parent="Score"]
-offset_left = 43.0
-offset_top = 21.0
-offset_right = 116.0
-offset_bottom = 48.0
-color = Color(1, 0.368627, 0.121569, 1)
-
-[node name="ScoreLabel" type="RichTextLabel" parent="Score/ScoreImage"]
-offset_top = 2.0
-offset_right = 73.0
-offset_bottom = 26.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
 
 [node name="Illustration" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -98,6 +77,8 @@ text = "Credit"
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
+
+[node name="TransformationRules" type="Area2D" parent="."]
 
 [connection signal="pressed" from="ButtonsContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonsContainer/Quit" to="." method="_on_quit_pressed"]
