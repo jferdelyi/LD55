@@ -84,3 +84,6 @@ func check_chimera_availability():
 			var enough_creature = count >= Global.summons_requirements[chimera][creature]
 			is_available = is_available and enough_creature
 		emit_signal("chimera_available", chimera, is_available)	
+
+func create_chimera(type : Global.summons, count : int) -> bool:
+	return true
