@@ -4,6 +4,8 @@ var t
 var shake
 var upgradeAvailable
 
+signal summon_spidermouse;
+
 func _ready():
 	t = 0
 	$upgrade.transform.connect(spawnTransformation)
@@ -24,8 +26,6 @@ func _process(_delta):
 		$upgrade.show()
 
 func spawnTransformation():
-	print("summon a demon")
+	print("summon a spidermouse")
 	upgradeAvailable = false;
-	$Pentagram.spawn_summons(Global.summons.MouseSpider, 1);
-	$Pentagram.destroy_summons(Global.summons.Spider, 1);
-	$Pentagram.destroy_summons(Global.summons.Mouse, 1);
+	summon_spidermouse.emit();
