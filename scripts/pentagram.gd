@@ -8,9 +8,9 @@ func _ready():
 	print("coucou")
 	for type in Global.summons:
 		summons_container[type] = []
+		print(summons_container)
 	spawn_summons(Global.summons.Cat, 1)
 	spawn_summons(Global.summons.Spider, 1)
-		
 	
 # Spawn a given numbers of summons of selected type
 # Returns true if successful
