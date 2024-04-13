@@ -2,6 +2,8 @@ extends Node
 
 var summons_container = {}
 
+signal chimera_available()
+
 func _ready():
 	for type in Global.summons:
 		summons_container[type] = []
