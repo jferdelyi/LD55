@@ -43,12 +43,12 @@ func _ready():
 	required_for_spider_cat[Global.summons.Cat] = 1
 
 	var required_for_mouse_spider = {}
-	required_for_spider_cat[Global.summons.Spider] = 1
-	required_for_spider_cat[Global.summons.Mouse] = 1
+	required_for_mouse_spider[Global.summons.Spider] = 1
+	required_for_mouse_spider[Global.summons.Mouse] = 1
 	
 	var required_for_cat_mouse = {}
-	required_for_spider_cat[Global.summons.Mouse] = 1
-	required_for_spider_cat[Global.summons.Cat] = 1
+	required_for_cat_mouse[Global.summons.Mouse] = 1
+	required_for_cat_mouse[Global.summons.Cat] = 1
 	
 	var required_for_demon = {}
 	required_for_demon[Global.summons.CatMouse] = 1

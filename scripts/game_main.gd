@@ -18,7 +18,7 @@ func _ready():
 	$Demon.setValues(
 		Global.get_requirements_for_with(summ.Demon, summ.SpiderCat),
 		Global.get_requirements_for_with(summ.Demon, summ.MouseSpider),
-	 	Global.get_requirements_for_with(summ.Demon, summ.MouseCat))
+	 	Global.get_requirements_for_with(summ.Demon, summ.CatMouse))
 	$SpiderCat.show()
 	$MouseCat.show()
 	$SpiderMouse.show()

@@ -1,6 +1,6 @@
 extends Node
 
 func setValues(spidercat, spidermouse, catmouse):
-	$nb_spidercat.text = spidercat
-	$nb_spidermouse.text = spidermouse
-	$nb_catmouse.text = catmouse
+	$nb_spidercat.text = str(spidercat)
+	$nb_spidermouse.text = str(spidermouse)
+	$nb_catmouse.text = str(catmouse)
