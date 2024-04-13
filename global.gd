@@ -6,7 +6,7 @@ const TIME_PERIOD = 1 # 1s
 
 var time = 0
 
-enum summons {Cat, Spider, Mouse, Chimera1, Chimera2, Chimera3, Demon}
+enum summons {Cat, Spider, Mouse, SpiderCat, CatMouse, MouseSpider, Demon}
 
 var nb_spiders;
 var nb_mice;
