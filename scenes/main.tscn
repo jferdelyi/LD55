@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://2kwery5knvja" path="res://assets/audio/menu.mp3" id="3_ta1my"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_wnp1p"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
+
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,10 +95,8 @@ size_flags_horizontal = 3
 text = "Credit"
 
 [node name="ButtonSound" type="AudioStreamPlayer2D" parent="ButtonsContainer"]
-stream = ExtResource("2_vick7")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_ta1my")
 autoplay = true
 
 [connection signal="pressed" from="ButtonsContainer/Start" to="." method="_on_start_pressed"]
