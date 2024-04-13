@@ -1,9 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=3 format=3 uid="uid://d037f1i5hg6o4"]
 
-[ext_resource type="Texture2D" uid="uid://gf2w0xxhbr4d" path="res://icon.svg" id="1_jlr8h"]
+[ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
+[ext_resource type="PackedScene" uid="uid://ci4584ro0tydd" path="res://scenes/creatures/cat.tscn" id="2_4ib8w"]
 
 [node name="GameMain" type="Node2D"]
+script = ExtResource("1_67dqo")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(484, 287)
-texture = ExtResource("1_jlr8h")
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 26
+text = "Score: 0"
+
+[node name="Cat" parent="." instance=ExtResource("2_4ib8w")]
+position = Vector2(67, 371)
