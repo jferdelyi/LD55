@@ -7,7 +7,7 @@ extends Node
 
 var summons_container = {}
 
-#signal chimera_available()
+signal chimera_available
 
 func _ready():
 	#TODO : doute ici sur le .values() du enum...
@@ -15,6 +15,7 @@ func _ready():
 		summons_container[type] = []
 	spawn_summons(Global.summons.Cat, 1)
 	spawn_summons(Global.summons.Spider, 1)
+	check_chimera_availability()
 	
 # Spawn a given numbers of summons of selected type
 # Returns true if successful
@@ -117,7 +118,7 @@ func check_chimera_availability():
 			var enough_creature = count >= Global.summons_requirements[chimera][creature]
 			is_available = is_available and enough_creature
 		#remove error TODO
-		#emit_signal("chimera_available", chimera, is_available)	
+		chimera_available.emit(chimera, is_available)	
 
 func create_chimera(_type : Global.summons, _count : int) -> bool:
 	return true

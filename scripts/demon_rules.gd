@@ -1,25 +1,21 @@
 extends Node
 
-var t
-var shake
-var upgradeAvailable
+var upgradeAvailable := false
 
 signal summon_demon;
 
 func _ready():
-	t = 0
 	$upgrade.transform.connect(spawnTransformation)
 	upgradeAvailable = true
 	
 func _process(_delta):
 	if upgradeAvailable:
-		t = t + 1
 		$Alarm.show()
-		$Alarm.color = Color(255, 0, 0, sin(0.1*t))
+		$Alarm.color = Color(255, 0, 0, sin(PI*Global.time))
 		$upgrade.show()
 	else:
 		$Alarm.hide()
-		$upgrade.show()
+		$upgrade.hide()
 		
 func setValues(spidercat, spidermouse, catmouse):
 	$nb_spidercat.text = str(spidercat)
@@ -30,3 +26,7 @@ func spawnTransformation():
 	print("summon a demon")
 	upgradeAvailable = false;
 	summon_demon.emit();
+
+func update_upgradeAvailable(creature, isAvailable):
+	if (creature == Global.summons.Demon):
+		upgradeAvailable = isAvailable

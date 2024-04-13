@@ -40,7 +40,7 @@ func _ready():
 	nb_demons = 0
 	
 	var required_for_spider_cat = {}
-	required_for_spider_cat[Global.summons.Spider] = 1
+	required_for_spider_cat[Global.summons.Spider] = 0
 	required_for_spider_cat[Global.summons.Cat] = 1
 
 	var required_for_mouse_spider = {}
@@ -48,8 +48,8 @@ func _ready():
 	required_for_mouse_spider[Global.summons.Mouse] = 1
 	
 	var required_for_cat_mouse = {}
-	required_for_cat_mouse[Global.summons.Mouse] = 1
-	required_for_cat_mouse[Global.summons.Cat] = 1
+	required_for_cat_mouse[Global.summons.Mouse] = 0
+	required_for_cat_mouse[Global.summons.Cat] = 2
 	
 	var required_for_demon = {}
 	required_for_demon[Global.summons.CatMouse] = 1

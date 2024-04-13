@@ -5,8 +5,6 @@ extends Node
 @onready var _nb_mouse_label := $nb_mouse
 @onready var _alarm_color_rect := $Alarm
 
-var t := 0
-#var shake
 var upgradeAvailable := false
 
 signal summon_spidermouse;
@@ -21,15 +19,18 @@ func setValues(spiders, mice):
 	
 func _process(_delta):
 	if upgradeAvailable:
-		t = t + 1
 		_alarm_color_rect.show()
-		_alarm_color_rect.color = Color(255, 0, 0, sin(0.1*t))
+		_alarm_color_rect.color = Color(255, 0, 0, sin(PI*Global.time))
 		_upgrade_texture_button.show()
 	else:
 		_alarm_color_rect.hide()
-		_upgrade_texture_button.show()
+		_upgrade_texture_button.hide()
 
 func spawnTransformation():
 	print("summon a spidermouse")
 	upgradeAvailable = false;
 	summon_spidermouse.emit();
+
+func update_upgradeAvailable(creature, isAvailable):
+	if (creature == Global.summons.MouseSpider):
+		upgradeAvailable = isAvailable

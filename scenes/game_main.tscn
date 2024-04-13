@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6yv51jmaquck" path="res://scenes/spidermouse_transformation_rule.tscn" id="6_1rbn5"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
 [ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
-[ext_resource type="AudioStream" uid="uid://dpjp3k08w8d33" path="res://assets/audio/theme_3.wav" id="11_mt8fr"]
+[ext_resource type="AudioStream" uid="uid://tcs1601xqmh6" path="res://assets/audio/theme_3.wav" id="11_mt8fr"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
 [ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="13_k7g2i"]
 
@@ -66,5 +66,9 @@ position = Vector2(636, 605)
 stream = ExtResource("11_mt8fr")
 autoplay = true
 
+[connection signal="chimera_available" from="Pentagram" to="SpiderCat" method="update_upgradeAvailable"]
+[connection signal="chimera_available" from="Pentagram" to="MouseCat" method="update_upgradeAvailable"]
+[connection signal="chimera_available" from="Pentagram" to="SpiderMouse" method="update_upgradeAvailable"]
+[connection signal="chimera_available" from="Pentagram" to="Demon" method="update_upgradeAvailable"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
