@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddghk3giom1tl"]
+
+[ext_resource type="Texture2D" uid="uid://bnb16gw244t40" path="res://assets/graphics/misc/shelf.png" id="1_2h07y"]
+[ext_resource type="Script" path="res://scripts/shelf.gd" id="1_ss3tj"]
+
+[node name="Shelf" type="Node2D"]
+script = ExtResource("1_ss3tj")
+
+[node name="Shelf" type="Sprite2D" parent="."]
+scale = Vector2(0.0892857, 0.0892857)
+texture = ExtResource("1_2h07y")
+
+[node name="Position1" type="Marker2D" parent="Shelf"]
+position = Vector2(-851.2, -2206.4)
+
+[node name="Position2" type="Marker2D" parent="Shelf"]
+position = Vector2(0, -2206.4)
+
+[node name="Position3" type="Marker2D" parent="Shelf"]
+position = Vector2(828.8, -2206.4)
+
+[node name="Position4" type="Marker2D" parent="Shelf"]
+position = Vector2(-852.4, -695.6)
+
+[node name="Position5" type="Marker2D" parent="Shelf"]
+position = Vector2(-1.19996, -695.6)
+
+[node name="Position6" type="Marker2D" parent="Shelf"]
+position = Vector2(827.6, -695.6)
+
+[node name="Position7" type="Marker2D" parent="Shelf"]
+position = Vector2(-852.4, 1006.8)
+
+[node name="Position8" type="Marker2D" parent="Shelf"]
+position = Vector2(-1.19996, 1006.8)
+
+[node name="Position9" type="Marker2D" parent="Shelf"]
+position = Vector2(827.6, 1006.8)
