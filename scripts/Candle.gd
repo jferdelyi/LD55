@@ -1,5 +1,7 @@
 extends Node
 
+signal light_off()
+
 #true if the candle is on (to change top texture and life decrease ?)
 var lighted := true
 
@@ -30,6 +32,9 @@ func _ready():
 func _process(delta):
 	if lighted:
 		remaining_lifetime -= delta	* speed_factor
+	if remaining_lifetime <= 0:
+		remaining_lifetime = 0
+		emit_signal("light_off") 
 	draw_stacks()
 	
 func draw_stacks() -> void:
