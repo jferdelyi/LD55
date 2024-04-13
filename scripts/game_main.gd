@@ -8,6 +8,8 @@ extends Node2D
 @onready var _mouse_cat := $MouseCat
 @onready var _spider_mouse := $SpiderMouse
 @onready var _demon := $Demon
+#@onready var _audio_player := $AudioStreamPlayer
+
 
 func _ready():
 	var summ = Global.summons
