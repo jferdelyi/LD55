@@ -25,7 +25,8 @@ func _ready():
 		_stacks.append(sprite)	
 		
 func _process(delta):
-	remaining_lifetime -= delta	
+	if lighted:
+		remaining_lifetime -= delta	
 	draw_stacks()
 	
 func draw_stacks() -> void:
