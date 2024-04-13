@@ -1,29 +1,33 @@
 extends Node
 
-var t
-var shake
-var upgradeAvailable
+@onready var _upgrade_texture_button := $upgrade
+@onready var _nb_spider_label := $nb_spider
+@onready var _nb_mouse_label := $nb_mouse
+@onready var _alarm_color_rect := $Alarm
+
+var t := 0
+#var shake
+var upgradeAvailable := false
 
 signal summon_spidermouse;
 
 func _ready():
-	t = 0
-	$upgrade.transform.connect(spawnTransformation)
+	_upgrade_texture_button.transform.connect(spawnTransformation)
 	upgradeAvailable = true
 		
 func setValues(spiders, mice):
-	$nb_spider.text = str(spiders)
-	$nb_mouse.text = str(mice)
+	_nb_spider_label.text = str(spiders)
+	_nb_mouse_label.text = str(mice)
 	
 func _process(_delta):
 	if upgradeAvailable:
 		t = t + 1
-		$Alarm.show()
-		$Alarm.color = Color(255, 0, 0, sin(0.1*t))
-		$upgrade.show()
+		_alarm_color_rect.show()
+		_alarm_color_rect.color = Color(255, 0, 0, sin(0.1*t))
+		_upgrade_texture_button.show()
 	else:
-		$Alarm.hide()
-		$upgrade.show()
+		_alarm_color_rect.hide()
+		_upgrade_texture_button.show()
 
 func spawnTransformation():
 	print("summon a spidermouse")

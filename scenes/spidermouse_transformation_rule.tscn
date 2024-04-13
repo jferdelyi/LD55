@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6yv51jmaquck"]
 
-[ext_resource type="Texture2D" uid="uid://bdqwdw1ac06sg" path="res://assets/graphics/transformation_rules/spider.PNG" id="1_0sc7c"]
+[ext_resource type="Texture2D" uid="uid://bu7jj1mtm8g8g" path="res://assets/graphics/transformation_rules/spider.PNG" id="1_0sc7c"]
 [ext_resource type="Script" path="res://scripts/spidermouse_rules.gd" id="1_o1w6s"]
-[ext_resource type="Texture2D" uid="uid://cclf3ts4bs1sv" path="res://assets/graphics/transformation_rules/mouse.PNG" id="2_mtijw"]
-[ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_aum42"]
-[ext_resource type="Texture2D" uid="uid://dejn82ip8sf4v" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="4_gdj5x"]
-[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="5_khfcy"]
+[ext_resource type="Texture2D" uid="uid://borhpjqrw1eko" path="res://assets/graphics/transformation_rules/mouse.PNG" id="2_mtijw"]
+[ext_resource type="Texture2D" uid="uid://ck7wwdoydyj3m" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_aum42"]
+[ext_resource type="Texture2D" uid="uid://b7k5nr8g8d4c7" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="4_gdj5x"]
+[ext_resource type="Texture2D" uid="uid://ck3qc8nx5dqwl" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="5_khfcy"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="6_4272p"]
 
 [node name="SpiderMouse" type="Control"]

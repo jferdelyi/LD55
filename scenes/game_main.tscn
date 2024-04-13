@@ -1,18 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=11 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
-[ext_resource type="PackedScene" uid="uid://1fjfc2nqbj23" path="res://scenes/score.tscn" id="2_enuq5"]
+[ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
 [ext_resource type="PackedScene" uid="uid://c7ks0dvb6fv51" path="res://scenes/spidercat_transformation_rule.tscn" id="4_l0rkb"]
 [ext_resource type="PackedScene" uid="uid://drcyo2xvmnc06" path="res://scenes/mousecat_transformation_rule.tscn" id="5_c3b06"]
-[ext_resource type="Script" path="res://scripts/spidercat_rules.gd" id="5_jry7t"]
 [ext_resource type="PackedScene" uid="uid://c6yv51jmaquck" path="res://scenes/spidermouse_transformation_rule.tscn" id="6_1rbn5"]
-[ext_resource type="Script" path="res://scripts/mousecat_rules.gd" id="7_qhbg1"]
-[ext_resource type="Script" path="res://scripts/spidermouse_rules.gd" id="9_ts2f2"]
+[ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
 [ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
-[ext_resource type="Script" path="res://scripts/demon_rules.gd" id="11_77666"]
-[ext_resource type="PackedScene" uid="uid://5b8bljut7h6n" path="res://scenes/pentagram.tscn" id="12_630cx"]
-[ext_resource type="PackedScene" path="res://scenes/shelf.tscn" id="13_k7g2i"]
+[ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
+[ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="13_k7g2i"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_67dqo")
@@ -40,27 +37,29 @@ offset_left = 0.0
 offset_top = 178.0
 offset_right = 264.0
 offset_bottom = 223.0
-script = ExtResource("5_jry7t")
 
 [node name="MouseCat" parent="." instance=ExtResource("5_c3b06")]
 offset_right = 263.0
-script = ExtResource("7_qhbg1")
 
 [node name="SpiderMouse" parent="." instance=ExtResource("6_1rbn5")]
 offset_left = 2.0
 offset_top = 283.0
 offset_bottom = 331.0
-script = ExtResource("9_ts2f2")
 
 [node name="Demon" parent="." instance=ExtResource("10_83uxf")]
 offset_left = 0.0
 offset_top = 335.0
 offset_right = 324.0
 offset_bottom = 380.0
-script = ExtResource("11_77666")
 
 [node name="Pentagram" parent="." instance=ExtResource("12_630cx")]
 position = Vector2(640, 360)
 
 [node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
 position = Vector2(1142, 234)
+
+[node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
+position = Vector2(636, 605)
+
+[connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
+[connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
