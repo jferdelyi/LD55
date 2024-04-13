@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cclf3ts4bs1sv" path="res://assets/graphics/transformation_rules/mouse.PNG" id="2_mtijw"]
 [ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_aum42"]
 [ext_resource type="Texture2D" uid="uid://dejn82ip8sf4v" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="4_gdj5x"]
-[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://scenes/crystalball.PNG" id="5_k727j"]
+[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="5_khfcy"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="6_4272p"]
 
 [node name="SpiderMouse" type="Control"]
@@ -72,5 +72,5 @@ offset_top = 6.0
 offset_right = 474.0
 offset_bottom = 267.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("5_k727j")
+texture_normal = ExtResource("5_khfcy")
 script = ExtResource("6_4272p")

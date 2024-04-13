@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dejn82ip8sf4v" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="3_pme0d"]
 [ext_resource type="Texture2D" uid="uid://bi6kyfhimim0m" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="4_pl3rk"]
 [ext_resource type="Texture2D" uid="uid://b05285sc7rtsy" path="res://assets/graphics/transformation_rules/demon.PNG" id="5_76xxd"]
-[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://scenes/crystalball.PNG" id="6_1wxbu"]
+[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="6_0gww1"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="7_o77oy"]
 
 [node name="Demon" type="Control"]
@@ -94,5 +94,5 @@ offset_top = 2.0
 offset_right = 533.0
 offset_bottom = 263.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("6_1wxbu")
+texture_normal = ExtResource("6_0gww1")
 script = ExtResource("7_o77oy")

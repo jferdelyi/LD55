@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://l2n1wmdcoaq8" path="res://assets/graphics/transformation_rules/cat.PNG" id="2_upl4c"]
 [ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_78bon"]
 [ext_resource type="Texture2D" uid="uid://bi6kyfhimim0m" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="4_ttgcm"]
-[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://scenes/crystalball.PNG" id="5_vpt36"]
+[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="5_k566q"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="6_ac8by"]
 
 [node name="SpiderCat" type="Control"]
@@ -74,5 +74,5 @@ offset_top = 2.0
 offset_right = 474.0
 offset_bottom = 263.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("5_vpt36")
+texture_normal = ExtResource("5_k566q")
 script = ExtResource("6_ac8by")
