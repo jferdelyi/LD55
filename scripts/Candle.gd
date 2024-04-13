@@ -12,6 +12,9 @@ var lighted := true
 #total life in seconds remaining before burning out completely
 var remaining_lifetime := 20.
 
+#Factor to increase or decrease speed at which candle burns down
+var speed_factor := 1
+
 var _stacks := []
 
 @onready var vBox := $VBoxContainer
@@ -26,7 +29,7 @@ func _ready():
 		
 func _process(delta):
 	if lighted:
-		remaining_lifetime -= delta	
+		remaining_lifetime -= delta	* speed_factor
 	draw_stacks()
 	
 func draw_stacks() -> void:
