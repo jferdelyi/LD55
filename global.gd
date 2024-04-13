@@ -7,6 +7,7 @@ const TIME_PERIOD = 1 # 1s
 var time = 0
 
 enum summons {Cat, Spider, Mouse, SpiderCat, CatMouse, MouseSpider, Demon}
+enum Items {CatFood, SpiderFood, MouseFood, SacrificialDagger, Candel}
 
 var nb_spiders;
 var nb_mice;

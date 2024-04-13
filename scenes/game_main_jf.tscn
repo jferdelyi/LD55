@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2jmbt4ui43ql"]
+[gd_scene load_steps=5 format=3 uid="uid://d2jmbt4ui43ql"]
 
 [ext_resource type="Script" path="res://scripts/game_main_jf.gd" id="1_gkmeq"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="2_u61ab"]
 [ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="3_tplph"]
+[ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="4_p4w4k"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_gkmeq")
@@ -19,4 +20,8 @@ position = Vector2(640, 360)
 [node name="Shelf" parent="." instance=ExtResource("3_tplph")]
 position = Vector2(1142, 234)
 
+[node name="PopMenu" parent="." instance=ExtResource("4_p4w4k")]
+position = Vector2(636, 605)
+
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
+[connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]

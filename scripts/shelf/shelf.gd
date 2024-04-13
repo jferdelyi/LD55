@@ -23,7 +23,6 @@ func add_item(item : Item) -> void:
 			return
 
 func on_item_clicked(item : Item) -> void:
-	print("clicked")
 	item.queue_free()
 	_item_count = _item_count - 1
 	emit_signal("item_used", item)

@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://deuo5pc6w8u8q"]
 
 [ext_resource type="Script" path="res://scripts/demon_rules.gd" id="1_6tth1"]
-[ext_resource type="Texture2D" uid="uid://cqyngy65j2001" path="res://assets/graphics/transformation_rules/mousecat.PNG" id="2_tnfan"]
-[ext_resource type="Texture2D" uid="uid://crcy10pgxmg2k" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_7feci"]
-[ext_resource type="Texture2D" uid="uid://dejn82ip8sf4v" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="3_pme0d"]
-[ext_resource type="Texture2D" uid="uid://bi6kyfhimim0m" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="4_pl3rk"]
-[ext_resource type="Texture2D" uid="uid://b05285sc7rtsy" path="res://assets/graphics/transformation_rules/demon.PNG" id="5_76xxd"]
-[ext_resource type="Texture2D" uid="uid://basy14nsm2nlp" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="6_0gww1"]
+[ext_resource type="Texture2D" uid="uid://or467j6l48mo" path="res://assets/graphics/transformation_rules/mousecat.PNG" id="2_tnfan"]
+[ext_resource type="Texture2D" uid="uid://ck7wwdoydyj3m" path="res://assets/graphics/transformation_rules/arrow.PNG" id="3_7feci"]
+[ext_resource type="Texture2D" uid="uid://b7k5nr8g8d4c7" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="3_pme0d"]
+[ext_resource type="Texture2D" uid="uid://dy13f70eoqfev" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="4_pl3rk"]
+[ext_resource type="Texture2D" uid="uid://dxaxf3hi18e0h" path="res://assets/graphics/transformation_rules/demon.PNG" id="5_76xxd"]
+[ext_resource type="Texture2D" uid="uid://ck3qc8nx5dqwl" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="6_0gww1"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="7_o77oy"]
 
 [node name="Demon" type="Control"]

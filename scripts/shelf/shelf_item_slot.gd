@@ -11,3 +11,6 @@ func set_item(shelf_item : Item) -> void:
 	_item = shelf_item
 	add_child(_item)
 
+func remove_item() -> void:
+	if _item != null:
+		remove_child(_item)

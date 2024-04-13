@@ -3,6 +3,7 @@ extends Node
 
 @onready var _cat_class := preload("res://scenes/creatures/cat.tscn")
 
+@onready var _background_sprite := $Background
 
 var summons_container = {}
 
@@ -45,6 +46,11 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 	match type:
 		Global.summons.Cat:
 			var new_summon = _cat_class.instantiate()
+			var _width : int = _background_sprite.texture.get_width()
+			var _height : int = _background_sprite.texture.get_height()
+			
+			new_summon.position.x = randi_range(-int(_width/2.0), int(_width/2.0))
+			new_summon.position.y = randi_range(-int(_height/2.0), int(_height/2.0))
 			summons_container[type].append(new_summon)
 			add_child(new_summon)
 			print("Grrr")
@@ -110,7 +116,8 @@ func check_chimera_availability():
 			var count = get_number_of_summons(creature)
 			var enough_creature = count >= Global.summons_requirements[chimera][creature]
 			is_available = is_available and enough_creature
-		emit_signal("chimera_available", chimera, is_available)	
+		#remove error TODO
+		#emit_signal("chimera_available", chimera, is_available)	
 
-func create_chimera(type : Global.summons, count : int) -> bool:
+func create_chimera(_type : Global.summons, _count : int) -> bool:
 	return true
