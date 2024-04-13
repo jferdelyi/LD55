@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://burx2aycgepav"]
+[gd_scene load_steps=3 format=3 uid="uid://burx2aycgepav"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
-[ext_resource type="AudioStream" uid="uid://b5cvtixd2ohao" path="res://assets/audio/menu_button.mp3" id="2_vick7"]
-[ext_resource type="AudioStream" uid="uid://2kwery5knvja" path="res://assets/audio/menu.mp3" id="3_ta1my"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_wnp1p"]
-
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
 
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15
@@ -27,6 +23,7 @@ offset_bottom = 48.0
 color = Color(1, 0.368627, 0.121569, 1)
 
 [node name="ScoreLabel" type="RichTextLabel" parent="Score/ScoreImage"]
+layout_mode = 0
 offset_top = 2.0
 offset_right = 73.0
 offset_bottom = 26.0
