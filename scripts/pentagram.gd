@@ -27,7 +27,7 @@ func _ready():
 	#spawn_summons(Global.summons.Demon, 0)
 	check_chimera_availability()
 	
-func _process(delta):
+func _process(_delta):
 	check_chimera_availability()
 	chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons_inside_circle(Global.summons.SpiderCat))
 	chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons_inside_circle(Global.summons.CatMouse))
@@ -105,7 +105,7 @@ func destroy_summons(type, count, inside_circle : bool) -> bool:
 
 # Destroy one summon of given type
 # Returns true if successful		
-func _destroy_one_summon(type, inside_circle : bool) -> bool:
+func _destroy_one_summon(type, _inside_circle : bool) -> bool:
 	#TODO : kill a random instead of oldest ?
 	var to_kill;
 	match type:
