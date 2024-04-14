@@ -4,10 +4,7 @@ extends Node2D
 @onready var _score_label := $ScoreScene
 @onready var _shelf := $Shelf
 @onready var _pentagram := $Pentagram
-@onready var _spider_cat := $SpiderCat
-@onready var _mouse_cat := $MouseCat
-@onready var _spider_mouse := $SpiderMouse
-@onready var _demon := $Demon
+@onready var _tomb := $Tomb
 @onready var _background := $GameBackground
 @onready var _audio_player := $AudioStreamPlayer
 @onready var _candle := $Candle
@@ -22,22 +19,17 @@ extends Node2D
 func _ready():
 	var summ = Global.summons
 	_score_label.start()
-	_spider_cat.setValues(
+	_tomb.setValues(
 		Global.get_requirements_for_with(summ.SpiderCat, summ.Spider),
-		Global.get_requirements_for_with(summ.SpiderCat, summ.Cat))
-	_mouse_cat.setValues(
+		Global.get_requirements_for_with(summ.SpiderCat, summ.Cat),
 		Global.get_requirements_for_with(summ.CatMouse, summ.Mouse),
-		Global.get_requirements_for_with(summ.CatMouse, summ.Cat))
-	_spider_mouse.setValues(
+		Global.get_requirements_for_with(summ.CatMouse, summ.Cat),
 		Global.get_requirements_for_with(summ.MouseSpider, summ.Mouse),
-		Global.get_requirements_for_with(summ.MouseSpider, summ.Spider))
-	_demon.setValues(
+		Global.get_requirements_for_with(summ.MouseSpider, summ.Spider),
 		Global.get_requirements_for_with(summ.Demon, summ.SpiderCat),
 		Global.get_requirements_for_with(summ.Demon, summ.MouseSpider),
 	 	Global.get_requirements_for_with(summ.Demon, summ.CatMouse))
-	_spider_cat.show()
-	_mouse_cat.show()
-	_spider_mouse.show()
+	_tomb.show()
 	
 func _process(_delta):
 	check_creatures_position()

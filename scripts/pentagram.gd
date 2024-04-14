@@ -21,10 +21,10 @@ func _ready():
 	#TODO : doute ici sur le .values() du enum...
 	for type in Global.summons.values():
 		summons_container[type] = []
-	#spawn_summons(Global.summons.Cat, 6)
-	#spawn_summons(Global.summons.Spider, 6)
-	#spawn_summons(Global.summons.Mouse, 6)
-	#spawn_summons(Global.summons.Demon, 0)
+	spawn_summons(Global.summons.Cat, 1)
+	spawn_summons(Global.summons.Spider, 1)
+	spawn_summons(Global.summons.Mouse, 0)
+	spawn_summons(Global.summons.Demon, 0)
 	check_chimera_availability()
 	
 func _process(_delta):
@@ -195,4 +195,6 @@ func create_chimera(_type : Global.summons, _count : int) -> bool:
 			ret = ret and _spawn_one_summon(_type)
 			for creature in Global.summons_requirements[_type].keys():	
 				ret = ret and destroy_summons(creature, Global.summons_requirements[_type][creature], true)
+		else:
+			print("creation failed")
 	return ret

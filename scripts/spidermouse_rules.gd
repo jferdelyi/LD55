@@ -11,7 +11,6 @@ signal summon_creature;
 
 func _ready():
 	_upgrade_texture_button.transform.connect(spawnTransformation)
-	upgradeAvailable = true
 		
 func setValues(spiders, mice):
 	_nb_spider_label.text = str(spiders)

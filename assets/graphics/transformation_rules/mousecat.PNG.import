@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://or467j6l48mo"
-path="res://.godot/imported/mousecat.png-c48d7bce0ce460f18550b5b217e1ed1f.ctex"
+path="res://.godot/imported/mousecat.PNG-453067fb384880988f8462cde868eb5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/transformation_rules/mousecat.png"
-dest_files=["res://.godot/imported/mousecat.png-c48d7bce0ce460f18550b5b217e1ed1f.ctex"]
+source_file="res://assets/graphics/transformation_rules/mousecat.PNG"
+dest_files=["res://.godot/imported/mousecat.PNG-453067fb384880988f8462cde868eb5d.ctex"]
 
 [params]
 

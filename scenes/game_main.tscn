@@ -1,15 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=12 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
 [ext_resource type="AudioStream" uid="uid://gxgd152hgp7y" path="res://assets/audio/theme_1_1.wav" id="2_gnkbf"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
-[ext_resource type="PackedScene" uid="uid://c7ks0dvb6fv51" path="res://scenes/spidercat_transformation_rule.tscn" id="4_l0rkb"]
-[ext_resource type="PackedScene" uid="uid://drcyo2xvmnc06" path="res://scenes/mousecat_transformation_rule.tscn" id="5_c3b06"]
-[ext_resource type="PackedScene" uid="uid://c6yv51jmaquck" path="res://scenes/spidermouse_transformation_rule.tscn" id="6_1rbn5"]
 [ext_resource type="Texture2D" uid="uid://du35mumkb4rnu" path="res://assets/graphics/misc/score_flag.png" id="8_v4qd3"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
-[ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
 [ext_resource type="Texture2D" uid="uid://bchr8l2rajdct" path="res://assets/graphics/game_background.png" id="12_tpos4"]
 [ext_resource type="PackedScene" uid="uid://db51elrakpax2" path="res://scenes/candle_eleven_steps.tscn" id="13_a1mmd"]
@@ -50,52 +46,19 @@ offset_bottom = 88.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
-[node name="SpiderCat" parent="." instance=ExtResource("4_l0rkb")]
-visible = false
-z_index = 100
-offset_left = 0.0
-offset_top = 178.0
-offset_right = 264.0
-offset_bottom = 223.0
-
-[node name="MouseCat" parent="." instance=ExtResource("5_c3b06")]
-visible = false
-z_index = 100
-offset_right = 263.0
-
-[node name="SpiderMouse" parent="." instance=ExtResource("6_1rbn5")]
-visible = false
-z_index = 100
-offset_left = 2.0
-offset_top = 283.0
-offset_bottom = 331.0
-
-[node name="Demon" parent="." instance=ExtResource("10_83uxf")]
-visible = false
-z_index = 100
-offset_left = 0.0
-offset_top = 335.0
-offset_right = 324.0
-offset_bottom = 380.0
-
 [node name="Pentagram" parent="." instance=ExtResource("12_630cx")]
 position = Vector2(671, 607)
+
+[node name="Tomb" parent="." instance=ExtResource("14_0aq7h")]
+position = Vector2(232, 446)
 
 [node name="Candle" parent="." instance=ExtResource("13_a1mmd")]
 position = Vector2(102, 614)
 
-[node name="Tomb" parent="." instance=ExtResource("14_0aq7h")]
-
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
-[connection signal="summon_creature" from="SpiderCat" to="Pentagram" method="create_chimera"]
-[connection signal="summon_creature" from="MouseCat" to="Pentagram" method="create_chimera"]
-[connection signal="summon_creature" from="SpiderMouse" to="Pentagram" method="create_chimera"]
-[connection signal="summon_creature" from="Demon" to="Pentagram" method="create_chimera"]
-[connection signal="chimera_available" from="Pentagram" to="SpiderCat" method="update_upgradeAvailable"]
-[connection signal="chimera_available" from="Pentagram" to="MouseCat" method="update_upgradeAvailable"]
-[connection signal="chimera_available" from="Pentagram" to="SpiderMouse" method="update_upgradeAvailable"]
-[connection signal="chimera_available" from="Pentagram" to="Demon" method="update_upgradeAvailable"]
+[connection signal="chimera_available" from="Pentagram" to="Tomb" method="update_upgradeAvailable"]
 [connection signal="chimera_updated" from="Pentagram" to="ScoreScene" method="_on_pentagram_chimera_updated"]
+[connection signal="summon_creature" from="Tomb" to="Pentagram" method="create_chimera"]
 [connection signal="light_off" from="Candle" to="." method="_on_candle_light_off"]

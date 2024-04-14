@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://deuo5pc6w8u8q"]
+[gd_scene load_steps=8 format=3 uid="uid://bb187sl6tnaof"]
 
 [ext_resource type="Script" path="res://scripts/demon_rules.gd" id="1_6tth1"]
 [ext_resource type="Texture2D" uid="uid://btwbv7cmrr74f" path="res://assets/graphics/creatures/spidercat.png" id="2_x1mfo"]
 [ext_resource type="Texture2D" uid="uid://71dx77hxvdll" path="res://assets/graphics/creatures/catmouse.png" id="3_grt0g"]
 [ext_resource type="Texture2D" uid="uid://bmemebffkunkh" path="res://assets/graphics/creatures/mousespider.png" id="4_r2ppu"]
 [ext_resource type="Texture2D" uid="uid://ch3kihqawlu8q" path="res://assets/graphics/creatures/demon.png" id="5_b8c2h"]
-[ext_resource type="Texture2D" uid="uid://ck3qc8nx5dqwl" path="res://assets/graphics/transformation_rules/crystalball.PNG" id="6_0gww1"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="7_o77oy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wkuii"]
+load_path = "res://.godot/imported/crystalball.PNG-dd769721f1dbc32b6f899ddb5bae5afb.ctex"
 
 [node name="Demon" type="Control"]
 layout_mode = 3
@@ -106,7 +108,7 @@ offset_top = 3.0
 offset_right = 524.0
 offset_bottom = 264.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("6_0gww1")
+texture_normal = SubResource("CompressedTexture2D_wkuii")
 script = ExtResource("7_o77oy")
 
 [connection signal="pressed" from="upgrade" to="upgrade" method="_button_pressed"]

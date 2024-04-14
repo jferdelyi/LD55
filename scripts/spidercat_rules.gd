@@ -6,7 +6,7 @@ signal summon_creature;
 
 func _ready():
 	$upgrade.transform.connect(spawnTransformation)
-	upgradeAvailable = true
+	#upgradeAvailable = true
 	
 func _process(_delta):
 	if upgradeAvailable:
