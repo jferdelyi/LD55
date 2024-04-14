@@ -21,10 +21,10 @@ func _ready():
 	#TODO : doute ici sur le .values() du enum...
 	for type in Global.summons.values():
 		summons_container[type] = []
-	spawn_summons(Global.summons.Cat, 2)
-	spawn_summons(Global.summons.Spider, 2)
-	spawn_summons(Global.summons.Mouse, 3)
-	spawn_summons(Global.summons.Demon, 1)
+	spawn_summons(Global.summons.Cat, 6)
+	spawn_summons(Global.summons.Spider, 6)
+	spawn_summons(Global.summons.Mouse, 6)
+	spawn_summons(Global.summons.Demon, 0)
 	check_chimera_availability()
 	
 func _process(delta):

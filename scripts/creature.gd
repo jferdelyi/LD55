@@ -2,12 +2,12 @@ extends Node2D
 class_name Creature
 
 @export var move_time := 3
-@export var move_speed_factor := 100
+@export var move_speed_factor := 10
 @export var move_delay := 20
 
 var _last_move_tick = 0.0
 var _move_direction = Vector2(0,0)
-var _move_speed_px = 500
+var _move_speed_px = 100
 
 func _ready():
 	#Set a random begin time to move
@@ -28,9 +28,7 @@ func move_around(delta) -> void:
 		_stop_moving()
 		
 func _continue_moving(delta) -> void:
-	print(position)
 	position += _move_direction * move_speed_factor * delta
-	print(position)
 	
 func _initiate_move() -> void:
 	_last_move_tick = Time.get_ticks_msec()
@@ -38,7 +36,6 @@ func _initiate_move() -> void:
 	var vy = randi_range(-_move_speed_px, _move_speed_px)
 	if Vector2(vx, vy) != Vector2(0,0):
 		_move_direction = Vector2(vx, vy).normalized()
-	print(_move_direction)	
 	
 
 func _stop_moving() -> void:
