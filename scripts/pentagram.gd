@@ -2,6 +2,12 @@ extends Node
 
 
 @onready var _cat_class := preload("res://scenes/creatures/cat.tscn")
+@onready var _spider_class := preload("res://scenes/creatures/spider.tscn")
+@onready var _mouse_class := preload("res://scenes/creatures/mouse.tscn")
+@onready var _spidercat_class := preload("res://scenes/creatures/spidercat.tscn")
+@onready var _mousespider_class := preload("res://scenes/creatures/mousespider.tscn")
+@onready var _catmouse_class := preload("res://scenes/creatures/catmouse.tscn")
+@onready var _demon_class := preload("res://scenes/creatures/demon.tscn")
 
 @onready var _background_sprite := $Background
 
@@ -26,49 +32,48 @@ func spawn_summons(type : Global.summons, count : int) -> bool:
 	check_chimera_availability()
 	return ret
 		
+func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
+		var _width : int = _background_sprite.texture.get_width()
+		var _height : int = _background_sprite.texture.get_height()
+			
+		new_summon.position.x = randi_range(-int(_width/2.0), int(_width/2.0))
+		new_summon.position.y = randi_range(-int(_height/2.0), int(_height/2.0))
+		summons_container[type].append(new_summon)
+		add_child(new_summon)
+		print("Grrr")	
+
+
 # Spawn one summon of a given type
 # Returns true if successful
 func _spawn_one_summon(type : Global.summons) -> bool:
-	#HELP Jean-François ! 
-	#Je ne sais pas pourquoi mais cette ligne ne fonctionne plus
-	#Je pense qu'il caste en int ou je ne sais quoi....
-	#Pour infos cette ligne etait good avant que je passe le enum summons dans global...
-	#si t'as une idée...
-	#if type in summons_container.keys():
-	#	var new_summon = Creature.new()
-	#	summons_container[type].append(new_summon)
-	#	add_child(new_summon)
-	#	print("Grrr")
-	#	return true
-	#else:
-	#	print("plouf")
-	#	return false	
-	#if type in Global.summons:
 	match type:
 		Global.summons.Cat:
 			var new_summon = _cat_class.instantiate()
-			var _width : int = _background_sprite.texture.get_width()
-			var _height : int = _background_sprite.texture.get_height()
-			
-			new_summon.position.x = randi_range(-int(_width/2.0), int(_width/2.0))
-			new_summon.position.y = randi_range(-int(_height/2.0), int(_height/2.0))
-			summons_container[type].append(new_summon)
-			add_child(new_summon)
-			print("Grrr")
-			return true
-		Global.summons.Cat:
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 		Global.summons.Spider:
+			var new_summon = _spider_class.instantiate()
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 		Global.summons.Mouse:
+			var new_summon = _mouse_class.instantiate()
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 		Global.summons.SpiderCat:
+			var new_summon = _spidercat_class.instantiate()
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 		Global.summons.CatMouse:
+			var new_summon = _catmouse_class.instantiate()
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 		Global.summons.MouseSpider:
+			var new_summon = _mousespider_class.instantiate()
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 		Global.summons.Demon:
+			var new_summon = _demon_class.instantiate()
+			_spawn_summon_in_visual(new_summon, type)
 			return true
 	return false
 
