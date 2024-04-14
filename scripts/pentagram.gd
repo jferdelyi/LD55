@@ -19,8 +19,9 @@ func _ready():
 	#TODO : doute ici sur le .values() du enum...
 	for type in Global.summons.values():
 		summons_container[type] = []
-	spawn_summons(Global.summons.Cat, 1)
+	spawn_summons(Global.summons.Cat, 2)
 	spawn_summons(Global.summons.Spider, 1)
+	spawn_summons(Global.summons.Mouse, 3)
 	check_chimera_availability()
 	
 # Spawn a given numbers of summons of selected type
