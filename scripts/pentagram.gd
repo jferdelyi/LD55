@@ -9,7 +9,7 @@ extends Node
 @onready var _catmouse_class := preload("res://scenes/creatures/catmouse.tscn")
 @onready var _demon_class := preload("res://scenes/creatures/demon.tscn")
 
-@onready var _background_sprite := $Background
+#@onready var _background_sprite := $Background
 @onready var _pentagram_area := $Area2D/CollisionShape2D
 
 var summons_container = {}
@@ -43,8 +43,8 @@ func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
 		#var _width : int = _background_sprite.texture.get_width()
 		#var _height : int = _background_sprite.texture.get_height()
 			
-		new_summon.position.x = randi_range(-int(_x/2), int(_x/2))
-		new_summon.position.y = randi_range(-int(_y/2), int(_y/2))
+		new_summon.position.x = randi_range(-int(_x/2.0), int(_x/2.0))
+		new_summon.position.y = randi_range(-int(_y/2.0), int(_y/2.0))
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
 		print("Grrr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=13 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
@@ -10,12 +10,26 @@
 [ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
 [ext_resource type="AudioStream" uid="uid://dpjp3k08w8d33" path="res://assets/audio/theme_3.wav" id="11_mt8fr"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
+[ext_resource type="Texture2D" uid="uid://bchr8l2rajdct" path="res://assets/graphics/game_background.png" id="12_tpos4"]
 [ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="13_k7g2i"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_67dqo")
 
+[node name="GameBackground" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("12_tpos4")
+
+[node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
+z_index = 100
+position = Vector2(1142, 234)
+
+[node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
+z_index = 100
+position = Vector2(640, 90)
+
 [node name="ScoreScene" parent="." instance=ExtResource("2_enuq5")]
+z_index = 100
 script = ExtResource("3_mm86n")
 
 [node name="ScoreImage" type="ColorRect" parent="ScoreScene"]
@@ -34,38 +48,38 @@ offset_bottom = 28.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 
 [node name="SpiderCat" parent="." instance=ExtResource("4_l0rkb")]
+z_index = 100
 offset_left = 0.0
 offset_top = 178.0
 offset_right = 264.0
 offset_bottom = 223.0
 
 [node name="MouseCat" parent="." instance=ExtResource("5_c3b06")]
+z_index = 100
 offset_right = 263.0
 
 [node name="SpiderMouse" parent="." instance=ExtResource("6_1rbn5")]
+z_index = 100
 offset_left = 2.0
 offset_top = 283.0
 offset_bottom = 331.0
 
 [node name="Demon" parent="." instance=ExtResource("10_83uxf")]
+z_index = 100
 offset_left = 0.0
 offset_top = 335.0
 offset_right = 324.0
 offset_bottom = 380.0
 
 [node name="Pentagram" parent="." instance=ExtResource("12_630cx")]
-position = Vector2(640, 360)
-
-[node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
-position = Vector2(1142, 234)
-
-[node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
-position = Vector2(636, 605)
+position = Vector2(670, 549)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_mt8fr")
 autoplay = true
 
+[connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
+[connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
 [connection signal="summon_creature" from="SpiderCat" to="Pentagram" method="create_chimera"]
 [connection signal="summon_creature" from="MouseCat" to="Pentagram" method="create_chimera"]
 [connection signal="summon_creature" from="SpiderMouse" to="Pentagram" method="create_chimera"]
@@ -74,5 +88,3 @@ autoplay = true
 [connection signal="chimera_available" from="Pentagram" to="SpiderMouse" method="update_upgradeAvailable"]
 [connection signal="chimera_available" from="Pentagram" to="Demon" method="update_upgradeAvailable"]
 [connection signal="chimera_updated" from="Pentagram" to="ScoreScene" method="_on_pentagram_chimera_updated"]
-[connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
-[connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
