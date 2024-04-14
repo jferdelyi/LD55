@@ -24,7 +24,7 @@ text = "Score: 0"
 position = Vector2(668, 610)
 
 [node name="Shelf" parent="." instance=ExtResource("3_tplph")]
-position = Vector2(1142, 427)
+position = Vector2(1058, 427)
 
 [node name="PopMenu" parent="." instance=ExtResource("4_p4w4k")]
 

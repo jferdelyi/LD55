@@ -8,6 +8,17 @@ extends Node2D
 
 func _ready():
 	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
+	_shelf.add_item(_shelf_item_class.instantiate())
 	#_shelf.add_item(_shelf_item_class.instantiate())
 	#_shelf.add_item(_shelf_item_class.instantiate())
 	#_shelf.add_item(_shelf_item_class.instantiate())

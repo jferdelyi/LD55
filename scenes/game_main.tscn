@@ -28,7 +28,7 @@ texture = ExtResource("12_tpos4")
 
 [node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
 z_index = 100
-position = Vector2(1142, 382)
+position = Vector2(1059, 344)
 
 [node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
 z_index = 100
