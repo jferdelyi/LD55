@@ -7,5 +7,4 @@
 script = ExtResource("1_1hqp0")
 
 [node name="Spidercat" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_romvq")
