@@ -20,9 +20,9 @@ signal chimera_updated
 func _ready():
 	for type in Global.summons.values():
 		summons_container[type] = []
-	spawn_summons(Global.summons.Cat, 6)
-	spawn_summons(Global.summons.Spider, 6)
-	spawn_summons(Global.summons.Mouse, 6)
+	#spawn_summons(Global.summons.Cat, 6)
+	#spawn_summons(Global.summons.Spider, 6)
+	#spawn_summons(Global.summons.Mouse, 6)
 	#spawn_summons(Global.summons.Demon, 0)
 	check_chimera_availability()
 	
