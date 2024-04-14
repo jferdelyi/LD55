@@ -22,7 +22,7 @@ var _candle_stack := []
 
 
 func _ready():
-	_stack_step_value = total_lifetime / 10.0
+	_stack_step_value = int(total_lifetime / 10.0)
 	for i in range(11):
 		_candle_stack.push_back(get_node("Candle" + str(i)))
 
@@ -57,7 +57,7 @@ func get_index_by_lifetime() -> int:
 		return 0
 	elif remaining_lifetime == total_lifetime:
 		return 10
-	return (remaining_lifetime / _stack_step_value) + 1
+	return int(remaining_lifetime / _stack_step_value) + 1
 
 
 func display_candle_index(index : int) -> void:

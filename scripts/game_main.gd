@@ -39,7 +39,7 @@ func _ready():
 	_mouse_cat.show()
 	_spider_mouse.show()
 	
-func _process(delta):
+func _process(_delta):
 	check_creatures_position()
 
 func _on_shelf_item_used(item: Variant) -> void:
