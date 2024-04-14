@@ -5,9 +5,10 @@ signal item_selected(item)
 @onready var _cat_food_class := preload("res://scenes/creatures/cat_food.tscn")
 @onready var _spider_food_class := preload("res://scenes/creatures/spider_food.tscn")
 
-@onready var item_slot_1 := $ItemSlot1
-@onready var item_slot_2 := $ItemSlot2
-@onready var item_slot_3 := $ItemSlot3
+@onready var _top_menu_sprite := $TopMenu
+@onready var _item_slot_1 := $TopMenu/ItemSlot1
+@onready var _item_slot_2 := $TopMenu/ItemSlot2
+@onready var _item_slot_3 := $TopMenu/ItemSlot3
 
 
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 
 func pop_menu() -> void:
 	for i in range(3):
-		var _slot = get_child(i)
+		var _slot : ShelfItemSlot = _top_menu_sprite.get_child(i)
 		var _random_value = randi_range(0, 1)
 		match _random_value:
 			Global.Items.CatFood:
@@ -36,9 +37,9 @@ func pop_menu() -> void:
 
 
 func _on_clicked(item : Item) -> void:
-	visible = false
+	#visible = false
 	for i in range(3):
-		var _slot = get_child(i)
+		var _slot = _top_menu_sprite.get_child(i)
 		_slot.remove_item()
 	item.disconnect("clicked", _on_clicked)
 	emit_signal("item_selected", item)

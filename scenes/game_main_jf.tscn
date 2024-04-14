@@ -20,13 +20,12 @@ theme_override_font_sizes/font_size = 26
 text = "Score: 0"
 
 [node name="Pentagram" parent="." instance=ExtResource("2_u61ab")]
-position = Vector2(668, 546)
+position = Vector2(668, 610)
 
 [node name="Shelf" parent="." instance=ExtResource("3_tplph")]
-position = Vector2(1142, 234)
+position = Vector2(1142, 427)
 
 [node name="PopMenu" parent="." instance=ExtResource("4_p4w4k")]
-position = Vector2(636, 605)
 
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]

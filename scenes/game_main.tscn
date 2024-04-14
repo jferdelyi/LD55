@@ -22,11 +22,10 @@ texture = ExtResource("12_tpos4")
 
 [node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
 z_index = 100
-position = Vector2(1142, 234)
+position = Vector2(1142, 382)
 
 [node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
 z_index = 100
-position = Vector2(640, 90)
 
 [node name="ScoreScene" parent="." instance=ExtResource("2_enuq5")]
 z_index = 100
@@ -72,7 +71,7 @@ offset_right = 324.0
 offset_bottom = 380.0
 
 [node name="Pentagram" parent="." instance=ExtResource("12_630cx")]
-position = Vector2(670, 549)
+position = Vector2(671, 607)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_mt8fr")

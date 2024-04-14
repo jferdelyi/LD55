@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bysysbgwmwy75"]
+[gd_scene load_steps=4 format=3 uid="uid://bysysbgwmwy75"]
 
 [ext_resource type="Script" path="res://scripts/pop_menu.gd" id="1_32i8o"]
 [ext_resource type="PackedScene" uid="uid://cw06bns0rqwt5" path="res://scenes/shelf/shelf_item_slot.tscn" id="1_380wo"]
+[ext_resource type="Texture2D" uid="uid://b1gpjq3fb5yfx" path="res://assets/graphics/misc/top_menu.png" id="3_ijfsf"]
 
 [node name="PopMenu" type="Node2D"]
 script = ExtResource("1_32i8o")
 
-[node name="ItemSlot1" parent="." instance=ExtResource("1_380wo")]
+[node name="TopMenu" type="Sprite2D" parent="."]
+texture = ExtResource("3_ijfsf")
+centered = false
 
-[node name="ItemSlot2" parent="." instance=ExtResource("1_380wo")]
-position = Vector2(100, 2.08165e-12)
+[node name="ItemSlot1" parent="TopMenu" instance=ExtResource("1_380wo")]
+position = Vector2(454, 122)
 
-[node name="ItemSlot3" parent="." instance=ExtResource("1_380wo")]
-position = Vector2(200, 2.08165e-12)
+[node name="ItemSlot2" parent="TopMenu" instance=ExtResource("1_380wo")]
+position = Vector2(643, 168)
+
+[node name="ItemSlot3" parent="TopMenu" instance=ExtResource("1_380wo")]
+position = Vector2(840, 114)
