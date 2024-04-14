@@ -6,9 +6,9 @@ signal item_selected(item)
 @onready var _spider_food_class := preload("res://scenes/creatures/spider_food.tscn")
 
 @onready var _top_menu_sprite := $TopMenu
-@onready var _item_slot_1 := $TopMenu/ItemSlot1
-@onready var _item_slot_2 := $TopMenu/ItemSlot2
-@onready var _item_slot_3 := $TopMenu/ItemSlot3
+#@onready var _item_slot_1 := $TopMenu/ItemSlot1
+#@onready var _item_slot_2 := $TopMenu/ItemSlot2
+#@onready var _item_slot_3 := $TopMenu/ItemSlot3
 
 
 func _ready() -> void:
