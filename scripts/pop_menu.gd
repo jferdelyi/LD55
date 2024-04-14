@@ -5,7 +5,7 @@ signal item_selected(item)
 @onready var _cat_food_class := preload("res://scenes/creatures/cat_food.tscn")
 @onready var _spider_food_class := preload("res://scenes/creatures/spider_food.tscn")
 @onready var _mouse_food_class := preload("res://scenes/creatures/mouse_food.tscn")
-#@onready var _candle_class := preload("res://scenes/creatures/candle.tscn")
+@onready var _candle_class := preload("res://scenes/creatures/candle.tscn")
 
 @onready var _top_menu_sprite := $TopMenu
 #@onready var _item_slot_1 := $TopMenu/ItemSlot1
@@ -20,7 +20,7 @@ func _ready() -> void:
 func pop_menu() -> void:
 	for i in range(3):
 		var _slot : ShelfItemSlot = _top_menu_sprite.get_child(i)
-		var _random_value = randi_range(0, 2)
+		var _random_value = randi_range(0, 3)
 		match _random_value:
 			Global.Items.CatFood:
 				var _cat_food := _cat_food_class.instantiate()
@@ -35,9 +35,9 @@ func pop_menu() -> void:
 				_mouse_food.connect("clicked", _on_clicked)
 				_slot.set_item(_mouse_food)
 			Global.Items.Candel:
-				#var _candle := _candle_class.instantiate()
-				#_candle.connect("clicked", _on_clicked)
-				#_slot.set_item(_candle)
+				var _candle := _candle_class.instantiate()
+				_candle.connect("clicked", _on_clicked)
+				_slot.set_item(_candle)
 				pass
 			Global.Items.SacrificialDagger:
 				pass

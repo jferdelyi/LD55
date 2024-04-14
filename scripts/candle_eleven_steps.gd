@@ -13,10 +13,10 @@ var _last_index := 10
 var _stack_step_value : int
  
 #total life in seconds remaining before burning out completely
-var remaining_lifetime := 100.0
+var remaining_lifetime := 80.0
 
 #Factor to increase or decrease speed at which candle burns down
-var _speed_factor := 1
+var _speed_factor := 0
 
 var _candle_stack := []
 
@@ -44,7 +44,7 @@ func set_speed_factor(speed_factor: int):
 
 
 func set_life(delta_life: int):
-	remaining_lifetime += delta_life
+	remaining_lifetime = min(remaining_lifetime + delta_life, total_lifetime)
 	lighted = remaining_lifetime > 0
 	# Will see...
 	#if remaining_lifetime > total_lifetime:
