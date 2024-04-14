@@ -165,7 +165,8 @@ func is_inside_pentagram(creature) -> bool:
 	var y = creature.position.y
 	#Point (x,y) is inside ellipsoid of center (h,k) and semi-axis (a, b) if
 	# (x - h)² / a² + (y - k)² / b² <= 1
-	var is_inside = (x * x) / (w * w) + (y * y) / (h * h) <= 1
+	const margin := 1.25
+	var is_inside = (x * x) / (w * w) + (y * y) / (h * h) <= (1 * margin)
 	return is_inside
 	
 	#Returns the number of summons of a given type
