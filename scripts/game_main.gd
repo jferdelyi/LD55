@@ -37,3 +37,4 @@ func _on_shelf_item_used(item: Variant) -> void:
 
 func _on_pop_menu_item_selected(item: Variant) -> void:
 	_shelf.add_item(item)
+
