@@ -1,20 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=14 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
+[ext_resource type="AudioStream" uid="uid://c8a1dnft0b3sf" path="res://assets/audio/theme_1.wav" id="2_kjyfo"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
 [ext_resource type="PackedScene" uid="uid://c7ks0dvb6fv51" path="res://scenes/spidercat_transformation_rule.tscn" id="4_l0rkb"]
 [ext_resource type="PackedScene" uid="uid://drcyo2xvmnc06" path="res://scenes/mousecat_transformation_rule.tscn" id="5_c3b06"]
 [ext_resource type="PackedScene" uid="uid://c6yv51jmaquck" path="res://scenes/spidermouse_transformation_rule.tscn" id="6_1rbn5"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
 [ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
-[ext_resource type="AudioStream" uid="uid://dpjp3k08w8d33" path="res://assets/audio/theme_3.wav" id="11_mt8fr"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
 [ext_resource type="Texture2D" uid="uid://bchr8l2rajdct" path="res://assets/graphics/game_background.png" id="12_tpos4"]
+[ext_resource type="PackedScene" uid="uid://db51elrakpax2" path="res://scenes/candle_eleven_steps.tscn" id="13_a1mmd"]
 [ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="13_k7g2i"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_67dqo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kjyfo")
+autoplay = true
 
 [node name="GameBackground" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -73,9 +78,8 @@ offset_bottom = 380.0
 [node name="Pentagram" parent="." instance=ExtResource("12_630cx")]
 position = Vector2(671, 607)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_mt8fr")
-autoplay = true
+[node name="Candle" parent="." instance=ExtResource("13_a1mmd")]
+position = Vector2(102, 614)
 
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
@@ -88,3 +92,4 @@ autoplay = true
 [connection signal="chimera_available" from="Pentagram" to="SpiderMouse" method="update_upgradeAvailable"]
 [connection signal="chimera_available" from="Pentagram" to="Demon" method="update_upgradeAvailable"]
 [connection signal="chimera_updated" from="Pentagram" to="ScoreScene" method="_on_pentagram_chimera_updated"]
+[connection signal="light_off" from="Candle" to="." method="_on_candle_light_off"]

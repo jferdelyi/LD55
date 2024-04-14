@@ -38,3 +38,7 @@ func _on_shelf_item_used(item: Variant) -> void:
 func _on_pop_menu_item_selected(item: Variant) -> void:
 	_shelf.add_item(item)
 
+
+func _on_candle_light_off() -> void:
+	# GAME OVER
+	get_tree().change_scene_to_file("res://scenes/game_main.tscn")

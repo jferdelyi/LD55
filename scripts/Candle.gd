@@ -45,7 +45,7 @@ func draw_stacks() -> void:
 			_stacks[i].position.x = $BottomCandle.position.x 
 			ybottom -= 0.5 * _stacks[i].texture.get_height()
 			_stacks[i].position.y = ybottom 
-			_stacks[i].show()			
+			_stacks[i].show()
 		else:
 			_stacks[i].hide()
 	$TopCandle.position.y = ybottom - 0.5 * $TopCandle.texture.get_height()

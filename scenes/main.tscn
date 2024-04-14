@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://burx2aycgepav"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
-[ext_resource type="Texture2D" uid="uid://kkuc6imeho62" path="res://assets/graphics/misc/background.png" id="2_yrd5f"]
-[ext_resource type="AudioStream" uid="uid://c8a1dnft0b3sf" path="res://assets/audio/theme_1.wav" id="3_0hq4w"]
+[ext_resource type="Texture2D" uid="uid://cgtilary054us" path="res://assets/graphics/main_menu_background.png" id="2_wvkay"]
 [ext_resource type="AudioStream" uid="uid://doj7ok8whtu7k" path="res://assets/audio/menu_button.mp3" id="3_3776v"]
+[ext_resource type="AudioStream" uid="uid://brfd4p55ybsw5" path="res://assets/audio/main_menu.wav" id="4_1yhk7"]
 
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15
@@ -16,8 +16,7 @@ script = ExtResource("1_q344y")
 
 [node name="Illustration" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-scale = Vector2(0.379998, 0.3)
-texture = ExtResource("2_yrd5f")
+texture = ExtResource("2_wvkay")
 
 [node name="TitleContainer" type="PanelContainer" parent="."]
 visible = false
@@ -82,7 +81,7 @@ text = "Credit"
 stream = ExtResource("3_3776v")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_0hq4w")
+stream = ExtResource("4_1yhk7")
 autoplay = true
 
 [connection signal="pressed" from="ButtonsContainer/Start" to="." method="_on_start_pressed"]

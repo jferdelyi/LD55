@@ -1,0 +1,61 @@
+[gd_scene load_steps=13 format=3 uid="uid://db51elrakpax2"]
+
+[ext_resource type="Script" path="res://scripts/candle_eleven_steps.gd" id="1_3b22j"]
+[ext_resource type="Texture2D" uid="uid://bkmymjhsgtwyf" path="res://assets/graphics/candles/candle_0.png" id="2_5n6c0"]
+[ext_resource type="Texture2D" uid="uid://nolo0dg0f3b4" path="res://assets/graphics/candles/candle_1.png" id="3_q4uwx"]
+[ext_resource type="Texture2D" uid="uid://owm1xqhlho0k" path="res://assets/graphics/candles/candle_2.png" id="4_0ceqw"]
+[ext_resource type="Texture2D" uid="uid://4ijsejsyc6tq" path="res://assets/graphics/candles/candle_3.png" id="5_j0cgp"]
+[ext_resource type="Texture2D" uid="uid://c4huevajh5tjt" path="res://assets/graphics/candles/candle_4.png" id="6_7j6np"]
+[ext_resource type="Texture2D" uid="uid://bk0thlrntvlhr" path="res://assets/graphics/candles/candle_5.png" id="7_1kjxx"]
+[ext_resource type="Texture2D" uid="uid://b27awg42jb6q0" path="res://assets/graphics/candles/candle_6.png" id="8_hvw1q"]
+[ext_resource type="Texture2D" uid="uid://c76lpjk4rtiyr" path="res://assets/graphics/candles/candle_7.png" id="9_80qhl"]
+[ext_resource type="Texture2D" uid="uid://b405y13pjrucf" path="res://assets/graphics/candles/candle_8.png" id="10_eehsj"]
+[ext_resource type="Texture2D" uid="uid://txgva2cb54yn" path="res://assets/graphics/candles/candle_9.png" id="11_w1721"]
+[ext_resource type="Texture2D" uid="uid://665ckh1uku5t" path="res://assets/graphics/candles/candle_10.png" id="12_njims"]
+
+[node name="Candle" type="Node2D"]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_3b22j")
+
+[node name="Candle0" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_5n6c0")
+
+[node name="Candle1" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_q4uwx")
+
+[node name="Candle2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_0ceqw")
+
+[node name="Candle3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_j0cgp")
+
+[node name="Candle4" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_7j6np")
+
+[node name="Candle5" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_1kjxx")
+
+[node name="Candle6" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_hvw1q")
+
+[node name="Candle7" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_80qhl")
+
+[node name="Candle8" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_eehsj")
+
+[node name="Candle9" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_w1721")
+
+[node name="Candle10" type="Sprite2D" parent="."]
+texture = ExtResource("12_njims")

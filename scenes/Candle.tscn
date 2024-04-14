@@ -1,14 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dp6mrtwob0c4u"]
+[gd_scene load_steps=3 format=3 uid="uid://dp6mrtwob0c4u"]
 
 [ext_resource type="Script" path="res://scripts/Candle.gd" id="1_cs777"]
-[ext_resource type="Texture2D" uid="uid://gpflubdegw4l" path="res://assets/graphics/candles/top_candle.png" id="2_81ccb"]
 [ext_resource type="Texture2D" uid="uid://cv6arr3xbloqu" path="res://assets/graphics/candles/bottom_candle.png" id="3_qoj7t"]
 
 [node name="Candle" type="Node2D"]
 script = ExtResource("1_cs777")
 
 [node name="TopCandle" type="Sprite2D" parent="."]
-texture = ExtResource("2_81ccb")
 
 [node name="BottomCandle" type="Sprite2D" parent="."]
 texture = ExtResource("3_qoj7t")
