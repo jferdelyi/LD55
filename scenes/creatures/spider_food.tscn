@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cinapk0rkrie5"]
 
-[ext_resource type="Texture2D" uid="uid://ckbpyah3g3fbb" path="res://assets/graphics/creatures/spider_food.png" id="1_lis71"]
+[ext_resource type="Texture2D" uid="uid://berwu0gjd8cii" path="res://assets/graphics/creatures/spider_food.png" id="1_lis71"]
 [ext_resource type="Script" path="res://scripts/creatures/spider_food.gd" id="1_slebs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gu4r"]

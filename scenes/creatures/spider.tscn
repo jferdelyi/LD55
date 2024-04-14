@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dor5jnqdenbq2"]
 
 [ext_resource type="Script" path="res://scripts/creatures/spider.gd" id="1_h5x1o"]
-[ext_resource type="Texture2D" uid="uid://cms7ilsefhxsy" path="res://assets/graphics/creatures/spider.png" id="2_nm85j"]
+[ext_resource type="Texture2D" uid="uid://cb8oqhfr07j6c" path="res://assets/graphics/creatures/spider.png" id="2_nm85j"]
 
 [node name="Spider" type="Node2D"]
 script = ExtResource("1_h5x1o")

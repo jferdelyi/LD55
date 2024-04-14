@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://biheasbsm13k8"]
 
 [ext_resource type="Script" path="res://scripts/creatures/spidercat.gd" id="1_1hqp0"]
-[ext_resource type="Texture2D" uid="uid://btwbv7cmrr74f" path="res://assets/graphics/creatures/spidercat.png" id="2_romvq"]
+[ext_resource type="Texture2D" uid="uid://b2b8vgpieoboo" path="res://assets/graphics/creatures/spidercat.png" id="2_romvq"]
 
 [node name="Spidercat" type="Node2D"]
 script = ExtResource("1_1hqp0")
 
 [node name="Spidercat" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_romvq")
