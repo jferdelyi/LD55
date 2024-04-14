@@ -19,6 +19,8 @@ func _on_shelf_item_used(item: Item) -> void:
 		_pentagram.spawn_summons(Global.summons.Cat, 1)
 	if item is SpiderFood:
 		_pentagram.spawn_summons(Global.summons.Spider, 1)
+	if item is MouseFood:
+		_pentagram.spawn_summons(Global.summons.Mouse, 1)
 
 
 func _on_pop_menu_item_selected(item: Item) -> void:
