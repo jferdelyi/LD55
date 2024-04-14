@@ -21,13 +21,13 @@ func _ready():
 	#TODO : doute ici sur le .values() du enum...
 	for type in Global.summons.values():
 		summons_container[type] = []
-	spawn_summons(Global.summons.Cat, 6)
-	spawn_summons(Global.summons.Spider, 6)
-	spawn_summons(Global.summons.Mouse, 6)
-	spawn_summons(Global.summons.Demon, 0)
+	#spawn_summons(Global.summons.Cat, 6)
+	#spawn_summons(Global.summons.Spider, 6)
+	#spawn_summons(Global.summons.Mouse, 6)
+	#spawn_summons(Global.summons.Demon, 0)
 	check_chimera_availability()
 	
-func _process(delta):
+func _process(_delta):
 	check_chimera_availability()
 	chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons_inside_circle(Global.summons.SpiderCat))
 	chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons_inside_circle(Global.summons.CatMouse))
@@ -55,7 +55,6 @@ func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
 		new_summon.position.y = randi_range(-int(_y/2.0), int(_y/2.0))
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
-		print("Grrr")
 
 
 # Spawn one summon of a given type
@@ -106,7 +105,7 @@ func destroy_summons(type, count, inside_circle : bool) -> bool:
 
 # Destroy one summon of given type
 # Returns true if successful		
-func _destroy_one_summon(type, inside_circle : bool) -> bool:
+func _destroy_one_summon(type, _inside_circle : bool) -> bool:
 	#TODO : kill a random instead of oldest ?
 	var to_kill;
 	match type:
@@ -134,7 +133,6 @@ func remove_first_creature_inside_circle(array) -> bool:
 		if is_inside_pentagram(creature):
 			remove_child(creature)
 			array.erase(creature)
-			print("Ded")
 			return true			
 	return false
 

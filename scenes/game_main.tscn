@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ks0dvb6fv51" path="res://scenes/spidercat_transformation_rule.tscn" id="4_l0rkb"]
 [ext_resource type="PackedScene" uid="uid://drcyo2xvmnc06" path="res://scenes/mousecat_transformation_rule.tscn" id="5_c3b06"]
 [ext_resource type="PackedScene" uid="uid://c6yv51jmaquck" path="res://scenes/spidermouse_transformation_rule.tscn" id="6_1rbn5"]
+[ext_resource type="Texture2D" uid="uid://du35mumkb4rnu" path="res://assets/graphics/misc/score_flag.png" id="8_v4qd3"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
 [ext_resource type="PackedScene" uid="uid://deuo5pc6w8u8q" path="res://scenes/demon_transformation_rule.tscn" id="10_83uxf"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
@@ -28,7 +29,7 @@ texture = ExtResource("12_tpos4")
 
 [node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
 z_index = 100
-position = Vector2(1142, 382)
+position = Vector2(1059, 344)
 
 [node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
 z_index = 100
@@ -37,20 +38,17 @@ z_index = 100
 z_index = 100
 script = ExtResource("3_mm86n")
 
-[node name="ScoreImage" type="ColorRect" parent="ScoreScene"]
-offset_left = 25.0
-offset_top = 17.0
-offset_right = 143.0
-offset_bottom = 45.0
-color = Color(1, 0.368627, 0.121569, 1)
+[node name="ScoreImage" type="Sprite2D" parent="ScoreScene"]
+texture = ExtResource("8_v4qd3")
+centered = false
 
-[node name="ScoreLabel" type="RichTextLabel" parent="ScoreScene/ScoreImage"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 1.0
-offset_right = 109.0
-offset_bottom = 28.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+[node name="ScoreLabel" type="Label" parent="ScoreScene/ScoreImage"]
+offset_left = 23.0
+offset_top = 61.0
+offset_right = 127.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
 
 [node name="SpiderCat" parent="." instance=ExtResource("4_l0rkb")]
 visible = false

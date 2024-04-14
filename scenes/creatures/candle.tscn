@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb6cquw80yv3q"]
+[gd_scene load_steps=4 format=3 uid="uid://cgmdfx2gu2481"]
 
-[ext_resource type="Texture2D" uid="uid://gy5cusy8ruik" path="res://assets/graphics/creatures/cat_food.png" id="1_5m4ed"]
-[ext_resource type="Script" path="res://scripts/items/cat_food.gd" id="1_domi3"]
+[ext_resource type="Script" path="res://scripts/items/candle.gd" id="1_2xeyk"]
+[ext_resource type="Texture2D" uid="uid://bh3ww4y3s7l3q" path="res://assets/graphics/misc/candle_item.png" id="2_x11ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrud"]
 size = Vector2(82.6137, 62.4472)
 
-[node name="CatFood" type="Node2D"]
-script = ExtResource("1_domi3")
+[node name="Candle" type="Node2D"]
+script = ExtResource("1_2xeyk")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -16,7 +16,7 @@ position = Vector2(1.5, -2)
 scale = Vector2(0.811004, 0.800676)
 shape = SubResource("RectangleShape2D_xrrud")
 
-[node name="CatFood" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("1_5m4ed")
+[node name="Candle" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_x11ua")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

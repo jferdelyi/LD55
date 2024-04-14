@@ -11,37 +11,37 @@ script = ExtResource("1_ss3tj")
 texture = ExtResource("1_2h07y")
 
 [node name="Position1" type="Node2D" parent="Shelf"]
-position = Vector2(-76, -197)
+position = Vector2(-31, -94)
 script = ExtResource("3_edfmi")
 
 [node name="Position2" type="Node2D" parent="Shelf"]
-position = Vector2(0, -197)
+position = Vector2(58, -84)
 script = ExtResource("3_edfmi")
 
 [node name="Position3" type="Node2D" parent="Shelf"]
-position = Vector2(74, -197)
+position = Vector2(152, -71)
 script = ExtResource("3_edfmi")
 
 [node name="Position4" type="Node2D" parent="Shelf"]
-position = Vector2(-76.1071, -62.1071)
+position = Vector2(-51, 21)
 script = ExtResource("3_edfmi")
 
 [node name="Position5" type="Node2D" parent="Shelf"]
-position = Vector2(-0.107139, -62.1071)
+position = Vector2(43, 30)
 script = ExtResource("3_edfmi")
 
 [node name="Position6" type="Node2D" parent="Shelf"]
-position = Vector2(73.8928, -62.1071)
+position = Vector2(136, 49)
 script = ExtResource("3_edfmi")
 
 [node name="Position7" type="Node2D" parent="Shelf"]
-position = Vector2(-76.1071, 89.8928)
+position = Vector2(-64, 137)
 script = ExtResource("3_edfmi")
 
 [node name="Position8" type="Node2D" parent="Shelf"]
-position = Vector2(-0.107139, 89.8928)
+position = Vector2(29, 155)
 script = ExtResource("3_edfmi")
 
 [node name="Position9" type="Node2D" parent="Shelf"]
-position = Vector2(73.8928, 89.8928)
+position = Vector2(121, 166)
 script = ExtResource("3_edfmi")

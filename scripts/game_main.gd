@@ -8,7 +8,15 @@ extends Node2D
 @onready var _mouse_cat := $MouseCat
 @onready var _spider_mouse := $SpiderMouse
 @onready var _demon := $Demon
+@onready var _background := $GameBackground
 @onready var _audio_player := $AudioStreamPlayer
+@onready var _candle := $Candle
+
+
+@export var min_x_ratio = 0.1
+@export var max_x_ratio = 0.9
+@export var min_y_ratio = 0.0
+@export var max_y_ratio = 1.0
 
 
 func _ready():
@@ -30,13 +38,37 @@ func _ready():
 	_spider_cat.show()
 	_mouse_cat.show()
 	_spider_mouse.show()
+	
+func _process(_delta):
+	check_creatures_position()
 
 func _on_shelf_item_used(item: Variant) -> void:
 	if item is CatFood:
 		_pentagram.spawn_summons(Global.summons.Cat, 1)
+	if item is SpiderFood:
+		_pentagram.spawn_summons(Global.summons.Spider, 1)
+	if item is MouseFood:
+		_pentagram.spawn_summons(Global.summons.Mouse, 1)
+	if item is Candle:
+		_candle.set_life(Global.CandleLife)
+
 
 func _on_pop_menu_item_selected(item: Variant) -> void:
 	_shelf.add_item(item)
+	
+func check_creatures_position():
+	var w = _background.get_rect().size.x
+	var h = _background.get_rect().size.y
+	var x0 = _background.get_rect().position.x
+	var y0 = _background.get_rect().position.y
+	var xLeft = x0 + min_x_ratio * w
+	var xRight = x0 + max_x_ratio * w
+	var yBottom = y0 + (1 - min_y_ratio) * h
+	var yTop = y0 + (1 - max_y_ratio) * h
+	for child in _pentagram.get_children():
+		if child is Creature:
+			child.position.x = clamp(child.position.x, xLeft, xRight)
+			child.position.y = clamp(child.position.y, yTop, yBottom)
 
 
 func _on_candle_light_off() -> void:

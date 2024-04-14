@@ -16,13 +16,13 @@ var _stack_step_value : int
 var remaining_lifetime := 100.0
 
 #Factor to increase or decrease speed at which candle burns down
-var _speed_factor := 1
+var _speed_factor := 1.0
 
 var _candle_stack := []
 
 
 func _ready():
-	_stack_step_value = total_lifetime / 10.0
+	_stack_step_value = int(total_lifetime / 10.0)
 	for i in range(11):
 		_candle_stack.push_back(get_node("Candle" + str(i)))
 
@@ -44,7 +44,7 @@ func set_speed_factor(speed_factor: int):
 
 
 func set_life(delta_life: int):
-	remaining_lifetime += delta_life
+	remaining_lifetime = min(remaining_lifetime + delta_life, total_lifetime)
 	lighted = remaining_lifetime > 0
 	# Will see...
 	#if remaining_lifetime > total_lifetime:
@@ -55,7 +55,9 @@ func set_life(delta_life: int):
 func get_index_by_lifetime() -> int:
 	if remaining_lifetime == 0:
 		return 0
-	return (remaining_lifetime / _stack_step_value) + 1
+	elif remaining_lifetime == total_lifetime:
+		return 10
+	return int(remaining_lifetime / _stack_step_value) + 1
 
 
 func display_candle_index(index : int) -> void:
