@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb6cquw80yv3q"]
 
 [ext_resource type="Texture2D" uid="uid://gy5cusy8ruik" path="res://assets/graphics/creatures/cat_food.png" id="1_5m4ed"]
-[ext_resource type="Script" path="res://scripts/creatures/cat_food.gd" id="1_domi3"]
+[ext_resource type="Script" path="res://scripts/items/cat_food.gd" id="1_domi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrrud"]
 size = Vector2(82.6137, 62.4472)

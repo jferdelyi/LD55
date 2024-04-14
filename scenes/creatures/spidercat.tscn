@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://biheasbsm13k8"]
+[gd_scene load_steps=4 format=3 uid="uid://biheasbsm13k8"]
 
-[ext_resource type="Script" path="res://scripts/creatures/spidercat.gd" id="1_1hqp0"]
+[ext_resource type="Script" path="res://scripts/creature.gd" id="1_a73ew"]
 [ext_resource type="Texture2D" uid="uid://btwbv7cmrr74f" path="res://assets/graphics/creatures/spidercat.png" id="2_romvq"]
 
-[node name="Spidercat" type="Node2D"]
-script = ExtResource("1_1hqp0")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s07qg"]
+size = Vector2(69.601, 79.4082)
 
-[node name="Spidercat" type="Sprite2D" parent="."]
+[node name="Spidercat" type="Node2D"]
+script = ExtResource("1_a73ew")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9.5, 1)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_s07qg")
+
+[node name="Spidercat" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_romvq")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
