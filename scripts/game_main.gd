@@ -9,6 +9,7 @@ extends Node2D
 @onready var _spider_mouse := $SpiderMouse
 @onready var _demon := $Demon
 @onready var _audio_player := $AudioStreamPlayer
+@onready var _candle := $Candle
 
 
 func _ready():
@@ -34,6 +35,13 @@ func _ready():
 func _on_shelf_item_used(item: Variant) -> void:
 	if item is CatFood:
 		_pentagram.spawn_summons(Global.summons.Cat, 1)
+	if item is SpiderFood:
+		_pentagram.spawn_summons(Global.summons.Spider, 1)
+	if item is MouseFood:
+		_pentagram.spawn_summons(Global.summons.Mouse, 1)
+	if item is Candle:
+		_candle.set_life(Global.CandleLife)
+
 
 func _on_pop_menu_item_selected(item: Variant) -> void:
 	_shelf.add_item(item)

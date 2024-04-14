@@ -13,7 +13,7 @@ var _last_index := 10
 var _stack_step_value : int
  
 #total life in seconds remaining before burning out completely
-var remaining_lifetime := 80.0
+var remaining_lifetime := 100.0
 
 #Factor to increase or decrease speed at which candle burns down
 var _speed_factor := 0
