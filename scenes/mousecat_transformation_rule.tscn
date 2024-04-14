@@ -17,6 +17,7 @@ offset_bottom = 274.0
 script = ExtResource("1_3ninx")
 
 [node name="background" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 182.0
 offset_bottom = 39.0
 color = Color(0.294118, 0.270588, 1, 1)
