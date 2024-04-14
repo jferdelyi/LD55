@@ -12,7 +12,7 @@ extends Node2D
 
 @export var min_x_ratio = 0.1
 @export var max_x_ratio = 0.9
-@export var min_y_ratio = 0.0
+@export var min_y_ratio = 0.25
 @export var max_y_ratio = 1.0
 
 
@@ -57,10 +57,15 @@ func check_creatures_position():
 	var xRight = x0 + max_x_ratio * w
 	var yBottom = y0 + (1 - min_y_ratio) * h
 	var yTop = y0 + (1 - max_y_ratio) * h
+	const min_scale = 0.5
 	for child in _pentagram.get_children():
 		if child is Creature:
 			child.position.x = clamp(child.position.x, xLeft, xRight)
 			child.position.y = clamp(child.position.y, yTop, yBottom)
+			child.z_index = _background.z_index + position.y
+			var yPos = (child.position.y - yTop) / (yBottom - yTop) 
+			print(yPos)
+			child.scale = Vector2(1,1) * (min_scale + (1. - min_scale) * yPos)
 
 
 func _on_candle_light_off() -> void:
