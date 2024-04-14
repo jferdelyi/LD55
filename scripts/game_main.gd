@@ -62,7 +62,7 @@ func check_creatures_position():
 		if child is Creature:
 			child.position.x = clamp(child.position.x, xLeft, xRight)
 			child.position.y = clamp(child.position.y, yTop, yBottom)
-			child.z_index = _background.z_index + position.y
+			child.z_index = _background.z_index + _shelf.z_index + _tomb.z_index + position.y
 			var yPos = (child.position.y - yTop) / (yBottom - yTop) 
 			print(yPos)
 			child.scale = Vector2(1,1) * (min_scale + (1. - min_scale) * yPos)
