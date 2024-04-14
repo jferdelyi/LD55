@@ -8,7 +8,7 @@ extends Node2D
 @onready var _mouse_cat := $MouseCat
 @onready var _spider_mouse := $SpiderMouse
 @onready var _demon := $Demon
-#@onready var _audio_player := $AudioStreamPlayer
+@onready var _audio_player := $AudioStreamPlayer
 
 
 func _ready():
@@ -42,3 +42,7 @@ func _on_pop_menu_item_selected(item: Variant) -> void:
 func _on_candle_light_off() -> void:
 	# GAME OVER
 	get_tree().change_scene_to_file("res://scenes/game_main.tscn")
+
+
+func _on_audio_stream_player_finished() -> void:
+	_audio_player.play()
