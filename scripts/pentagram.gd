@@ -24,6 +24,7 @@ func _ready():
 	spawn_summons(Global.summons.Cat, 2)
 	spawn_summons(Global.summons.Spider, 2)
 	spawn_summons(Global.summons.Mouse, 3)
+	spawn_summons(Global.summons.Demon, 1)
 	check_chimera_availability()
 	
 # Spawn a given numbers of summons of selected type
@@ -42,11 +43,11 @@ func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
 		#var _width : int = _background_sprite.texture.get_width()
 		#var _height : int = _background_sprite.texture.get_height()
 			
-		new_summon.position.x = randi_range(0, _x)
-		new_summon.position.y = randi_range(0, _y)
+		new_summon.position.x = randi_range(-int(_x/2), int(_x/2))
+		new_summon.position.y = randi_range(-int(_y/2), int(_y/2))
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
-		print("Grrr")	
+		print("Grrr")
 
 
 # Spawn one summon of a given type
