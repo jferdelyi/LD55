@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq76rvsprdju4"]
+
+[ext_resource type="Script" path="res://scripts/creatures/mouse_food.gd" id="1_kanex"]
+[ext_resource type="Texture2D" uid="uid://dee3kc0x2fgbw" path="res://assets/graphics/creatures/mouse_food.png" id="2_edihq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gu4r"]
+size = Vector2(98.9066, 86.4982)
+
+[node name="MouseFood" type="Node2D"]
+script = ExtResource("1_kanex")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.49999, -1.5)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_0gu4r")
+
+[node name="MouseFood" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_edihq")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

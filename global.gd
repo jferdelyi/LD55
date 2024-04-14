@@ -5,9 +5,10 @@ signal timeout
 const TIME_PERIOD = 1 # 1s
 
 var time = 0
+var CandleLife := 10
 
 enum summons {Cat, Spider, Mouse, SpiderCat, CatMouse, MouseSpider, Demon}
-enum Items {CatFood, SpiderFood, MouseFood, SacrificialDagger, Candel}
+enum Items {CatFood, SpiderFood, MouseFood, Candel, SacrificialDagger}
 
 
 var summons_requirements = {}

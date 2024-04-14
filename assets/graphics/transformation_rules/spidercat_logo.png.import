@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7k5nr8g8d4c7"
-path="res://.godot/imported/spidermouse.png-01ba8a17e5fbe5ce147016158f5dd116.ctex"
+uid="uid://b6et4o8d60lj2"
+path="res://.godot/imported/spidercat_logo.png-4fea9151d63d119eac170b31ba19ca47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/transformation_rules/spidermouse.png"
-dest_files=["res://.godot/imported/spidermouse.png-01ba8a17e5fbe5ce147016158f5dd116.ctex"]
+source_file="res://assets/graphics/transformation_rules/spidercat_logo.png"
+dest_files=["res://.godot/imported/spidercat_logo.png-4fea9151d63d119eac170b31ba19ca47.ctex"]
 
 [params]
 
