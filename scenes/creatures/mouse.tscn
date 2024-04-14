@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://day0brqdqiqhi"]
+[gd_scene load_steps=3 format=3 uid="uid://day0brqdqiqhi"]
+
+[ext_resource type="Script" path="res://scripts/creatures/mouse.gd" id="1_v07cs"]
+[ext_resource type="Texture2D" uid="uid://djkn7v6fweqfo" path="res://assets/graphics/creatures/mouse.png" id="2_emu3e"]
 
 [node name="Mouse" type="Node2D"]
+script = ExtResource("1_v07cs")
+
+[node name="Mouse" type="Sprite2D" parent="."]
+texture = ExtResource("2_emu3e")

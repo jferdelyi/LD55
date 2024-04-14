@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://b4xyrsqgjocyd"]
+[gd_scene load_steps=3 format=3 uid="uid://b4xyrsqgjocyd"]
+
+[ext_resource type="Script" path="res://scripts/creatures/demon.gd" id="1_01bky"]
+[ext_resource type="Texture2D" uid="uid://b0ws6xss631ww" path="res://assets/graphics/creatures/demon.png" id="2_jsdbr"]
 
 [node name="Demon" type="Node2D"]
+script = ExtResource("1_01bky")
+
+[node name="Demon" type="Sprite2D" parent="."]
+texture = ExtResource("2_jsdbr")

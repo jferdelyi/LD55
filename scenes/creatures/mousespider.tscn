@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://cjtvjl40ysbde"]
+[gd_scene load_steps=3 format=3 uid="uid://cjtvjl40ysbde"]
+
+[ext_resource type="Script" path="res://scripts/creatures/mousespider.gd" id="1_6htpx"]
+[ext_resource type="Texture2D" uid="uid://lv405y1aqkeo" path="res://assets/graphics/creatures/mousespider.png" id="2_4o5et"]
 
 [node name="Mousespider" type="Node2D"]
+script = ExtResource("1_6htpx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4o5et")
