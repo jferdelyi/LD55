@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://dn82hd5cpspab"]
+[gd_scene load_steps=4 format=3 uid="uid://cinapk0rkrie5"]
+
+[ext_resource type="Texture2D" uid="uid://ckbpyah3g3fbb" path="res://assets/graphics/creatures/spider_food.png" id="1_lis71"]
+[ext_resource type="Script" path="res://scripts/creatures/spider_food.gd" id="1_slebs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gu4r"]
+size = Vector2(91.9812, 123.366)
 
 [node name="SpiderFood" type="Node2D"]
+script = ExtResource("1_slebs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.3358, -0.5)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_0gu4r")
+
+[node name="SpiderFood" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_lis71")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
