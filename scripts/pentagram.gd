@@ -10,6 +10,7 @@ extends Node
 @onready var _demon_class := preload("res://scenes/creatures/demon.tscn")
 
 @onready var _background_sprite := $Background
+@onready var _pentagram_area := $Area2D/CollisionShape2D
 
 var summons_container = {}
 
@@ -34,11 +35,14 @@ func spawn_summons(type : Global.summons, count : int) -> bool:
 	return ret
 		
 func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
-		var _width : int = _background_sprite.texture.get_width()
-		var _height : int = _background_sprite.texture.get_height()
+		var _x : int = _pentagram_area.shape.size.x
+		var _y : int = _pentagram_area.shape.size.y
+		
+		#var _width : int = _background_sprite.texture.get_width()
+		#var _height : int = _background_sprite.texture.get_height()
 			
-		new_summon.position.x = randi_range(-int(_width/2.0), int(_width/2.0))
-		new_summon.position.y = randi_range(-int(_height/2.0), int(_height/2.0))
+		new_summon.position.x = randi_range(0, _x)
+		new_summon.position.y = randi_range(0, _y)
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
 		print("Grrr")	
