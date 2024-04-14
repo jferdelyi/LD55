@@ -18,17 +18,19 @@ signal chimera_available
 signal chimera_updated
 
 func _ready():
-	#TODO : doute ici sur le .values() du enum...
 	for type in Global.summons.values():
 		summons_container[type] = []
-	spawn_summons(Global.summons.Cat, 1)
-	spawn_summons(Global.summons.Spider, 1)
-	spawn_summons(Global.summons.Mouse, 0)
-	spawn_summons(Global.summons.Demon, 0)
+	#spawn_summons(Global.summons.Cat, 6)
+	#spawn_summons(Global.summons.Spider, 6)
+	#spawn_summons(Global.summons.Mouse, 6)
+	#spawn_summons(Global.summons.Demon, 0)
 	check_chimera_availability()
 	
 func _process(_delta):
 	check_chimera_availability()
+	chimera_updated.emit(Global.summons.Spider, get_number_of_summons_inside_circle(Global.summons.Spider))
+	chimera_updated.emit(Global.summons.Cat, get_number_of_summons_inside_circle(Global.summons.Cat))
+	chimera_updated.emit(Global.summons.Mouse, get_number_of_summons_inside_circle(Global.summons.Mouse))
 	chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons_inside_circle(Global.summons.SpiderCat))
 	chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons_inside_circle(Global.summons.CatMouse))
 	chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons_inside_circle(Global.summons.MouseSpider))
@@ -151,6 +153,7 @@ func is_inside_pentagram(creature) -> bool:
 	# (x - h)² / a² + (y - k)² / b² <= 1
 	const margin := 1.25
 	var is_inside = (x * x) / (w * w) + (y * y) / (h * h) <= (1 * margin)
+	creature.is_available_for_summon = is_inside
 	return is_inside
 	
 	#Returns the number of summons of a given type

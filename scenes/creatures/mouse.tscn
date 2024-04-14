@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl8ijcq2y4jb4"]
+[gd_scene load_steps=5 format=3 uid="uid://dl8ijcq2y4jb4"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_6bvbs"]
+[ext_resource type="PackedScene" uid="uid://cqmi5tn4b7vqd" path="res://scenes/creatures/glow.tscn" id="2_5akco"]
 [ext_resource type="Texture2D" uid="uid://nkbl48qbvks" path="res://assets/graphics/creatures/mouse.png" id="2_emu3e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0eqe"]
@@ -8,6 +9,8 @@ size = Vector2(69.601, 79.4082)
 
 [node name="Mouse" type="Node2D"]
 script = ExtResource("1_6bvbs")
+
+[node name="Glow" parent="." instance=ExtResource("2_5akco")]
 
 [node name="Area2D" type="Area2D" parent="."]
 
