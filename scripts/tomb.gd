@@ -17,7 +17,6 @@ func setValues(SpiderForSpiderCat, CatForSpiderCat, MouseForCatMouse, CatForCatM
 	$nb_spider_for_spidermouse.text = str(SpiderForMouseSpider)
 	
 func spawnTransformation(type):
-	print("transform")
 	match type:
 		Global.summons.CatMouse:
 			summon_creature.emit(Global.summons.CatMouse, 1);

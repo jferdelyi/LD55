@@ -189,7 +189,6 @@ func check_one_chimera_availability(chimera):
 
 func create_chimera(_type : Global.summons, _count : int) -> bool:
 	var ret = true
-	print("create chimera")
 	for i in range(_count):
 		if (check_one_chimera_availability(_type)):
 			ret = ret and _spawn_one_summon(_type)

@@ -24,21 +24,21 @@ func get_requirements_for_with(summoned : Global.summons, summoner : Global.summ
 func _ready():
 	
 	var required_for_spider_cat = {}
-	required_for_spider_cat[Global.summons.Spider] = 1
-	required_for_spider_cat[Global.summons.Cat] = 1
+	required_for_spider_cat[Global.summons.Spider] = randi_range(1,3)
+	required_for_spider_cat[Global.summons.Cat] = randi_range(1,3)
 
 	var required_for_mouse_spider = {}
-	required_for_mouse_spider[Global.summons.Spider] = 1
-	required_for_mouse_spider[Global.summons.Mouse] = 1
+	required_for_mouse_spider[Global.summons.Spider] = randi_range(1,3)
+	required_for_mouse_spider[Global.summons.Mouse] = randi_range(1,3)
 	
 	var required_for_cat_mouse = {}
-	required_for_cat_mouse[Global.summons.Mouse] = 1
-	required_for_cat_mouse[Global.summons.Cat] = 1
+	required_for_cat_mouse[Global.summons.Mouse] = randi_range(1,3)
+	required_for_cat_mouse[Global.summons.Cat] = randi_range(1,3)
 	
 	var required_for_demon = {}
-	required_for_demon[Global.summons.CatMouse] = 1
-	required_for_demon[Global.summons.SpiderCat] = 1
-	required_for_demon[Global.summons.MouseSpider] = 1
+	required_for_demon[Global.summons.CatMouse] = randi_range(1,3)
+	required_for_demon[Global.summons.SpiderCat] = randi_range(1,3)
+	required_for_demon[Global.summons.MouseSpider] = randi_range(1,3)
 	
 	summons_requirements[Global.summons.SpiderCat] = required_for_spider_cat
 	summons_requirements[Global.summons.CatMouse] = required_for_cat_mouse

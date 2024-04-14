@@ -1,10 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj7uap8st2lnq"]
+[gd_scene load_steps=7 format=3 uid="uid://c08wtep3fhonw"]
 
-[ext_resource type="Script" path="res://scripts/mousecat_rules.gd" id="1_3ninx"]
 [ext_resource type="Texture2D" uid="uid://nkbl48qbvks" path="res://assets/graphics/creatures/mouse.png" id="2_qcf3l"]
 [ext_resource type="Texture2D" uid="uid://k15rihiwtid3" path="res://assets/graphics/creatures/cat.png" id="3_qucc0"]
 [ext_resource type="Texture2D" uid="uid://or467j6l48mo" path="res://assets/graphics/transformation_rules/mousecat.PNG" id="4_mnih1"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="6_3foq0"]
+
+[sub_resource type="GDScript" id="GDScript_aaafp"]
+script/source = "extends Node
+
+var upgradeAvailable := false
+
+signal summon_creature;
+
+func _ready():
+	$upgrade.transform.connect(spawnTransformation)
+	
+func _process(_delta):
+	if upgradeAvailable:
+		$Alarm.show()
+		$Alarm.color = Color(255, 0, 0, sin(PI*Global.time))
+		$upgrade.show()
+	else:
+		$Alarm.hide()
+		$upgrade.hide()
+
+func setValues(mice, cats):
+	$nb_mouse.text = str(mice)
+	$nb_cat.text = str(cats)
+
+func spawnTransformation():
+	print(\"summon a mousecat\")
+	upgradeAvailable = false;
+	summon_creature.emit(Global.summons.CatMouse, 1);
+
+func update_upgradeAvailable(creature, isAvailable):
+	if (creature == Global.summons.CatMouse):
+		upgradeAvailable = isAvailable
+"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wkuii"]
 load_path = "res://.godot/imported/crystalball.PNG-dd769721f1dbc32b6f899ddb5bae5afb.ctex"
@@ -16,7 +48,7 @@ offset_left = 1.0
 offset_top = 229.0
 offset_right = 168.0
 offset_bottom = 274.0
-script = ExtResource("1_3ninx")
+script = SubResource("GDScript_aaafp")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0

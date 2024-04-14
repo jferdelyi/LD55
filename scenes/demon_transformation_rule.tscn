@@ -1,11 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgp8gqxcdjowe"]
+[gd_scene load_steps=8 format=3 uid="uid://cn8537gl2o3n8"]
 
-[ext_resource type="Script" path="res://scripts/demon_rules.gd" id="1_6tth1"]
 [ext_resource type="Texture2D" uid="uid://btwbv7cmrr74f" path="res://assets/graphics/creatures/spidercat.png" id="2_x1mfo"]
 [ext_resource type="Texture2D" uid="uid://71dx77hxvdll" path="res://assets/graphics/creatures/catmouse.png" id="3_grt0g"]
 [ext_resource type="Texture2D" uid="uid://bmemebffkunkh" path="res://assets/graphics/creatures/mousespider.png" id="4_r2ppu"]
 [ext_resource type="Texture2D" uid="uid://ch3kihqawlu8q" path="res://assets/graphics/creatures/demon.png" id="5_b8c2h"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="7_o77oy"]
+
+[sub_resource type="GDScript" id="GDScript_xuc8f"]
+script/source = "extends Node
+
+var upgradeAvailable := false
+
+signal summon_creature;
+
+func _ready():
+	$upgrade.transform.connect(spawnTransformation)
+	
+func _process(_delta):
+	if upgradeAvailable:
+		$Alarm.show()
+		$Alarm.color = Color(255, 0, 0, sin(PI*Global.time))
+		$upgrade.show()
+	else:
+		$Alarm.hide()
+		$upgrade.hide()
+		
+func setValues(spidercat, spidermouse, catmouse):
+	$nb_spidercat.text = str(spidercat)
+	$nb_spidermouse.text = str(spidermouse)
+	$nb_catmouse.text = str(catmouse)
+
+func spawnTransformation():
+	print(\"summon a demon\")
+	upgradeAvailable = false;
+	summon_creature.emit(Global.summons.Demon, 1);
+
+func update_upgradeAvailable(creature, isAvailable):
+	if (creature == Global.summons.Demon):
+		upgradeAvailable = isAvailable
+"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wkuii"]
 load_path = "res://.godot/imported/crystalball.PNG-dd769721f1dbc32b6f899ddb5bae5afb.ctex"
@@ -17,7 +50,7 @@ offset_left = 1.0
 offset_top = 190.0
 offset_right = 273.0
 offset_bottom = 235.0
-script = ExtResource("1_6tth1")
+script = SubResource("GDScript_xuc8f")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 0
