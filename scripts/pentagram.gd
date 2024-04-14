@@ -29,6 +29,11 @@ func _ready():
 	
 func _process(delta):
 	check_chimera_availability()
+	chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons_inside_circle(Global.summons.SpiderCat))
+	chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons_inside_circle(Global.summons.CatMouse))
+	chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons_inside_circle(Global.summons.MouseSpider))
+	chimera_updated.emit(Global.summons.Demon, get_number_of_summons_inside_circle(Global.summons.Demon))
+	
 	
 # Spawn a given numbers of summons of selected type
 # Returns true if successful
@@ -72,22 +77,18 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 		Global.summons.SpiderCat:
 			var new_summon = _spidercat_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
-			chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons(Global.summons.SpiderCat))
 			return true
 		Global.summons.CatMouse:
 			var new_summon = _catmouse_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
-			chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons(Global.summons.CatMouse))
 			return true
 		Global.summons.MouseSpider:
 			var new_summon = _mousespider_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
-			chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons(Global.summons.MouseSpider))
 			return true
 		Global.summons.Demon:
 			var new_summon = _demon_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
-			chimera_updated.emit(Global.summons.Demon, get_number_of_summons(Global.summons.Demon))
 			return true
 	return false
 
@@ -125,22 +126,7 @@ func _destroy_one_summon(type, inside_circle : bool) -> bool:
 			to_kill = summons_container[Global.summons.Demon]
 	if to_kill and to_kill.size() > 0:		
 		if remove_first_creature_inside_circle(to_kill):
-			#send signals that chimera numbers have been updated
-			match type:
-				Global.summons.SpiderCat:
-					chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons(Global.summons.SpiderCat))
-					return true
-				Global.summons.CatMouse:
-					chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons(Global.summons.CatMouse))
-					return true
-				Global.summons.MouseSpider:
-					chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons(Global.summons.MouseSpider))
-					return true
-				Global.summons.Demon:
-					chimera_updated.emit(Global.summons.Demon, get_number_of_summons(Global.summons.Demon))
-					return true
 			return true
-	print("not ded")
 	return false
 	
 func remove_first_creature_inside_circle(array) -> bool:
