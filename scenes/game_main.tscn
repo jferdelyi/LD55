@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=15 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bchr8l2rajdct" path="res://assets/graphics/game_background.png" id="12_tpos4"]
 [ext_resource type="PackedScene" uid="uid://db51elrakpax2" path="res://scenes/candle_eleven_steps.tscn" id="13_a1mmd"]
 [ext_resource type="PackedScene" uid="uid://ddghk3giom1tl" path="res://scenes/shelf/shelf.tscn" id="13_k7g2i"]
+[ext_resource type="PackedScene" uid="uid://d32dil0ews0um" path="res://scenes/tomb.tscn" id="14_0aq7h"]
 
 [node name="GameMain" type="Node2D"]
 script = ExtResource("1_67dqo")
@@ -52,6 +53,7 @@ offset_bottom = 28.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 
 [node name="SpiderCat" parent="." instance=ExtResource("4_l0rkb")]
+visible = false
 z_index = 100
 offset_left = 0.0
 offset_top = 178.0
@@ -59,16 +61,19 @@ offset_right = 264.0
 offset_bottom = 223.0
 
 [node name="MouseCat" parent="." instance=ExtResource("5_c3b06")]
+visible = false
 z_index = 100
 offset_right = 263.0
 
 [node name="SpiderMouse" parent="." instance=ExtResource("6_1rbn5")]
+visible = false
 z_index = 100
 offset_left = 2.0
 offset_top = 283.0
 offset_bottom = 331.0
 
 [node name="Demon" parent="." instance=ExtResource("10_83uxf")]
+visible = false
 z_index = 100
 offset_left = 0.0
 offset_top = 335.0
@@ -80,6 +85,8 @@ position = Vector2(671, 607)
 
 [node name="Candle" parent="." instance=ExtResource("13_a1mmd")]
 position = Vector2(102, 614)
+
+[node name="Tomb" parent="." instance=ExtResource("14_0aq7h")]
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
