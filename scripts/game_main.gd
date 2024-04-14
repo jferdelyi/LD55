@@ -65,7 +65,6 @@ func check_creatures_position():
 	var xRight = x0 + max_x_ratio * w
 	var yBottom = y0 + (1 - min_y_ratio) * h
 	var yTop = y0 + (1 - max_y_ratio) * h
-	print("y0=" + str(y0) + " h =" + str(h) + "Top = " + str(yTop) + " bottom = " + str(yBottom))
 	for child in _pentagram.get_children():
 		if child is Creature:
 			child.position.x = clamp(child.position.x, xLeft, xRight)

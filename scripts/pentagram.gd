@@ -55,7 +55,6 @@ func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
 		new_summon.position.y = randi_range(-int(_y/2.0), int(_y/2.0))
 		summons_container[type].append(new_summon)
 		add_child(new_summon)
-		print("Grrr")
 
 
 # Spawn one summon of a given type
@@ -134,7 +133,6 @@ func remove_first_creature_inside_circle(array) -> bool:
 		if is_inside_pentagram(creature):
 			remove_child(creature)
 			array.erase(creature)
-			print("Ded")
 			return true			
 	return false
 
