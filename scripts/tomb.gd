@@ -27,12 +27,22 @@ func spawnTransformation(type):
 		Global.summons.Demon:
 			summon_creature.emit(Global.summons.Demon, 1);
 
-func update_upgradeAvailable(creature, isAvailable):
+func update_upgradeAvailable(creature, creatureAvailable):
 	if (creature == Global.summons.SpiderCat):
-		$upgradeSpiderCat.set_visible(isAvailable)
+		$upgradeSpiderCat.set_visible(creatureAvailable[Global.summons.SpiderCat])
+		$glowSpiderCat.set_visible(creatureAvailable[Global.summons.SpiderCat])
+		$glowSpider_SpiderCat.set_visible(creatureAvailable[Global.summons.Spider])
+		$glowCat_SpiderCat.set_visible(creatureAvailable[Global.summons.Cat])
 	elif (creature == Global.summons.MouseSpider):
-		$upgradeSpiderMouse.set_visible(isAvailable)
+		$upgradeSpiderMouse.set_visible(creatureAvailable[Global.summons.MouseSpider])
+		$glowSpiderMouse.set_visible(creatureAvailable[Global.summons.MouseSpider])
+		$glowSpider_SpiderMouse.set_visible(creatureAvailable[Global.summons.Spider])
+		$glowMouse_SpiderMouse.set_visible(creatureAvailable[Global.summons.Mouse])
 	elif (creature == Global.summons.CatMouse):
-		$upgradeCatMouse.set_visible(isAvailable)
+		$upgradeCatMouse.set_visible(creatureAvailable[Global.summons.CatMouse])
+		$glowCatMouse.set_visible(creatureAvailable[Global.summons.CatMouse])
+		$glowMouse_CatMouse.set_visible(creatureAvailable[Global.summons.Mouse])
+		$glowCat_CatMouse.set_visible(creatureAvailable[Global.summons.Cat])
 	elif (creature == Global.summons.Demon):
-		$upgradeDemon.set_visible(isAvailable)
+		$upgradeDemon.set_visible(creatureAvailable[Global.summons.Demon])
+		$glowDemon.set_visible(creatureAvailable[Global.summons.Demon])

@@ -184,11 +184,14 @@ func check_chimera_availability():
 		
 func check_one_chimera_availability(chimera):
 	var is_available = true
+	var creatures_available = {}
 	for creature in Global.summons_requirements[chimera].keys():	
 		var count = get_number_of_summons_inside_circle(creature)
 		var enough_creature = count >= Global.summons_requirements[chimera][creature]
 		is_available = is_available and enough_creature
-	return is_available
+		creatures_available[creature] = enough_creature
+	creatures_available[chimera] = is_available
+	return creatures_available
 
 func create_chimera(_type : Global.summons, _count : int) -> bool:
 	var ret = true

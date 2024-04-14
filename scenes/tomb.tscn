@@ -67,51 +67,117 @@ offset_right = -31.0
 offset_bottom = 115.0
 text = "1"
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="glowCatMouse" type="PointLight2D" parent="."]
 position = Vector2(98, -39)
 color = Color(1, 0.368627, 0.101961, 1)
 energy = 1.44
 texture = SubResource("GradientTexture2D_jpdan")
 
-[node name="upgradeCatMouse" type="TextureButton" parent="."]
+[node name="catmouse" type="Sprite2D" parent="."]
+position = Vector2(103, -38)
+texture = ExtResource("4_fhbu1")
+
+[node name="upgradeCatMouse" type="Button" parent="."]
 offset_left = 78.0
 offset_top = -63.0
 offset_right = 365.0
 offset_bottom = 257.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("4_fhbu1")
-stretch_mode = 0
+flat = true
 script = ExtResource("7_tlj06")
 
-[node name="upgradeSpiderMouse" type="TextureButton" parent="."]
+[node name="glowSpiderMouse" type="PointLight2D" parent="."]
+position = Vector2(96, 31)
+color = Color(1, 0.368627, 0.101961, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="spidermouse" type="Sprite2D" parent="."]
+position = Vector2(99, 31)
+texture = ExtResource("7_7m0in")
+
+[node name="upgradeSpiderMouse" type="Button" parent="."]
 offset_left = 73.0
 offset_top = 9.0
 offset_right = 374.0
 offset_bottom = 293.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("7_7m0in")
-stretch_mode = 0
+flat = true
 script = ExtResource("7_tlj06")
 
-[node name="upgradeSpiderCat" type="TextureButton" parent="."]
+[node name="glowSpiderCat" type="PointLight2D" parent="."]
+position = Vector2(90, 98)
+color = Color(1, 0.368627, 0.101961, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="spidercat" type="Sprite2D" parent="."]
+position = Vector2(93, 95)
+texture = ExtResource("9_jmlcl")
+
+[node name="upgradeSpiderCat" type="Button" parent="."]
 offset_left = 67.0
 offset_top = 74.0
 offset_right = 368.0
 offset_bottom = 358.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("9_jmlcl")
-stretch_mode = 0
+flat = true
 script = ExtResource("7_tlj06")
 
-[node name="upgradeDemon" type="TextureButton" parent="."]
+[node name="glowDemon" type="PointLight2D" parent="."]
+position = Vector2(88, 147)
+color = Color(0.721569, 0, 1, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="demon" type="Sprite2D" parent="."]
+position = Vector2(91, 142)
+texture = ExtResource("11_bh3y2")
+
+[node name="upgradeDemon" type="Button" parent="."]
 offset_left = 67.0
 offset_top = 124.0
 offset_right = 360.0
 offset_bottom = 424.0
 scale = Vector2(0.15, 0.15)
-texture_normal = ExtResource("11_bh3y2")
-stretch_mode = 0
+flat = true
 script = ExtResource("7_tlj06")
+
+[node name="glowCat_CatMouse" type="PointLight2D" parent="."]
+position = Vector2(-87, -42)
+color = Color(0.282353, 0.686275, 0.592157, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="glowMouse_CatMouse" type="PointLight2D" parent="."]
+position = Vector2(-6, -39)
+color = Color(0.282353, 0.686275, 0.592157, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="glowMouse_SpiderMouse" type="PointLight2D" parent="."]
+position = Vector2(-94, 24)
+color = Color(0.282353, 0.686275, 0.592157, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="glowSpider_SpiderMouse" type="PointLight2D" parent="."]
+position = Vector2(-15, 26)
+color = Color(0.282353, 0.686275, 0.592157, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="glowSpider_SpiderCat" type="PointLight2D" parent="."]
+position = Vector2(-96, 108)
+color = Color(0.282353, 0.686275, 0.592157, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
+
+[node name="glowCat_SpiderCat" type="PointLight2D" parent="."]
+position = Vector2(-12, 108)
+color = Color(0.282353, 0.686275, 0.592157, 1)
+energy = 1.44
+texture = SubResource("GradientTexture2D_jpdan")
 
 [connection signal="pressed" from="upgradeCatMouse" to="upgradeCatMouse" method="_button_pressed"]
 [connection signal="pressed" from="upgradeSpiderMouse" to="upgradeSpiderMouse" method="_button_pressed"]

@@ -38,7 +38,8 @@ func start():
 
 # Update score
 func _update():
-	score += (nb_cat + nb_mouse + nb_spider) * coeff_simple_creature;
+	#j'aimerais ne compter que les chimères 
+	#score += (nb_cat + nb_mouse + nb_spider) * coeff_simple_creature;
 	score += (nb_spidermouse + nb_spidercat + nb_catmouse) * coeff_chimere;
 	score += nb_demon * coeff_demon;
 	$ScoreImage/ScoreLabel.text = "Score : " + str(score);
