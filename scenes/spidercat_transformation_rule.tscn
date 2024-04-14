@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr0auy0meoyh0"]
+[gd_scene load_steps=7 format=3 uid="uid://cr1ac8op7opbo"]
 
 [ext_resource type="Script" path="res://scripts/spidercat_rules.gd" id="1_do418"]
 [ext_resource type="Texture2D" uid="uid://cms7ilsefhxsy" path="res://assets/graphics/creatures/spider.png" id="2_15cg1"]

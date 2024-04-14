@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb187sl6tnaof"]
+[gd_scene load_steps=8 format=3 uid="uid://bgp8gqxcdjowe"]
 
 [ext_resource type="Script" path="res://scripts/demon_rules.gd" id="1_6tth1"]
 [ext_resource type="Texture2D" uid="uid://btwbv7cmrr74f" path="res://assets/graphics/creatures/spidercat.png" id="2_x1mfo"]

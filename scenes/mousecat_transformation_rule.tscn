@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wp888hox0y4s"]
+[gd_scene load_steps=7 format=3 uid="uid://dj7uap8st2lnq"]
 
 [ext_resource type="Script" path="res://scripts/mousecat_rules.gd" id="1_3ninx"]
 [ext_resource type="Texture2D" uid="uid://nkbl48qbvks" path="res://assets/graphics/creatures/mouse.png" id="2_qcf3l"]
