@@ -28,6 +28,9 @@ func _ready():
 	
 func _process(_delta):
 	check_chimera_availability()
+	chimera_updated.emit(Global.summons.Spider, get_number_of_summons_inside_circle(Global.summons.Spider))
+	chimera_updated.emit(Global.summons.Cat, get_number_of_summons_inside_circle(Global.summons.Cat))
+	chimera_updated.emit(Global.summons.Mouse, get_number_of_summons_inside_circle(Global.summons.Mouse))
 	chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons_inside_circle(Global.summons.SpiderCat))
 	chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons_inside_circle(Global.summons.CatMouse))
 	chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons_inside_circle(Global.summons.MouseSpider))
