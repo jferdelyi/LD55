@@ -15,13 +15,14 @@ extends Node
 var summons_container = {}
 
 signal chimera_available
+signal chimera_updated
 
 func _ready():
 	#TODO : doute ici sur le .values() du enum...
 	for type in Global.summons.values():
 		summons_container[type] = []
 	spawn_summons(Global.summons.Cat, 2)
-	spawn_summons(Global.summons.Spider, 1)
+	spawn_summons(Global.summons.Spider, 2)
 	spawn_summons(Global.summons.Mouse, 3)
 	check_chimera_availability()
 	
@@ -67,18 +68,22 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 		Global.summons.SpiderCat:
 			var new_summon = _spidercat_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
+			chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons(Global.summons.SpiderCat))
 			return true
 		Global.summons.CatMouse:
 			var new_summon = _catmouse_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
+			chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons(Global.summons.CatMouse))
 			return true
 		Global.summons.MouseSpider:
 			var new_summon = _mousespider_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
+			chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons(Global.summons.MouseSpider))
 			return true
 		Global.summons.Demon:
 			var new_summon = _demon_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
+			chimera_updated.emit(Global.summons.Demon, get_number_of_summons(Global.summons.Demon))
 			return true
 	return false
 
@@ -117,6 +122,20 @@ func _destroy_one_summon(type) -> bool:
 		remove_child(to_kill[0])
 		to_kill.erase(to_kill[0])
 		print("Ded")
+		#send signals that chimera numbers have been updated
+		match type:
+			Global.summons.SpiderCat:
+				chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons(Global.summons.SpiderCat))
+				return true
+			Global.summons.CatMouse:
+				chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons(Global.summons.CatMouse))
+				return true
+			Global.summons.MouseSpider:
+				chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons(Global.summons.MouseSpider))
+				return true
+			Global.summons.Demon:
+				chimera_updated.emit(Global.summons.Demon, get_number_of_summons(Global.summons.Demon))
+				return true
 		return true
 	print("not ded")
 	return false
@@ -135,7 +154,6 @@ func get_number_of_all_summons() -> int:
 	return ret
 	
 func check_chimera_availability():
-	#TODO : FIXME
 	for chimera in Global.summons_requirements.keys():
 		chimera_available.emit(chimera, check_one_chimera_availability(chimera))	
 		

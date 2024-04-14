@@ -9,16 +9,6 @@ var time = 0
 enum summons {Cat, Spider, Mouse, SpiderCat, CatMouse, MouseSpider, Demon}
 enum Items {CatFood, SpiderFood, MouseFood, SacrificialDagger, Candel}
 
-var nb_spiders;
-var nb_mice;
-var nb_cats;
-
-var nb_spider_cat;
-var nb_spider_mouse;
-var nb_cat_mouse;
-
-var nb_demons;
-
 
 var summons_requirements = {}
 
@@ -31,13 +21,6 @@ func get_requirements_for_with(summoned : Global.summons, summoner : Global.summ
 		
 
 func _ready():
-	nb_spiders = 0
-	nb_mice = 0
-	nb_cats = 0
-	nb_spider_cat = 0
-	nb_spider_mouse = 0
-	nb_cat_mouse = 0
-	nb_demons = 0
 	
 	var required_for_spider_cat = {}
 	required_for_spider_cat[Global.summons.Spider] = 1
@@ -48,8 +31,8 @@ func _ready():
 	required_for_mouse_spider[Global.summons.Mouse] = 1
 	
 	var required_for_cat_mouse = {}
-	required_for_cat_mouse[Global.summons.Mouse] = 0
-	required_for_cat_mouse[Global.summons.Cat] = 2
+	required_for_cat_mouse[Global.summons.Mouse] = 1
+	required_for_cat_mouse[Global.summons.Cat] = 1
 	
 	var required_for_demon = {}
 	required_for_demon[Global.summons.CatMouse] = 1

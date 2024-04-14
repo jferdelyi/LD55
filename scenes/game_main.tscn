@@ -74,5 +74,6 @@ autoplay = true
 [connection signal="chimera_available" from="Pentagram" to="MouseCat" method="update_upgradeAvailable"]
 [connection signal="chimera_available" from="Pentagram" to="SpiderMouse" method="update_upgradeAvailable"]
 [connection signal="chimera_available" from="Pentagram" to="Demon" method="update_upgradeAvailable"]
+[connection signal="chimera_updated" from="Pentagram" to="ScoreScene" method="_on_pentagram_chimera_updated"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
