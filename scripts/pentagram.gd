@@ -27,6 +27,9 @@ func _ready():
 	spawn_summons(Global.summons.Demon, 1)
 	check_chimera_availability()
 	
+func _process(delta):
+	check_chimera_availability()
+	
 # Spawn a given numbers of summons of selected type
 # Returns true if successful
 func spawn_summons(type : Global.summons, count : int) -> bool:
@@ -89,19 +92,20 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 	return false
 
 # Destroy a given number of summons of given type
+# if inside_circle is true, can destroy 
 # Returns true if successful
-func destroy_summons(type, count) -> bool:
+func destroy_summons(type, count, inside_circle : bool) -> bool:
 	var ret = true;
 	if get_number_of_summons(type) < count :
 		return false
 	for i in range(0, count):
-		ret = ret and _destroy_one_summon(type)
+		ret = ret and _destroy_one_summon(type, inside_circle)
 	check_chimera_availability()
 	return ret	
 
 # Destroy one summon of given type
 # Returns true if successful		
-func _destroy_one_summon(type) -> bool:
+func _destroy_one_summon(type, inside_circle : bool) -> bool:
 	#TODO : kill a random instead of oldest ?
 	var to_kill;
 	match type:
@@ -119,26 +123,33 @@ func _destroy_one_summon(type) -> bool:
 			to_kill = summons_container[Global.summons.MouseSpider]
 		Global.summons.Demon:
 			to_kill = summons_container[Global.summons.Demon]
-	if to_kill and to_kill.size() > 0:
-		remove_child(to_kill[0])
-		to_kill.erase(to_kill[0])
-		print("Ded")
-		#send signals that chimera numbers have been updated
-		match type:
-			Global.summons.SpiderCat:
-				chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons(Global.summons.SpiderCat))
-				return true
-			Global.summons.CatMouse:
-				chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons(Global.summons.CatMouse))
-				return true
-			Global.summons.MouseSpider:
-				chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons(Global.summons.MouseSpider))
-				return true
-			Global.summons.Demon:
-				chimera_updated.emit(Global.summons.Demon, get_number_of_summons(Global.summons.Demon))
-				return true
-		return true
+	if to_kill and to_kill.size() > 0:		
+		if remove_first_creature_inside_circle(to_kill):
+			#send signals that chimera numbers have been updated
+			match type:
+				Global.summons.SpiderCat:
+					chimera_updated.emit(Global.summons.SpiderCat, get_number_of_summons(Global.summons.SpiderCat))
+					return true
+				Global.summons.CatMouse:
+					chimera_updated.emit(Global.summons.CatMouse, get_number_of_summons(Global.summons.CatMouse))
+					return true
+				Global.summons.MouseSpider:
+					chimera_updated.emit(Global.summons.MouseSpider, get_number_of_summons(Global.summons.MouseSpider))
+					return true
+				Global.summons.Demon:
+					chimera_updated.emit(Global.summons.Demon, get_number_of_summons(Global.summons.Demon))
+					return true
+			return true
 	print("not ded")
+	return false
+	
+func remove_first_creature_inside_circle(array) -> bool:
+	for creature in array:
+		if is_inside_pentagram(creature):
+			remove_child(creature)
+			array.erase(creature)
+			print("Ded")
+			return true			
 	return false
 
 #Returns the number of summons of a given type
@@ -147,6 +158,25 @@ func get_number_of_summons(type) -> int:
 		return summons_container[type].size()
 	return 0
 	
+func is_inside_pentagram(creature) -> bool:
+	var w = 0.5 * _pentagram_area.shape.size.x
+	var h = 0.5 * _pentagram_area.shape.size.y
+	var x = creature.position.x
+	var y = creature.position.y
+	#Point (x,y) is inside ellipsoid of center (h,k) and semi-axis (a, b) if
+	# (x - h)² / a² + (y - k)² / b² <= 1
+	var is_inside = (x * x) / (w * w) + (y * y) / (h * h) <= 1
+	return is_inside
+	
+	#Returns the number of summons of a given type
+func get_number_of_summons_inside_circle(type) -> int:
+	var ret = 0
+	if (type in summons_container.keys()):
+		for creature in summons_container[type]:
+			if is_inside_pentagram(creature):
+				ret += 1
+	return ret
+	
 # Returns the total number of all summons
 func get_number_of_all_summons() -> int:
 	var ret := 0 
@@ -154,6 +184,12 @@ func get_number_of_all_summons() -> int:
 		ret += get_number_of_summons(type)
 	return ret
 	
+func get_number_of_all_summons_inside_circle() -> int:
+	var ret := 0 
+	for type in Global.summons:
+		ret += get_number_of_summons_inside_circle(type)
+	return ret
+		
 func check_chimera_availability():
 	for chimera in Global.summons_requirements.keys():
 		chimera_available.emit(chimera, check_one_chimera_availability(chimera))	
@@ -161,7 +197,7 @@ func check_chimera_availability():
 func check_one_chimera_availability(chimera):
 	var is_available = true
 	for creature in Global.summons_requirements[chimera].keys():	
-		var count = get_number_of_summons(creature)
+		var count = get_number_of_summons_inside_circle(creature)
 		var enough_creature = count >= Global.summons_requirements[chimera][creature]
 		is_available = is_available and enough_creature
 	return is_available
@@ -173,5 +209,5 @@ func create_chimera(_type : Global.summons, _count : int) -> bool:
 		if (check_one_chimera_availability(_type)):
 			ret = ret and _spawn_one_summon(_type)
 			for creature in Global.summons_requirements[_type].keys():	
-				ret = ret and destroy_summons(creature, Global.summons_requirements[_type][creature])
+				ret = ret and destroy_summons(creature, Global.summons_requirements[_type][creature], true)
 	return ret
