@@ -3,5 +3,5 @@
 Ludum Dare 55 theme: "Summoning"
 
 - itch.io link: [https://jferdelyi.itch.io/iceberg-panic](https://jferdelyi.itch.io/fiestadelasquimeras)
-- ldjam link: [https://jferdelyi.itch.io/fiestadelasquimeras](https://ldjam.com/events/ludum-dare/55/$383755)
+- ldjam link: [https://ldjam.com/events/ludum-dare/55/$383755](https://ldjam.com/events/ludum-dare/55/$383755)
 - tracks link: comming soon
