@@ -31,5 +31,7 @@ position = Vector2(8, 29)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v2gck")
 
+[node name="creatures" type="Node2D" parent="."]
+
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]

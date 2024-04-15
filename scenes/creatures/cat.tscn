@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci4584ro0tydd"]
+[gd_scene load_steps=6 format=3 uid="uid://ci4584ro0tydd"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_4p2up"]
 [ext_resource type="Texture2D" uid="uid://k15rihiwtid3" path="res://assets/graphics/creatures/cat.png" id="2_p8q2s"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="3_0nb74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybs0p"]
-size = Vector2(69.601, 79.4082)
+size = Vector2(68.3799, 77.9902)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e25ns"]
+size = Vector2(51.2849, 72.3182)
 
 [node name="Cat" type="Area2D"]
 collision_layer = 2
@@ -13,7 +16,7 @@ collision_mask = 2
 script = ExtResource("1_4p2up")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9.5, 5.96046e-08)
+position = Vector2(9, 0.500004)
 scale = Vector2(0.818954, 0.705217)
 shape = SubResource("RectangleShape2D_ybs0p")
 
@@ -24,11 +27,11 @@ energy = 1.0
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(9.5, 5.96046e-08)
+position = Vector2(5, 1.5)
 scale = Vector2(0.818954, 0.705217)
-shape = SubResource("RectangleShape2D_ybs0p")
+shape = SubResource("RectangleShape2D_e25ns")
 
-[node name="Cat" type="Sprite2D" parent="Area2D"]
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_p8q2s")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

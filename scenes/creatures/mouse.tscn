@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl8ijcq2y4jb4"]
+[gd_scene load_steps=6 format=3 uid="uid://dl8ijcq2y4jb4"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_6bvbs"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="2_5akco"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0eqe"]
 size = Vector2(116.002, 79.4082)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5g27"]
+size = Vector2(87.9172, 45.3761)
 
 [node name="Mouse" type="Area2D"]
 collision_layer = 2
@@ -23,11 +26,11 @@ scale = Vector2(1.84, 1)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.5, 1)
+position = Vector2(-10.0001, 5)
 scale = Vector2(0.818954, 0.705217)
-shape = SubResource("RectangleShape2D_l0eqe")
+shape = SubResource("RectangleShape2D_s5g27")
 
-[node name="Mouse" type="Sprite2D" parent="Area2D"]
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_emu3e")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

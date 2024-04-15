@@ -39,7 +39,7 @@ func _process(delta):
 		emit_signal("light_off")
 
 
-func set_speed_factor(speed_factor: int):
+func set_speed_factor(speed_factor: float):
 	_speed_factor = speed_factor
 
 

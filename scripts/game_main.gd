@@ -8,6 +8,11 @@ extends Node2D
 @onready var _background := $GameBackground
 @onready var _audio_player := $AudioStreamPlayer
 @onready var _candle := $Candle
+@onready var _final_score_label := $EndGame/ScorePanel/Label
+@onready var _end_game := $EndGame
+@onready var _music := $AudioStreamPlayer
+@onready var _stress_sound := preload("res://assets/audio/Play_50_a_0_bougie.wav")
+@onready var _normal_sound := preload("res://assets/audio/Play_100_a_50_bougie.wav")
 
 var w_min = 170
 var w_max = 1280
@@ -20,7 +25,10 @@ var w_tomb = 395
 var h_min_shelf = 590
 var w_shelf = 855
 
+var _normal_music := true
+
 func _ready():
+	get_tree().paused = false
 	#_pentagram.spawn_summons(Global.summons.Cat, 10)
 	#_pentagram.spawn_summons(Global.summons.Spider, 10)
 	#_pentagram.spawn_summons(Global.summons.Mouse, 10)
@@ -37,9 +45,22 @@ func _ready():
 		Global.get_requirements_for_with(summ.Demon, summ.MouseSpider),
 	 	Global.get_requirements_for_with(summ.Demon, summ.CatMouse))
 	_tomb.show()
-	
+
 func _process(_delta):
 	check_creatures_position()
+	var _creature_count : int = _pentagram.get_number_of_all_summons()
+	if _creature_count == 0:
+		_candle.set_speed_factor(0.1)
+	else:
+		_candle.set_speed_factor(1.0 + _creature_count * 0.05)
+	if not _normal_music and _candle.remaining_lifetime >= 50.0:
+		_music.stream = _normal_sound
+		_music.play()
+		_normal_music = true
+	elif _normal_music and _candle.remaining_lifetime < 50.0:
+		_music.stream = _stress_sound
+		_music.play()
+		_normal_music = false
 
 func _on_shelf_item_used(item: Variant) -> void:
 	if item is CatFood:
@@ -58,7 +79,7 @@ func _on_pop_menu_item_selected(item: Variant) -> void:
 
 func check_creatures_position():
 	const min_scale = 0.33
-	for child in _pentagram.get_children():
+	for child in _pentagram.get_creatures():
 		if child is Demon:
 			continue
 		if child is Creature:
@@ -76,13 +97,16 @@ func check_creatures_position():
 
 
 func _on_candle_light_off() -> void:
-	# GAME OVER
-	get_tree().change_scene_to_file("res://scenes/game_main.tscn")
-
+	get_tree().paused = true
+	_end_game.visible = true
+	_final_score_label.text = str(_score_label.score)
 
 func _on_audio_stream_player_finished() -> void:
 	_audio_player.play()
 
-
 func _on_pentagram_demon_summoned() -> void:
 	_score_label.demon_score()
+	_candle.set_life(Global.CandleLife)
+
+func _on_restart_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/game_main.tscn")

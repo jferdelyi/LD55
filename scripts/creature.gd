@@ -8,7 +8,7 @@ signal clicked(item : Item, status : bool)
 @export var move_speed_factor := 25
 @export var move_delay := 10
 
-@onready var _shape := $CollisionShape2D
+@onready var _shape := $Area2D/Sprite
 
 var _last_move_tick = 0.0
 var _move_direction = Vector2(0,0)
@@ -54,10 +54,10 @@ func _initiate_move() -> void:
 		_move_direction = Vector2(vx, vy).normalized()
 
 func get_height() -> float:
-	return _shape.shape.size.y
+	return _shape.texture.get_height()
 
 func get_width() -> float:
-	return _shape.shape.size.x
+	return _shape.texture.get_width()
 
 func _stop_moving() -> void:
 	_move_direction = Vector2(0,0)

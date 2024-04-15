@@ -35,7 +35,14 @@ func _process(delta):
 func pop_menu() -> void:
 	for i in range(3):
 		var _slot : ShelfItemSlot = _top_menu_sprite.get_child(i)
-		var _random_value = randi_range(0, 3)
+		var _random_value = randi_range(0, 2)
+		var _pop_candle = randi_range(1, 100)
+		if _pop_candle < 15:
+			var _candle := _candle_class.instantiate()
+			_candle.connect("clicked", _on_clicked)
+			_slot.set_item(_candle)
+			continue
+		
 		match _random_value:
 			Global.Items.CatFood:
 				var _cat_food := _cat_food_class.instantiate()
@@ -53,7 +60,6 @@ func pop_menu() -> void:
 				var _candle := _candle_class.instantiate()
 				_candle.connect("clicked", _on_clicked)
 				_slot.set_item(_candle)
-				pass
 			Global.Items.SacrificialDagger:
 				pass
 

@@ -27,7 +27,7 @@ func _ready():
 		sprite.texture = preload("res://assets/graphics/candles/stack_1.png")
 		add_child(sprite)
 		sprite.hide()
-		_stacks.append(sprite)	
+		_stacks.append(sprite)
 		
 func _process(delta):
 	if lighted:

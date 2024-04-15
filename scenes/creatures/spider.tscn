@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dor5jnqdenbq2"]
+[gd_scene load_steps=6 format=3 uid="uid://dor5jnqdenbq2"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_6tilk"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="2_b5g2k"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_735wb"]
 size = Vector2(75.7063, 79.4082)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gh5b"]
+size = Vector2(72.0431, 48.2121)
 
 [node name="Spider" type="Area2D"]
 collision_layer = 2
@@ -22,11 +25,11 @@ shape = SubResource("RectangleShape2D_735wb")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, 1)
+position = Vector2(0.500007, -2)
 scale = Vector2(0.818954, 0.705217)
-shape = SubResource("RectangleShape2D_735wb")
+shape = SubResource("RectangleShape2D_8gh5b")
 
-[node name="Spider" type="Sprite2D" parent="Area2D"]
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 position = Vector2(8, 0)
 texture = ExtResource("2_nm85j")
 

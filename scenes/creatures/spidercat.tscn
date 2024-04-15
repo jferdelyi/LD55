@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://biheasbsm13k8"]
+[gd_scene load_steps=10 format=3 uid="uid://biheasbsm13k8"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_a73ew"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="2_5t3w2"]
@@ -6,6 +6,21 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s07qg"]
 size = Vector2(425.453, 67.6723)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7de8v"]
+size = Vector2(200.116, 30.9049)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_537ii"]
+size = Vector2(70.1778, 20.1371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lakyl"]
+size = Vector2(70.1778, 20.1371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkj4f"]
+size = Vector2(70.1778, 20.1371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aurqq"]
+size = Vector2(138.163, 9.78887)
 
 [node name="Spidercat" type="Area2D"]
 collision_layer = 2
@@ -24,11 +39,32 @@ scale = Vector2(6.84, 4.44)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-5, -21.9808)
+position = Vector2(-31.25, -11.75)
 scale = Vector2(0.911969, 3.57549)
-shape = SubResource("RectangleShape2D_s07qg")
+shape = SubResource("RectangleShape2D_7de8v")
 
-[node name="Spidercat" type="Sprite2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-159, -48)
+scale = Vector2(0.911969, 3.57549)
+shape = SubResource("RectangleShape2D_537ii")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-57, -102)
+scale = Vector2(0.911969, 3.57549)
+shape = SubResource("RectangleShape2D_lakyl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(36, -86)
+scale = Vector2(0.911969, 3.57549)
+shape = SubResource("RectangleShape2D_hkj4f")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(126, -29)
+rotation = -0.386148
+scale = Vector2(0.911969, 3.57549)
+shape = SubResource("RectangleShape2D_aurqq")
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_romvq")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -11,6 +11,7 @@ extends Node
 
 #@onready var _background_sprite := $Background
 @onready var _pentagram_area := $Area2D/CollisionShape2D
+@onready var _creatures := $creatures
 
 var summons_container = {}
 
@@ -57,7 +58,7 @@ func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
 		new_summon.position.x = randi_range(-int(_x/2.0), int(_x/2.0))
 		new_summon.position.y = randi_range(-int(_y/2.0), int(_y/2.0))
 		summons_container[type].append(new_summon)
-		add_child(new_summon)
+		_creatures.add_child(new_summon)
 
 
 # Spawn one summon of a given type
@@ -135,8 +136,9 @@ func _destroy_one_summon(type, _inside_circle : bool) -> bool:
 func remove_first_creature_inside_circle(array) -> bool:
 	for creature in array:
 		if creature.is_available_for_summon:
-			remove_child(creature)
+			_creatures.remove_child(creature)
 			array.erase(creature)
+			creature.queue_free()
 			return true
 	return false
 
@@ -169,11 +171,13 @@ func get_number_of_summons_inside_circle(type) -> int:
 	
 # Returns the total number of all summons
 func get_number_of_all_summons() -> int:
-	var ret := 0 
-	for type in Global.summons:
-		ret += get_number_of_summons(type)
-	return ret
-	
+	return _creatures.get_child_count()
+
+# Returns the total number of all summons
+func get_creatures() -> Array:
+	return _creatures.get_children()
+
+
 func get_number_of_all_summons_inside_circle() -> int:
 	var ret := 0 
 	for type in Global.summons:

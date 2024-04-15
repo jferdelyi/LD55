@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv2cdwt7vse7k"]
+[gd_scene load_steps=7 format=3 uid="uid://cv2cdwt7vse7k"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_p3s43"]
 [ext_resource type="Texture2D" uid="uid://bmemebffkunkh" path="res://assets/graphics/creatures/mousespider.png" id="2_4o5et"]
@@ -6,6 +6,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcj6x"]
 size = Vector2(299.162, 367.972)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4oohu"]
+size = Vector2(140.423, 295.654)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skmit"]
+size = Vector2(280.846, 76.5722)
 
 [node name="Mousespider" type="Area2D"]
 collision_layer = 2
@@ -23,11 +29,16 @@ scale = Vector2(3.92, 4.69283)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, 4.25)
+position = Vector2(5.5, -21.25)
 scale = Vector2(0.818954, 0.705217)
-shape = SubResource("RectangleShape2D_hcj6x")
+shape = SubResource("RectangleShape2D_4oohu")
 
-[node name="MouseSpider" type="Sprite2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10, -1.90735e-06)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_skmit")
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_4o5et")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

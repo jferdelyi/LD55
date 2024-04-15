@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_q344y"]
 [ext_resource type="Texture2D" uid="uid://cgtilary054us" path="res://assets/graphics/main_menu_background.png" id="2_wvkay"]
 [ext_resource type="AudioStream" uid="uid://doj7ok8whtu7k" path="res://assets/audio/menu_button.mp3" id="3_3776v"]
-[ext_resource type="AudioStream" uid="uid://brfd4p55ybsw5" path="res://assets/audio/main_menu.wav" id="4_1yhk7"]
+[ext_resource type="AudioStream" uid="uid://wan3sotleqbg" path="res://assets/audio/Ecran_titre.wav" id="4_ayv36"]
 
 [node name="Main" type="VBoxContainer"]
 anchors_preset = 15
@@ -81,7 +81,7 @@ text = "Credit"
 stream = ExtResource("3_3776v")
 
 [node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_1yhk7")
+stream = ExtResource("4_ayv36")
 autoplay = true
 
 [connection signal="pressed" from="ButtonsContainer/Start" to="." method="_on_start_pressed"]

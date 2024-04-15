@@ -31,7 +31,7 @@ position = Vector2(25.5, -10)
 scale = Vector2(0.818954, 0.705217)
 shape = SubResource("RectangleShape2D_ral8d")
 
-[node name="Demon" type="Sprite2D" parent="Area2D"]
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_jsdbr")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

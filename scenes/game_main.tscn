@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
-[ext_resource type="AudioStream" uid="uid://gxgd152hgp7y" path="res://assets/audio/theme_1_1.wav" id="2_gnkbf"]
+[ext_resource type="AudioStream" uid="uid://dx80vvfrl06cj" path="res://assets/audio/Play_100_a_50_bougie.wav" id="2_gjvw7"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
 [ext_resource type="Texture2D" uid="uid://du35mumkb4rnu" path="res://assets/graphics/misc/score_flag.png" id="8_v4qd3"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
@@ -16,7 +16,8 @@
 script = ExtResource("1_67dqo")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_gnkbf")
+process_mode = 3
+stream = ExtResource("2_gjvw7")
 autoplay = true
 
 [node name="GameBackground" type="Sprite2D" parent="."]
@@ -55,8 +56,40 @@ position = Vector2(232, 446)
 [node name="Candle" parent="." instance=ExtResource("13_a1mmd")]
 position = Vector2(102, 614)
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(856, 589)
+[node name="EndGame" type="VBoxContainer" parent="."]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 367.0
+offset_right = 1274.0
+offset_bottom = 717.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WellDonePanel" type="PanelContainer" parent="EndGame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EndGame/WellDonePanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Well Done !"
+
+[node name="ScorePanel" type="PanelContainer" parent="EndGame"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EndGame/ScorePanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "12000"
+
+[node name="Restart" type="Button" parent="EndGame"]
+layout_mode = 2
+text = "Restart Game"
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
@@ -66,3 +99,4 @@ position = Vector2(856, 589)
 [connection signal="demon_summoned" from="Pentagram" to="." method="_on_pentagram_demon_summoned"]
 [connection signal="summon_creature" from="Tomb" to="Pentagram" method="create_chimera"]
 [connection signal="light_off" from="Candle" to="." method="_on_candle_light_off"]
+[connection signal="pressed" from="EndGame/Restart" to="." method="_on_restart_pressed"]

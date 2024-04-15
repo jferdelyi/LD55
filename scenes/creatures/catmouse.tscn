@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl2ecae84kmgk"]
+[gd_scene load_steps=8 format=3 uid="uid://bl2ecae84kmgk"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_7bd13"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="2_byiia"]
@@ -7,8 +7,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhq63"]
 size = Vector2(332.131, 399.877)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vouia"]
+size = Vector2(177.61, 310.199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iogg2"]
+size = Vector2(107.306, 142.209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul7wv"]
+size = Vector2(107.306, 142.209)
+
 [node name="Catmouse" type="Area2D"]
-scale = Vector2(0.33, 0.33)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_7bd13")
@@ -24,11 +32,21 @@ scale = Vector2(4.40808, 4.64)
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, 2)
+position = Vector2(-18.1818, 33.6212)
 scale = Vector2(0.818954, 0.705217)
-shape = SubResource("RectangleShape2D_uhq63")
+shape = SubResource("RectangleShape2D_vouia")
 
-[node name="Catmouse" type="Sprite2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-86.3636, -89.5379)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_iogg2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(45.4545, -72.7273)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_ul7wv")
+
+[node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_j8rpb")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
