@@ -2,15 +2,24 @@
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_4p2up"]
 [ext_resource type="Texture2D" uid="uid://k15rihiwtid3" path="res://assets/graphics/creatures/cat.png" id="2_p8q2s"]
-[ext_resource type="PackedScene" uid="uid://cqmi5tn4b7vqd" path="res://scenes/creatures/glow.tscn" id="3_0nb74"]
+[ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="3_0nb74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybs0p"]
 size = Vector2(69.601, 79.4082)
 
-[node name="Cat" type="Node2D"]
+[node name="Cat" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_4p2up")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 5.96046e-08)
+scale = Vector2(0.818954, 0.705217)
+shape = SubResource("RectangleShape2D_ybs0p")
+
 [node name="Glow" parent="." instance=ExtResource("3_0nb74")]
+position = Vector2(9, 0)
+energy = 1.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

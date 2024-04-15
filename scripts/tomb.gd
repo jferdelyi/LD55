@@ -8,7 +8,7 @@ func _ready():
 	$upgradeSpiderCat.transform.connect(spawnTransformation.bind(Global.summons.SpiderCat))
 	$upgradeDemon.transform.connect(spawnTransformation.bind(Global.summons.Demon))
 	
-func setValues(SpiderForSpiderCat, CatForSpiderCat, MouseForCatMouse, CatForCatMouse, MouseForMouseSpider, SpiderForMouseSpider, SpiderCatForDemon, MouseSpiderForDemon, CatMouseForDemon):
+func setValues(SpiderForSpiderCat, CatForSpiderCat, MouseForCatMouse, CatForCatMouse, MouseForMouseSpider, SpiderForMouseSpider, _SpiderCatForDemon, _MouseSpiderForDemon, _CatMouseForDemon):
 	$nb_spider_for_spidercat.text = str(SpiderForSpiderCat)
 	$nb_cat_for_spidercat.text = str(CatForSpiderCat)
 	$nb_mouse_for_catmouse.text = str(MouseForCatMouse)

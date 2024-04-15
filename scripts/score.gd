@@ -39,11 +39,15 @@ func start():
 # Update score
 func _update():
 	#j'aimerais ne compter que les chimères 
-	#score += (nb_cat + nb_mouse + nb_spider) * coeff_simple_creature;
+	score += (nb_cat + nb_mouse + nb_spider) * coeff_simple_creature;
 	score += (nb_spidermouse + nb_spidercat + nb_catmouse) * coeff_chimere;
-	score += nb_demon * coeff_demon;
+	#score += nb_demon * coeff_demon;
 	$ScoreImage/ScoreLabel.text = "Score : " + str(score);
 	$ScoreImage/ScoreLabel.show()
+
+
+func demon_score() -> void:
+	score += 1000
 
 
 func _on_pentagram_chimera_updated(type, nb):

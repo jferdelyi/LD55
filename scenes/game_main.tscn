@@ -25,7 +25,7 @@ texture = ExtResource("12_tpos4")
 
 [node name="Shelf" parent="." instance=ExtResource("13_k7g2i")]
 z_index = 100
-position = Vector2(1059, 344)
+position = Vector2(1059, 341)
 
 [node name="PopMenu" parent="." instance=ExtResource("10_77n8b")]
 z_index = 100
@@ -47,7 +47,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="Pentagram" parent="." instance=ExtResource("12_630cx")]
-position = Vector2(671, 607)
+position = Vector2(672, 650)
 
 [node name="Tomb" parent="." instance=ExtResource("14_0aq7h")]
 position = Vector2(232, 446)
@@ -55,10 +55,14 @@ position = Vector2(232, 446)
 [node name="Candle" parent="." instance=ExtResource("13_a1mmd")]
 position = Vector2(102, 614)
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(856, 589)
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
 [connection signal="chimera_available" from="Pentagram" to="Tomb" method="update_upgradeAvailable"]
 [connection signal="chimera_updated" from="Pentagram" to="ScoreScene" method="_on_pentagram_chimera_updated"]
+[connection signal="demon_summoned" from="Pentagram" to="." method="_on_pentagram_demon_summoned"]
 [connection signal="summon_creature" from="Tomb" to="Pentagram" method="create_chimera"]
 [connection signal="light_off" from="Candle" to="." method="_on_candle_light_off"]

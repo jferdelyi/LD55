@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/tomb.gd" id="1_4ys6c"]
 [ext_resource type="Texture2D" uid="uid://b14eceuvmkuq4" path="res://assets/graphics/transformation_rules/tomb.png" id="1_sgtg2"]
-[ext_resource type="Texture2D" uid="uid://or467j6l48mo" path="res://assets/graphics/transformation_rules/mousecat.PNG" id="4_fhbu1"]
-[ext_resource type="Texture2D" uid="uid://b7k5nr8g8d4c7" path="res://assets/graphics/transformation_rules/spidermouse.PNG" id="7_7m0in"]
+[ext_resource type="Texture2D" uid="uid://or467j6l48mo" path="res://assets/graphics/transformation_rules/mousecat.png" id="4_fhbu1"]
+[ext_resource type="Texture2D" uid="uid://b7k5nr8g8d4c7" path="res://assets/graphics/transformation_rules/spidermouse.png" id="7_7m0in"]
 [ext_resource type="Script" path="res://scripts/upgradeCreature.gd" id="7_tlj06"]
-[ext_resource type="Texture2D" uid="uid://dy13f70eoqfev" path="res://assets/graphics/transformation_rules/spidercat.PNG" id="9_jmlcl"]
-[ext_resource type="Texture2D" uid="uid://dxaxf3hi18e0h" path="res://assets/graphics/transformation_rules/demon.PNG" id="11_bh3y2"]
+[ext_resource type="Texture2D" uid="uid://dy13f70eoqfev" path="res://assets/graphics/transformation_rules/spidercat.png" id="9_jmlcl"]
+[ext_resource type="Texture2D" uid="uid://dxaxf3hi18e0h" path="res://assets/graphics/transformation_rules/demon.png" id="11_bh3y2"]
 
 [sub_resource type="Gradient" id="Gradient_0yge3"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -19,11 +19,9 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.0042735, 0.508547)
 
-[node name="Tomb" type="Node2D"]
-script = ExtResource("1_4ys6c")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Tomb" type="Sprite2D"]
 texture = ExtResource("1_sgtg2")
+script = ExtResource("1_4ys6c")
 
 [node name="nb_cat_for_catmouse" type="Label" parent="."]
 offset_left = -121.0

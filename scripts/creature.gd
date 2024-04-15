@@ -1,12 +1,14 @@
-extends Node2D
+extends Area2D
 class_name Creature
 
 signal clicked(item : Item, status : bool)
 
 
-@export var move_time := 3
-@export var move_speed_factor := 10
-@export var move_delay := 20
+@export var move_time := 5
+@export var move_speed_factor := 25
+@export var move_delay := 10
+
+@onready var _shape := $CollisionShape2D
 
 var _last_move_tick = 0.0
 var _move_direction = Vector2(0,0)
@@ -51,6 +53,12 @@ func _initiate_move() -> void:
 	if Vector2(vx, vy) != Vector2(0,0):
 		_move_direction = Vector2(vx, vy).normalized()
 
+func get_height() -> float:
+	return _shape.shape.size.y
+
+func get_width() -> float:
+	return _shape.shape.size.x
+
 func _stop_moving() -> void:
 	_move_direction = Vector2(0,0)
 
@@ -58,6 +66,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton and event.pressed:
 		emit_signal("clicked", self, true)
 		_clicked = true
+		get_tree().get_root().set_input_as_handled()
 	if event is InputEventMouseButton and not event.pressed:
 		emit_signal("clicked", self, false)
 		_clicked = false

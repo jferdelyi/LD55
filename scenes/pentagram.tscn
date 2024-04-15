@@ -4,14 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://g0s8l5pyoaxu" path="res://assets/graphics/misc/pentagram.png" id="2_60vfa"]
 [ext_resource type="Texture2D" uid="uid://bchr8l2rajdct" path="res://assets/graphics/game_background.png" id="3_vomvl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44lym"]
-size = Vector2(718, 157)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2gck"]
+radius = 49.5
+height = 400.0
 
 [node name="Pentagram" type="Node2D"]
 script = ExtResource("1_dyxae")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1, 1)
+rotation = -0.0310342
+scale = Vector2(0.594378, 0.678733)
 texture = ExtResource("2_60vfa")
 
 [node name="GameBackground" type="Sprite2D" parent="."]
@@ -20,7 +23,13 @@ position = Vector2(-28, -191)
 texture = ExtResource("3_vomvl")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(6, 32.5)
-shape = SubResource("RectangleShape2D_44lym")
+position = Vector2(8, 29)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v2gck")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area2D" to="." method="_on_area_2d_area_shape_exited"]

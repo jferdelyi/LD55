@@ -16,6 +16,7 @@ var summons_container = {}
 
 signal chimera_available
 signal chimera_updated
+signal demon_summoned
 
 func _ready():
 	for type in Global.summons.values():
@@ -47,8 +48,8 @@ func spawn_summons(type : Global.summons, count : int) -> bool:
 	return ret
 		
 func _spawn_summon_in_visual(new_summon, type : Global.summons) -> void:
-		var _x : int = _pentagram_area.shape.size.x
-		var _y : int = _pentagram_area.shape.size.y
+		var _x : int = _pentagram_area.shape.height
+		var _y : int = _pentagram_area.shape.radius
 		
 		#var _width : int = _background_sprite.texture.get_width()
 		#var _height : int = _background_sprite.texture.get_height()
@@ -90,6 +91,7 @@ func _spawn_one_summon(type : Global.summons) -> bool:
 		Global.summons.Demon:
 			var new_summon = _demon_class.instantiate()
 			_spawn_summon_in_visual(new_summon, type)
+			emit_signal("demon_summoned")
 			return true
 	return false
 
@@ -103,7 +105,7 @@ func destroy_summons(type, count, inside_circle : bool) -> bool:
 	for i in range(0, count):
 		ret = ret and _destroy_one_summon(type, inside_circle)
 	check_chimera_availability()
-	return ret	
+	return ret
 
 # Destroy one summon of given type
 # Returns true if successful		
@@ -125,17 +127,17 @@ func _destroy_one_summon(type, _inside_circle : bool) -> bool:
 			to_kill = summons_container[Global.summons.MouseSpider]
 		Global.summons.Demon:
 			to_kill = summons_container[Global.summons.Demon]
-	if to_kill and to_kill.size() > 0:		
+	if to_kill and to_kill.size() > 0:
 		if remove_first_creature_inside_circle(to_kill):
 			return true
 	return false
 	
 func remove_first_creature_inside_circle(array) -> bool:
 	for creature in array:
-		if is_inside_pentagram(creature):
+		if creature.is_available_for_summon:
 			remove_child(creature)
 			array.erase(creature)
-			return true			
+			return true
 	return false
 
 #Returns the number of summons of a given type
@@ -144,24 +146,24 @@ func get_number_of_summons(type) -> int:
 		return summons_container[type].size()
 	return 0
 	
-func is_inside_pentagram(creature) -> bool:
-	var w = 0.5 * _pentagram_area.shape.size.x
-	var h = 0.5 * _pentagram_area.shape.size.y
-	var x = creature.position.x
-	var y = creature.position.y
+#func is_inside_pentagram(creature) -> bool:
+	#var w = 0.5 * _pentagram_area.shape.height
+	#var h = 0.5 * _pentagram_area.shape.radius
+	#var x = creature.position.x
+	#var y = creature.position.y
 	#Point (x,y) is inside ellipsoid of center (h,k) and semi-axis (a, b) if
 	# (x - h)² / a² + (y - k)² / b² <= 1
-	const margin := 1.25
-	var is_inside = (x * x) / (w * w) + (y * y) / (h * h) <= (1 * margin)
-	creature.is_available_for_summon = is_inside
-	return is_inside
+	#const margin := 1.5
+	#var is_inside = (x * x) / (w * w) + (y * y) / (h * h) <= (1 * margin)
+	#creature.is_available_for_summon = is_inside
+	#return is_inside
 	
-	#Returns the number of summons of a given type
+# Returns the number of summons of a given type
 func get_number_of_summons_inside_circle(type) -> int:
 	var ret = 0
 	if (type in summons_container.keys()):
 		for creature in summons_container[type]:
-			if is_inside_pentagram(creature):
+			if is_instance_valid(creature) and creature.is_available_for_summon:
 				ret += 1
 	return ret
 	
@@ -201,5 +203,15 @@ func create_chimera(_type : Global.summons, _count : int) -> bool:
 			for creature in Global.summons_requirements[_type].keys():	
 				ret = ret and destroy_summons(creature, Global.summons_requirements[_type][creature], true)
 		else:
-			print("creation failed")
+			push_error("creation failed")
 	return ret
+
+
+func _on_area_2d_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+	if area is Creature:
+		area.is_available_for_summon = true
+
+
+func _on_area_2d_area_shape_exited(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+	if area is Creature:
+		area.is_available_for_summon = false

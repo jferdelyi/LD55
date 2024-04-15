@@ -9,20 +9,27 @@ signal item_selected(item)
 
 @onready var _top_menu_sprite := $TopMenu
 
-var show := false
+var _show := false
 var t = 0
 var POP_TIME_CONSTANT := 6
 var DISAPPEAR_TIME_CONSTANT := 3
-	
+
+
+func _ready() -> void:
+	t = 0
+	_show = true;
+	pop_menu();
+
+
 func _process(delta):
 	t = t + delta
-	if (show and t > DISAPPEAR_TIME_CONSTANT):
+	if (_show and t > DISAPPEAR_TIME_CONSTANT):
 		t = 0;
-		show = false;
+		_show = false;
 		removeChoices();
-	if (!show and t > POP_TIME_CONSTANT):
+	if (!_show and t > POP_TIME_CONSTANT):
 		t = 0
-		show = true;
+		_show = true;
 		pop_menu();
 
 func pop_menu() -> void:

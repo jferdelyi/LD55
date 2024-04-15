@@ -3,7 +3,8 @@ extends Node2D
 
 signal item_used(item)
 
-@onready var _shelf := $Shelf
+# For convinience -> refacto
+@onready var _shelf := $"."
 
 var _positions := []
 var _item_count := 0
