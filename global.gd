@@ -7,6 +7,8 @@ const TIME_PERIOD = 1 # 1s
 var time = 0
 var CandleLife := 10
 
+var with_tutorial := true
+
 enum summons {Cat, Spider, Mouse, SpiderCat, CatMouse, MouseSpider, Demon}
 enum Items {CatFood, SpiderFood, MouseFood, Candel, SacrificialDagger}
 

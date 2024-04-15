@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://qjl3pncf0fhr"]
+
+[ext_resource type="Script" path="res://scripts/tutorial.gd" id="1_3gxcv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_utjgg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0mnel"]
+blend_mode = 2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0h2e6"]
+
+[node name="Tutorial" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_3gxcv")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+z_index = 4096
+
+[node name="Mask" type="MeshInstance2D" parent="CanvasGroup"]
+modulate = Color(0, 0, 0, 0.662745)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(640, 360)
+scale = Vector2(1280, 720)
+mesh = SubResource("QuadMesh_utjgg")
+
+[node name="Steps" type="Node2D" parent="CanvasGroup"]
+
+[node name="Candle" type="Node2D" parent="CanvasGroup/Steps"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Steps/Candle"]
+material = SubResource("CanvasItemMaterial_0mnel")
+position = Vector2(91.5, 609)
+scale = Vector2(177, 200)
+texture = SubResource("CanvasTexture_0h2e6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Steps/Candle"]
+offset_left = 513.0
+offset_top = 257.0
+offset_right = 798.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.733333, 0.643137, 1)
+text = "Your magic power is symbolized by the candle. The more creatures there are, the faster the candle burns. The party ends when the candle is extinguished"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Tomb" type="Node2D" parent="CanvasGroup/Steps"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Steps/Tomb"]
+material = SubResource("CanvasItemMaterial_0mnel")
+position = Vector2(241, 440)
+scale = Vector2(324, 356)
+texture = SubResource("CanvasTexture_0h2e6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Steps/Tomb"]
+offset_left = 513.0
+offset_top = 257.0
+offset_right = 798.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.733333, 0.643137, 1)
+text = "Magic formulas are engraved on this tomb. They indicate the number and type of souls needed to create a chimera and summon demons."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="PopMenu" type="Node2D" parent="CanvasGroup/Steps"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Steps/PopMenu"]
+material = SubResource("CanvasItemMaterial_0mnel")
+position = Vector2(646.5, 122.5)
+scale = Vector2(573, 245)
+texture = SubResource("CanvasTexture_0h2e6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Steps/PopMenu"]
+offset_left = 513.0
+offset_top = 257.0
+offset_right = 798.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.733333, 0.643137, 1)
+text = "Occasionally, you may receive gifts from the living, but beware, they disappear quickly! Among these items, you may find the necessary elements to invoke basic souls and extra candles."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Shelf" type="Node2D" parent="CanvasGroup/Steps"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Steps/Shelf"]
+material = SubResource("CanvasItemMaterial_0mnel")
+position = Vector2(1057.5, 348.5)
+scale = Vector2(445, 539)
+texture = SubResource("CanvasTexture_0h2e6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Steps/Shelf"]
+offset_left = 513.0
+offset_top = 257.0
+offset_right = 798.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.733333, 0.643137, 1)
+text = "You can store live offerings here, but space is limited."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Pentagram" type="Node2D" parent="CanvasGroup/Steps"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Steps/Pentagram"]
+material = SubResource("CanvasItemMaterial_0mnel")
+position = Vector2(681.5, 661.5)
+scale = Vector2(481, 123)
+texture = SubResource("CanvasTexture_0h2e6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Steps/Pentagram"]
+offset_left = 513.0
+offset_top = 257.0
+offset_right = 798.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.733333, 0.643137, 1)
+text = "This pentagram is where your magic operates. Creatures must be on it to be transmuted. If these creatures escape, you can command them to come back!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Score" type="Node2D" parent="CanvasGroup/Steps"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup/Steps/Score"]
+material = SubResource("CanvasItemMaterial_0mnel")
+position = Vector2(94.5001, 80.5)
+scale = Vector2(185, 155)
+texture = SubResource("CanvasTexture_0h2e6")
+
+[node name="Label" type="Label" parent="CanvasGroup/Steps/Score"]
+offset_left = 513.0
+offset_top = 257.0
+offset_right = 798.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(1, 0.733333, 0.643137, 1)
+text = "The count of your transmuting points increases when creatures are in the pentagram!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="CanvasGroup"]
+offset_left = 558.0
+offset_top = 407.0
+offset_right = 757.0
+offset_bottom = 430.0
+text = "Press <Enter> to continue"
+horizontal_alignment = 1

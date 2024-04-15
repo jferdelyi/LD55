@@ -11,6 +11,8 @@ extends Node2D
 @onready var _final_score_label := $EndGame/ScorePanel/Label
 @onready var _end_game := $EndGame
 @onready var _music := $AudioStreamPlayer
+@onready var _tutorial := $Tutorial
+
 @onready var _stress_sound := preload("res://assets/audio/Play_50_a_0_bougie.wav")
 @onready var _normal_sound := preload("res://assets/audio/Play_100_a_50_bougie.wav")
 
@@ -27,8 +29,11 @@ var w_shelf = 855
 
 var _normal_music := true
 
+
 func _ready():
-	get_tree().paused = false
+	if Global.with_tutorial:
+		_tutorial.start()
+	Global.with_tutorial = false
 	#_pentagram.spawn_summons(Global.summons.Cat, 10)
 	#_pentagram.spawn_summons(Global.summons.Spider, 10)
 	#_pentagram.spawn_summons(Global.summons.Mouse, 10)

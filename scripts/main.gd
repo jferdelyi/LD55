@@ -8,6 +8,7 @@ extends VBoxContainer
 
 
 func _ready() -> void:
+	Global.with_tutorial = true
 	_music.play()
 
 
@@ -26,3 +27,7 @@ func _on_credit_pressed() -> void:
 	_credit.visible = true
 	_music.stream = _credit_sound
 	_music.play()
+
+
+func _on_check_box_toggled(toggled_on: bool) -> void:
+	Global.with_tutorial = toggled_on
