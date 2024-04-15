@@ -16,6 +16,7 @@ extends Node2D
 
 @onready var _stress_sound := preload("res://assets/audio/Play_50_a_0_bougie.wav")
 @onready var _normal_sound := preload("res://assets/audio/Play_100_a_50_bougie.wav")
+@onready var _end_sound := preload("res://assets/audio/FX/Partie_termine.wav")
 
 var w_min = 170
 var w_max = 1280
@@ -106,6 +107,8 @@ func check_creatures_position():
 func _on_candle_light_off() -> void:
 	get_tree().paused = true
 	_end_game.visible = true
+	_music.stream = _end_sound
+	_music.play()
 	_final_score_label.text = str(_score_label.score)
 
 func _on_audio_stream_player_finished() -> void:
@@ -116,6 +119,7 @@ func _on_pentagram_demon_summoned() -> void:
 	_candle.set_life(Global.CandleLife)
 
 func _on_restart_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/game_main.tscn")
 
 func _on_ambiance_audio_stream_player_finished() -> void:
