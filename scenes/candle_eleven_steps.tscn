@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://db51elrakpax2"]
+[gd_scene load_steps=14 format=3 uid="uid://db51elrakpax2"]
 
 [ext_resource type="Script" path="res://scripts/candle_eleven_steps.gd" id="1_3b22j"]
 [ext_resource type="Texture2D" uid="uid://bkmymjhsgtwyf" path="res://assets/graphics/candles/candle_0.png" id="2_5n6c0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b405y13pjrucf" path="res://assets/graphics/candles/candle_8.png" id="10_eehsj"]
 [ext_resource type="Texture2D" uid="uid://txgva2cb54yn" path="res://assets/graphics/candles/candle_9.png" id="11_w1721"]
 [ext_resource type="Texture2D" uid="uid://665ckh1uku5t" path="res://assets/graphics/candles/candle_10.png" id="12_njims"]
+[ext_resource type="AudioStream" uid="uid://dd0d1gf7v2xmr" path="res://assets/audio/FX/Bougie_crepite.wav" id="13_tdpog"]
 
 [node name="Candle" type="Node2D"]
 scale = Vector2(0.1, 0.1)
@@ -59,3 +60,12 @@ texture = ExtResource("11_w1721")
 
 [node name="Candle10" type="Sprite2D" parent="."]
 texture = ExtResource("12_njims")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("13_tdpog")
+volume_db = 10.0
+autoplay = true
+bus = &"Candle"
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

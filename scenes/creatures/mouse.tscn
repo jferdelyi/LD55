@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl8ijcq2y4jb4"]
+[gd_scene load_steps=7 format=3 uid="uid://dl8ijcq2y4jb4"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_6bvbs"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="2_5akco"]
 [ext_resource type="Texture2D" uid="uid://nkbl48qbvks" path="res://assets/graphics/creatures/mouse.png" id="2_emu3e"]
+[ext_resource type="AudioStream" uid="uid://d356cs4hlso80" path="res://assets/audio/FX/Souris.wav" id="4_gqsb8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0eqe"]
 size = Vector2(116.002, 79.4082)
@@ -32,5 +33,9 @@ shape = SubResource("RectangleShape2D_s5g27")
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_emu3e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gqsb8")
+autoplay = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

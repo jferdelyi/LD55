@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=14 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://qjl3pncf0fhr" path="res://scenes/tutorial.tscn" id="2_827lr"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
 [ext_resource type="AudioStream" uid="uid://dx80vvfrl06cj" path="res://assets/audio/Play_100_a_50_bougie.wav" id="2_gjvw7"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
+[ext_resource type="AudioStream" uid="uid://dirqvcbh4un06" path="res://assets/audio/FX/Ambiance.wav" id="4_88nrn"]
 [ext_resource type="Texture2D" uid="uid://du35mumkb4rnu" path="res://assets/graphics/misc/score_flag.png" id="8_v4qd3"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
 [ext_resource type="PackedScene" uid="uid://cp1ga51w8041m" path="res://scenes/pentagram.tscn" id="12_630cx"]
@@ -24,6 +25,14 @@ visible = false
 process_mode = 3
 stream = ExtResource("2_gjvw7")
 autoplay = true
+bus = &"Music"
+
+[node name="AmbianceAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_88nrn")
+volume_db = -15.0
+autoplay = true
+bus = &"FX"
 
 [node name="GameBackground" type="Sprite2D" parent="."]
 process_mode = 1
@@ -104,6 +113,7 @@ layout_mode = 2
 text = "Restart Game"
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="AmbianceAudioStreamPlayer" to="." method="_on_ambiance_audio_stream_player_finished"]
 [connection signal="item_used" from="Shelf" to="." method="_on_shelf_item_used"]
 [connection signal="item_selected" from="PopMenu" to="." method="_on_pop_menu_item_selected"]
 [connection signal="chimera_available" from="Pentagram" to="Tomb" method="update_upgradeAvailable"]

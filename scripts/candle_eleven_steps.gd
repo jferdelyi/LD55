@@ -2,10 +2,13 @@ extends Node2D
 
 signal light_off
 
+@onready var audio_player := $AudioStreamPlayer2D
 
 #Maximum lifetime of the candle
 @export var total_lifetime = 100.0
 
+@onready var _candle_end := preload("res://assets/audio/FX/Extinction_bougie.wav")
+var _emmited := false
 
 #true if the candle is on (to change top texture and life decrease ?)
 var lighted := true
@@ -34,9 +37,15 @@ func _process(delta):
 		if _new_index != _last_index:
 			_last_index = _new_index
 			display_candle_index(_new_index)
-	if remaining_lifetime <= 0:
+	if not _emmited and remaining_lifetime <= 0:
+		display_candle_index(0)
+		audio_player.stop()
+		audio_player.disconnect("finished", _on_audio_stream_player_2d_finished)
+		audio_player.stream = _candle_end
+		audio_player.play()
 		remaining_lifetime = 0
 		emit_signal("light_off")
+		_emmited = true
 
 
 func set_speed_factor(speed_factor: float):
@@ -64,3 +73,7 @@ func display_candle_index(index : int) -> void:
 	for candle in _candle_stack:
 		candle.visible = false
 	_candle_stack[index].visible = true
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	audio_player.play()

@@ -6,7 +6,7 @@ extends Node2D
 @onready var _pentagram := $Pentagram
 @onready var _tomb := $Tomb
 @onready var _background := $GameBackground
-@onready var _audio_player := $AudioStreamPlayer
+@onready var _ambiance_player := $AmbianceAudioStreamPlayer
 @onready var _candle := $Candle
 @onready var _final_score_label := $EndGame/ScorePanel/Label
 @onready var _end_game := $EndGame
@@ -107,7 +107,7 @@ func _on_candle_light_off() -> void:
 	_final_score_label.text = str(_score_label.score)
 
 func _on_audio_stream_player_finished() -> void:
-	_audio_player.play()
+	_music.play()
 
 func _on_pentagram_demon_summoned() -> void:
 	_score_label.demon_score()
@@ -115,3 +115,6 @@ func _on_pentagram_demon_summoned() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_main.tscn")
+
+func _on_ambiance_audio_stream_player_finished() -> void:
+	_ambiance_player.play()
