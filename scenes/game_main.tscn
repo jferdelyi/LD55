@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://d037f1i5hg6o4"]
+[gd_scene load_steps=15 format=3 uid="uid://d037f1i5hg6o4"]
 
 [ext_resource type="Script" path="res://scripts/game_main.gd" id="1_67dqo"]
 [ext_resource type="PackedScene" uid="uid://qjl3pncf0fhr" path="res://scenes/tutorial.tscn" id="2_827lr"]
 [ext_resource type="PackedScene" uid="uid://wkxs6j4ve6t8" path="res://scenes/score.tscn" id="2_enuq5"]
 [ext_resource type="AudioStream" uid="uid://dx80vvfrl06cj" path="res://assets/audio/Play_100_a_50_bougie.wav" id="2_gjvw7"]
 [ext_resource type="Script" path="res://scripts/score.gd" id="3_mm86n"]
+[ext_resource type="AudioStream" uid="uid://bruyudmmhexhh" path="res://assets/audio/FX/10_bougie.wav" id="3_x2y16"]
 [ext_resource type="AudioStream" uid="uid://dirqvcbh4un06" path="res://assets/audio/FX/Ambiance.wav" id="4_88nrn"]
 [ext_resource type="Texture2D" uid="uid://du35mumkb4rnu" path="res://assets/graphics/misc/score_flag.png" id="8_v4qd3"]
 [ext_resource type="PackedScene" uid="uid://bysysbgwmwy75" path="res://scenes/pop_menu.tscn" id="10_77n8b"]
@@ -20,6 +21,12 @@ script = ExtResource("1_67dqo")
 
 [node name="Tutorial" parent="." instance=ExtResource("2_827lr")]
 visible = false
+
+[node name="AudioCandleUsingStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_x2y16")
+volume_db = 10.0
+bus = &"Music"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

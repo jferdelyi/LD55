@@ -11,6 +11,7 @@ extends Node2D
 @onready var _final_score_label := $EndGame/ScorePanel/Label
 @onready var _end_game := $EndGame
 @onready var _music := $AudioStreamPlayer
+@onready var _candle_use := $AudioCandleUsingStreamPlayer
 @onready var _tutorial := $Tutorial
 
 @onready var _stress_sound := preload("res://assets/audio/Play_50_a_0_bougie.wav")
@@ -75,6 +76,7 @@ func _on_shelf_item_used(item: Variant) -> void:
 	if item is MouseFood:
 		_pentagram.spawn_summons(Global.summons.Mouse, 1)
 	if item is Candle:
+		_candle_use.play()
 		_candle.set_life(Global.CandleLife)
 
 

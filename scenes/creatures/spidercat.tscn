@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://biheasbsm13k8"]
+[gd_scene load_steps=11 format=3 uid="uid://biheasbsm13k8"]
 
 [ext_resource type="Script" path="res://scripts/creature.gd" id="1_a73ew"]
 [ext_resource type="PackedScene" uid="uid://cnmtnnu8tqlmk" path="res://scenes/creatures/glow.tscn" id="2_5t3w2"]
 [ext_resource type="Texture2D" uid="uid://btwbv7cmrr74f" path="res://assets/graphics/creatures/spidercat.png" id="2_romvq"]
+[ext_resource type="AudioStream" uid="uid://du4t6pydqqu83" path="res://assets/audio/FX/Chimeres_3.wav" id="4_mqjir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s07qg"]
 size = Vector2(425.453, 67.6723)
@@ -66,5 +67,10 @@ shape = SubResource("RectangleShape2D_aurqq")
 
 [node name="Sprite" type="Sprite2D" parent="Area2D"]
 texture = ExtResource("2_romvq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mqjir")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
